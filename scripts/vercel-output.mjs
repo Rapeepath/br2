@@ -4,7 +4,7 @@
 //   .vercel/output/functions/api.func/  server/vercel.ts bundled, with the catalogue data and the prerendered pages
 //   .vercel/output/config.json          /api/* → the function; files the CDN has; anything else → the function
 //                                       (which answers pages, the client-only shell and 404s like server/index.ts)
-import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { build } from 'vite'
@@ -15,7 +15,6 @@ const out = join(root, '.vercel', 'output')
 const fn = join(out, 'functions', 'api.func')
 /** What server/catalog.ts reads at runtime */
 const DATA = ['src/data/models.json']
-const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'))
 
 if (!existsSync(join(dist, 'admin', 'index.html')) || !existsSync(join(dist, '_routes.json'))) {
   throw new Error('dist/ is missing or not prerendered: run `npm run build` first')
@@ -29,7 +28,6 @@ await build({
   root,
   logLevel: 'warn',
   publicDir: false,
-  define: { 'process.env.POS_REDIS_KEY_DEFAULT': JSON.stringify(pkg.name) },
   ssr: { noExternal: true, target: 'node' },
   build: {
     ssr: join(root, 'server', 'vercel.ts'),

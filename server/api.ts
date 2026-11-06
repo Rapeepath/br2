@@ -29,7 +29,7 @@ import {
   shiftView,
   unitOf,
 } from './logic.ts'
-import { openStore, type Store, type StoreOptions } from './store.ts'
+import { openStore, type Store } from './store.ts'
 import type { CheckoutInput, Customer, Db, OpeningHours, Order, Settings, Staff } from './types.ts'
 import { HttpError, addDays, dayKey, hashPin, newToken } from './util.ts'
 
@@ -509,14 +509,14 @@ registerPublicRoutes()
 registerCrmRoutes()
 registerExtras()
 
-export interface ApiOptions extends StoreOptions {
+export interface ApiOptions {
   /** Brochure POSTs per client per 10 minutes (env POS_RATE_LIMIT, default 20) */
   rateLimit?: number
 }
 
 export function createApi(root: string, dbFile?: string, opts: ApiOptions = {}): Api {
   const catalog = loadCatalog(root)
-  const store = openStore(root, catalog, dbFile, { onSave: opts.onSave })
+  const store = openStore(root, catalog, dbFile)
   const limit = rateLimiter(opts.rateLimit ?? (Number(process.env.POS_RATE_LIMIT) || 20))
   // Holds and quotations lapse on their own; tidy them at most every 30 s, before serving a request
   let tidiedAt = 0

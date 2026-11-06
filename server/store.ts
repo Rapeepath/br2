@@ -12,27 +12,16 @@ export interface Store {
   /** Runs a change and saves it; nothing is written if `fn` throws */
   write<T>(fn: (db: Db) => T): T
   reset(now?: Date): Db
-  /** Takes over a copy saved elsewhere (JSON text); false, and nothing changes, if it is unreadable or another version */
-  adopt(text: string): boolean
 }
 
-export interface StoreOptions {
-  /** Called with the saved JSON after every change, e.g. to copy it to a remote store (server/vercel.ts) */
-  onSave?: (text: string) => void
-}
-
-export function openStore(
-  root: string,
-  catalog: Catalog,
-  file = process.env.POS_DB ?? '.pos-data/db.json',
-  opts: StoreOptions = {},
-): Store {
+export function openStore(root: string, catalog: Catalog, file = process.env.POS_DB ?? '.pos-data/db.json'): Store {
   const path = isAbsolute(file) ? file : join(root, file)
   let db: Db
 
-  const writeFile = (text: string) => {
+  const save = () => {
     mkdirSync(dirname(path), { recursive: true })
     const tmp = `${path}.tmp`
+    const text = JSON.stringify(db)
     writeFileSync(tmp, text)
     // Windows can hold the target open for a moment (a virus scanner, the search indexer, an editor) and the
     // rename then fails: wait briefly and try again, and if it stays locked write the file in place instead
@@ -48,12 +37,6 @@ export function openStore(
     }
     writeFileSync(path, text)
     rmSync(tmp, { force: true })
-  }
-
-  const save = () => {
-    const text = JSON.stringify(db)
-    writeFile(text)
-    opts.onSave?.(text)
   }
 
   const fresh = (now = new Date()) => {
@@ -88,17 +71,5 @@ export function openStore(
       return out
     },
     reset: (now) => fresh(now),
-    adopt: (text) => {
-      let parsed: Db
-      try {
-        parsed = JSON.parse(text) as Db
-      } catch {
-        return false
-      }
-      if (parsed?.version !== DB_VERSION) return false
-      db = parsed
-      writeFile(text)
-      return true
-    },
   }
 }
