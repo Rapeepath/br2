@@ -1,0 +1,84 @@
+{
+  "id": "limx-luna",
+  "segment": "Full-size humanoid for performances and experiential events",
+  "originCountry": "China",
+  "tagline": "160 cm humanoid for performances and welcoming guests",
+  "summary": "LimX Luna is a full-size bipedal humanoid robot, 160 cm tall and weighing about 54–56 kg, with 27 degrees of freedom (DoF) in the body. It is designed for performances, dancing and audience interaction in shopping malls, museums and theme parks. Its retail price in China is CNY 298,000, and it has a runtime of about 4 hours with 2 swappable batteries.",
+  "background": "LimX Dynamics (逐际动力) was founded in Shenzhen in January 2022. Its major investors include Alibaba, JD.com and Lenovo Capital, and it raised a total of US$400 million between February and July 2026. Earlier products include the TRON 1 bipedal robot (2024) and the full-size humanoid Oli (July 2025, starting price CNY 158,000). The company launched Luna on 25 May 2026, positioning it as a commercial performance robot with a female form and a fabric-covered outer shell. Its retail price in China is CNY 298,000, and the first 100 buyers received a CNY 40,000 discount. Luna can learn dance moves from video, and more than 200 units can be controlled together in a synchronised performance.",
+  "availabilityNote": "LimX Dynamics has taken pre-orders for Luna in China since May 2026 and plans to expand into overseas markets by 2027. In Thailand, the Drone Association Thailand website (droneth.or.th) lists the product for pre-order with pricing by quotation, but no announcement of an official distributor appointment has been found yet. Buyers should therefore contact LimX Dynamics directly to confirm delivery dates.",
+  "distributor": "Pre-order directly from LimX Dynamics, or enquire through Drone Association Thailand (droneth.or.th)",
+  "trims": [
+    {
+      "name": "Luna",
+      "hand": "Open-palm or fist-type hands (a five-fingered hand with 6 DoF is optional)",
+      "compute": "Rockchip RK3588 ×2 (motion control and perception)"
+    }
+  ],
+  "sensors": [
+    "6-axis inertial measurement unit (IMU)",
+    "RGB camera",
+    "Microphone and speaker",
+    "LED status light strip"
+  ],
+  "charging": {
+    "note": "2 swappable drawer-type batteries of 10,000 mAh each, supporting both in-robot charging and battery swapping. The charger outputs 58.8 V 10 A. The maker does not state the capacity in Wh."
+  },
+  "software": {
+    "sdk": "LimX UP app and LimX Studio software for creating motions and sequencing performances without writing code, running on the LimX COSA operating system",
+    "ai": "Dance creation from video (Video to Motion), motion teaching by physically guiding the robot, a natural-language editor, and synchronised control of more than 200 units in a performance; 20 dance routines and 20 gestures come preinstalled"
+  },
+  "warranty": {
+    "robot": "12 months",
+    "battery": null,
+    "note": null
+  },
+  "safety": {
+    "features": [
+      "Posture detection that stops movement immediately in a fall",
+      "Automatic stop when subjected to external force or impact",
+      "Emergency stop button",
+      "Can be stopped and reset instantly during movement or a performance"
+    ],
+    "certifications": []
+  },
+  "useCases": [
+    "Stage performances and dancing in shopping malls and at events",
+    "Greeting visitors and providing information in shopping malls and museums",
+    "Interactive characters in theme parks and role-play activities",
+    "Group performances with multiple robots controlled at the same time"
+  ],
+  "highlights": [
+    "Runtime of about 4 hours, with 2 swappable batteries",
+    "Learns dance moves from imported video without programming",
+    "More than 200 units can be controlled together in a synchronised performance",
+    "Multi-layer safety system, including stopping on a fall and an emergency stop button",
+    "Maximum joint torque of 200 N·m and a top walking speed of 5 km/h"
+  ],
+  "pros": [
+    "Runtime of about 4 hours per charge, and the batteries can be swapped without waiting for a recharge",
+    "Full charge in about 1 hour",
+    "No-code content creation tools suit event teams",
+    "The maker publishes a clear retail price, which helps with initial budgeting"
+  ],
+  "cons": [
+    "No official Thai distributor yet, and no price for overseas markets yet",
+    "The standard hands are open-palm or fist type and cannot grasp objects unless the optional five-fingered hands are bought",
+    "Payload of 3 kg per arm, and designed more for performances than for physical work",
+    "Sensors are limited to an RGB camera and an IMU, with no LiDAR or depth camera for autonomous navigation"
+  ],
+  "idealFor": [
+    "Shopping malls and theme parks wanting robot performances",
+    "Event organisers and agencies looking for show robots",
+    "Museums and learning centres wanting an attraction for visitors"
+  ],
+  "considerations": [
+    "Confirm the sales timetable outside China, as the maker plans to expand into overseas markets by 2027",
+    "A Thai seller states that some advanced functions, such as motion creation and multi-robot control, may require a separate LimX Studio subscription; ask about annual costs",
+    "The maker's Chinese website gives a weight of 54 kg and its English website 56 kg; request the latest specifications",
+    "The 3 kg payload figure is per arm",
+    "Check whether the 12-month warranty covers repairs in Thailand"
+  ],
+  "funFact": "Luna can import a dance video, analyse it and imitate the moves straight away, so new performances can be created without programming",
+  "priceNote": "The CNY 298,000 price is the retail price in China announced by LimX Dynamics in May 2026 (the first 100 buyers received a CNY 40,000 discount). There is no price for overseas markets yet, and it excludes shipping, 7% import VAT and customs clearance fees. The five-fingered hand is optional. Thai media reported a baht-converted price of about 1.34 million baht, which is a currency conversion, not a dealer price, while the Thai seller gives prices by quotation.",
+  "gallery": []
+}

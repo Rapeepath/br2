@@ -1,0 +1,259 @@
+/*
+  Model gallery: a strip of square-cornered thumbnails on the studio sweep, and a full-screen lightbox on
+  the dark stage (a native modal <dialog>). Clips carry a small play badge with their length.
+*/
+.gal {
+  margin-block: var(--space-8) var(--space-7);
+}
+
+.gal__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-5);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--ink);
+}
+
+.gal__title {
+  font-size: var(--fs-2xl);
+}
+
+.gal__meta {
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+}
+
+.gal__strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-3);
+  list-style: none;
+}
+
+.gal__thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--stage);
+  cursor: zoom-in;
+}
+
+.gal__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  transition: scale 900ms var(--ease-out);
+}
+
+/* The LED foot line, as on the lineup tiles */
+.gal__thumb::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--led);
+  box-shadow: 0 0 14px var(--led-glow);
+  scale: 0 1;
+  transform-origin: left;
+  transition: scale var(--dur-3) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .gal__thumb:hover img {
+    scale: 1.045;
+  }
+
+  .gal__thumb:hover::after {
+    scale: 1 1;
+  }
+}
+
+.gal__thumb:focus-visible::after {
+  scale: 1 1;
+}
+
+.gal__badge {
+  position: absolute;
+  left: var(--space-2);
+  bottom: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--glass-dark);
+  color: var(--on-navy);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Lightbox ---------- */
+.gal__dialog {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #000000;
+  color: var(--on-navy);
+}
+
+.gal__dialog::backdrop {
+  background: rgb(4 8 14 / 0.92);
+}
+
+.gal__box {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  height: 100%;
+}
+
+.gal__frame {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  padding: var(--space-5);
+  touch-action: pan-y;
+}
+
+.gal__media {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+video.gal__media {
+  width: min(100%, 1280px);
+  background: #000;
+}
+
+.motion-ok .gal__frame > * {
+  animation: gal-in var(--dur-2) var(--ease-out) both;
+}
+
+@keyframes gal-in {
+  from {
+    opacity: 0;
+    scale: 0.985;
+  }
+}
+
+.gal__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-6);
+  padding: var(--space-4) var(--gutter) var(--space-5);
+  border-top: 1px solid var(--navy-line);
+}
+
+.gal__text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  max-width: 72ch;
+}
+
+.gal__caption {
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.gal__credit {
+  color: var(--on-navy-muted);
+  font-size: var(--fs-xs);
+}
+
+.gal__credit a {
+  color: var(--on-navy);
+  text-decoration-color: var(--led);
+}
+
+.gal__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.gal__counter {
+  min-width: 4.5em;
+  color: var(--on-navy-muted);
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.gal__btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgb(255 255 255 / 0.28);
+  border-radius: var(--radius-sm);
+  background: rgb(255 255 255 / 0.04);
+  color: var(--on-navy);
+  transition:
+    border-color var(--dur-2) var(--ease-out),
+    background-color var(--dur-2) var(--ease-out);
+}
+
+.gal__btn:hover:not(:disabled) {
+  border-color: var(--led);
+  background: rgb(255 255 255 / 0.08);
+}
+
+.gal__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.gal__btn--close {
+  margin-left: var(--space-3);
+}
+
+.gal__dialog :focus-visible {
+  outline-color: var(--led);
+}
+
+@media (max-width: 560px) {
+  .gal__strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2);
+  }
+
+  .gal__frame {
+    padding: var(--space-3) 0;
+  }
+
+  .gal__bar {
+    padding-inline: var(--space-4);
+  }
+
+  .gal__nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .gal__btn--close {
+    margin-left: 0;
+  }
+}

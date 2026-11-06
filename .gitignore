@@ -1,0 +1,66 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.yarn/
+
+# Build output (npm run build)
+dist/
+dist-ssr/
+*.tsbuildinfo
+vite.config.*.timestamp-*
+.vite/
+
+# Tests (Playwright / Vitest)
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+e2e/screenshots/
+coverage/
+
+# POS demo database (created at runtime, may hold form submissions)
+.pos-data/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Caches
+.cache/
+.eslintcache
+.stylelintcache
+__pycache__/
+*.py[cod]
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Claude Code: keep shared skills, ignore personal settings
+.claude/settings.local.json

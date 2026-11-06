@@ -1,0 +1,195 @@
+.product-hero {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.product-hero .thumb--lg {
+  border-radius: var(--radius-md);
+}
+
+.product-hero .thumb--icon {
+  aspect-ratio: 1;
+}
+
+.product-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.product-hero__price {
+  margin-top: var(--space-4);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.6rem + 1.6vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  font-variant-numeric: proportional-nums;
+}
+
+.product-hero__price span {
+  color: var(--ink-muted);
+  font-size: var(--fs-md);
+  font-weight: 500;
+}
+
+.product-hero__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  margin-top: var(--space-5);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunk);
+}
+
+.product-hero__facts > div {
+  padding: var(--space-3) var(--space-4);
+  box-shadow: 1px 0 0 var(--line), 0 1px 0 var(--line);
+}
+
+.product-hero__facts dt {
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+}
+
+.product-hero__facts dd {
+  margin: 2px 0 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+  align-items: start;
+}
+
+.stock-forms {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.stock-form {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunk);
+}
+
+.stock-form h3 {
+  font-size: var(--fs-md);
+}
+
+.stock-form .btn {
+  justify-self: start;
+}
+
+/* The catalogue record, laid out like the brochure's spec sheet */
+.record {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.record__intro {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.record__tagline {
+  color: var(--tint);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+.record .prose {
+  font-size: var(--fs-sm);
+}
+
+.record__intro .text-link {
+  justify-self: start;
+}
+
+.spec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunk);
+}
+
+.spec > div {
+  padding: var(--space-3) var(--space-4);
+  box-shadow: 1px 0 0 var(--line), 0 1px 0 var(--line);
+}
+
+.spec dt {
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+}
+
+.spec dd {
+  margin: 2px 0 0;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.record__block {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+.record__block h3 {
+  padding-top: var(--space-3);
+  border-top: 2px solid var(--gold);
+  font-size: var(--fs-md);
+}
+
+.record__block > p {
+  font-size: var(--fs-sm);
+}
+
+.record__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-6) var(--space-5);
+}
+
+.record__note {
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+}
+
+.sources a {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1180px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .product-hero {
+    grid-template-columns: 1fr;
+  }
+
+  /* Full card width on the studio stage; the photo's own focus point keeps the robot's head in frame */
+  .product-hero .thumb--lg {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}

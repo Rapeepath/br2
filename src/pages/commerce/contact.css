@@ -1,0 +1,183 @@
+.contact-form {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.contact-form__lede {
+  margin-top: calc(-1 * var(--space-2));
+}
+
+.model-pick {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.model-pick legend {
+  padding: 0;
+}
+
+.model-pick__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+/* Toggle chips: square, ink outline when ticked plus a check mark (not colour alone) */
+.model-pick__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    border-color var(--dur-1) var(--ease-out),
+    background-color var(--dur-1) var(--ease-out);
+}
+
+.model-pick__item input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--btn-bg);
+}
+
+.model-pick__item:hover {
+  border-color: var(--ink-muted);
+}
+
+.model-pick__item:has(input:checked) {
+  border-color: var(--ink);
+  background: var(--soft);
+}
+
+.model-pick__item:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.contact-aside {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.contact-aside .c-sheet + .c-sheet {
+  margin-top: 0;
+}
+
+.store-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  overflow-wrap: anywhere;
+}
+
+.store-link svg {
+  flex: none;
+}
+
+.c-sheet--dark .store-link {
+  color: var(--on-navy);
+  text-decoration-color: var(--led);
+}
+
+.hours-summary {
+  margin-bottom: var(--space-3);
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.hours-table th,
+.hours-table td {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.hours-table th {
+  font-weight: 500;
+}
+
+.hours-table td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Today: ink weight and a label (not colour alone) */
+.hours-table tr[data-today] th,
+.hours-table tr[data-today] td {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.hours-table__today {
+  display: inline-block;
+  margin-left: var(--space-2);
+  padding: 0 6px;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.contact-next ul {
+  display: grid;
+  list-style: none;
+}
+
+.contact-next a {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.contact-next li:last-child a {
+  border-bottom: 0;
+}
+
+.contact-next a > span {
+  display: grid;
+  gap: 2px;
+}
+
+.contact-next strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.contact-next a > span > span {
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+}
+
+.contact-next a:hover strong {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.contact-next svg {
+  margin-top: 2px;
+  color: var(--ink-muted);
+}

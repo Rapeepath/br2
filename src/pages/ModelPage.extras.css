@@ -1,0 +1,49 @@
+/* The model page's next-steps strip: a white tile under an ink rule, actions left, financing right */
+.mx {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-5) var(--space-7);
+  align-items: center;
+  margin-top: var(--space-7);
+  padding: var(--space-5) var(--space-6);
+  border-top: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.mx__main {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
+.mx__title {
+  font-size: var(--fs-xl);
+}
+
+.mx__finance .finance-widget {
+  min-width: 260px;
+}
+
+.mx__trim-stock {
+  display: flex;
+  margin-top: 4px;
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+}
+
+@media (max-width: 860px) {
+  .mx {
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--space-5);
+  }
+
+  .mx__main {
+    justify-items: stretch;
+  }
+
+  .mx__finance .finance-widget {
+    min-width: 0;
+  }
+}

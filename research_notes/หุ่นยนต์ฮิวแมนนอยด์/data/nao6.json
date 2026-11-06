@@ -1,0 +1,208 @@
+{
+  "id": "nao6",
+  "brand": "Maxtronics",
+  "nameEn": "Maxtronics NAO6",
+  "nameTh": "แม็กซ์ทรอนิกส์ นาโอะ 6",
+  "category": "education",
+  "locomotion": "legs",
+  "segment": "หุ่นยนต์ฮิวแมนนอยด์ขนาดเล็กเพื่อการศึกษาและวิจัย",
+  "originCountry": "ฝรั่งเศส",
+  "originGroup": "europe",
+  "availability": "import",
+  "availabilityNote": "ยังไม่พบผู้จำหน่ายในไทยที่ประกาศราคาขาย NAO6 ผู้ซื้อในไทยสั่งซื้อได้จากตัวแทนจำหน่ายที่ได้รับอนุญาตในต่างประเทศ เช่น Generation Robots ในฝรั่งเศส ซึ่งระบุระยะส่งมอบภายใน 3 สัปดาห์และจัดส่งนอกสหภาพยุโรปได้ หรือขอใบเสนอราคาจาก Maxtronics โดยตรง ผู้ซื้อมีสถานะเป็นผู้นำเข้าและต้องดำเนินพิธีการศุลกากรเอง",
+  "distributor": "สั่งซื้อผ่าน Generation Robots (ฝรั่งเศส) หรือขอใบเสนอราคาจาก Maxtronics โดยตรง",
+  "launched": "2018-05",
+  "tagline": "ฮิวแมนนอยด์ขนาดเล็กสำหรับห้องเรียนและงานวิจัย",
+  "summary": "NAO6 เป็นหุ่นยนต์ฮิวแมนนอยด์สองขาขนาดเล็ก สูง 57.4 ซม. หนัก 5.48 กก. มีข้อต่อ 25 องศาอิสระ ใช้สำหรับการเรียนการสอน งานวิจัยด้านปฏิสัมพันธ์ระหว่างมนุษย์กับหุ่นยนต์ และงานด้านสุขภาพ ตัวแทนจำหน่ายที่ได้รับอนุญาตในฝรั่งเศสตั้งราคา 10,020 ยูโร รวมภาษีมูลค่าเพิ่ม และเขียนโปรแกรมได้ทั้งแบบลากวางบล็อกด้วย Choregraphe และด้วยภาษา Python หรือ C++",
+  "background": "NAO พัฒนาโดย Aldebaran บริษัทหุ่นยนต์ที่ก่อตั้งในกรุงปารีสเมื่อปี 2548 และต่อมาอยู่ในเครือ SoftBank Robotics โดย NAO6 เป็นรุ่นที่ 6 ซึ่งเปิดตัวเมื่อพฤษภาคม 2561 พร้อมหน่วยประมวลผลที่เร็วขึ้น กล้องความละเอียดสูงขึ้น และหน่วยความจำที่ใหญ่ขึ้น ผู้ผลิตระบุว่ามีการใช้งานหุ่นยนต์ NAO แล้วกว่า 20,000 ตัวทั่วโลก หลังจากศาลฝรั่งเศสให้ Aldebaran อยู่ภายใต้การดูแลของผู้บริหารที่ศาลแต่งตั้งเมื่อมิถุนายน 2568 บริษัท Maxvision จากเมืองเซินเจิ้น ประเทศจีน ได้ซื้อทรัพย์สินหลักในเดือนกรกฎาคม 2568 และตั้งบริษัท Maxtronics ในฝรั่งเศสเมื่อ 28 สิงหาคม 2568 เพื่อพัฒนา จำหน่าย และให้บริการหลังการขาย NAO ต่อไป ปัจจุบัน Maxtronics กำลังพัฒนารุ่นถัดไปคือ NAO7 ซึ่งยังไม่ประกาศวันวางจำหน่าย ส่วนในไทย True Robotics ในเครือทรูเคยนำ NAO มาจัดแสดงสำหรับงานเชิงธุรกิจเมื่อปี 2560",
+  "heightCm": 57.4,
+  "weightKg": [
+    5.48,
+    5.48
+  ],
+  "trims": [
+    {
+      "name": "NAO6",
+      "priceTHB": null,
+      "listPrice": {
+        "amount": 10020,
+        "currency": "EUR"
+      },
+      "dof": 25,
+      "handDof": 1,
+      "hand": "มือแบบกำและแบได้ ขับด้วยมอเตอร์ตัวเดียวต่อข้าง",
+      "payloadKg": null,
+      "speedMs": null,
+      "runtimeH": 1.5,
+      "batteryWh": 62.5,
+      "compute": "Intel Atom E3845 1.91 GHz, RAM 4 GB",
+      "jointTorqueNm": null
+    }
+  ],
+  "sensors": [
+    "กล้อง 5 ล้านพิกเซล 2 ตัวที่ศีรษะ (OV5640)",
+    "ไมโครโฟน 4 ตัว",
+    "โซนาร์ด้านหน้า ตัวส่ง 2 ตัวและตัวรับ 2 ตัว ระยะวัด 0.20–0.80 ม.",
+    "หน่วยวัดแรงเฉื่อย (IMU) ไจโรสโคปและมาตรความเร่ง 3 แกน",
+    "เซนเซอร์แรงกด (FSR) ข้างละ 4 จุดที่ฝ่าเท้า",
+    "เซนเซอร์สัมผัสที่ศีรษะและมือ ปุ่มที่หน้าอก และกันชนที่ปลายเท้า",
+    "เซนเซอร์วัดมุมข้อต่อแบบแม่เหล็ก (MRE) 36 ตัว"
+  ],
+  "charging": {
+    "timeH": 1.5,
+    "swappable": false,
+    "note": "ชาร์จเต็มใช้เวลาราว 90 นาที แบตเตอรี่ลิเทียมไอออน 21.6 V 2.9 Ah มีเครื่องชาร์จสำรองจำหน่ายแยก"
+  },
+  "software": {
+    "sdk": "SDK ภาษา Python และ C++ พร้อม Choregraphe สำหรับเขียนโปรแกรมแบบลากวางบล็อก และ Robot Settings สำหรับตั้งค่าเครื่อง ใช้งานได้บน Windows, macOS และ Linux",
+    "ai": "NAO Activities แพลตฟอร์มสร้างกิจกรรมสนทนาและการเรียนรู้ด้วย Generative AI โดยไม่ต้องเขียนโค้ด (ซื้อแยก)"
+  },
+  "warranty": {
+    "robot": "2 ปี (ตามเงื่อนไขของ Generation Robots)",
+    "battery": null,
+    "note": "RobotLAB ในสหรัฐฯ ให้การรับประกัน 1 ปี การส่งซ่อมจากนอกยุโรปผู้ซื้อต้องรับภาระค่าขนส่งเอง"
+  },
+  "safety": {
+    "features": [
+      "กันชนที่ปลายเท้าทั้งสองข้างสำหรับตรวจจับการชน",
+      "โซนาร์ตรวจจับสิ่งกีดขวางด้านหน้า"
+    ],
+    "certifications": [
+      "CE",
+      "FCC",
+      "IEC 62368-1:2014",
+      "UN38.3 (การขนส่งแบตเตอรี่)"
+    ]
+  },
+  "useCases": [
+    "สอนการเขียนโปรแกรมและวิทยาการหุ่นยนต์ในโรงเรียนและมหาวิทยาลัย",
+    "งานวิจัยด้านปฏิสัมพันธ์ระหว่างมนุษย์กับหุ่นยนต์",
+    "การแข่งขันฟุตบอลหุ่นยนต์ RoboCup",
+    "กิจกรรมด้านสุขภาพและการดูแลผู้สูงอายุ",
+    "ต้อนรับและนำเสนอข้อมูลในงานแสดงสินค้า"
+  ],
+  "highlights": [
+    "ข้อต่อ 25 องศาอิสระ เคลื่อนไหวได้ทั้งตัวรวมถึงการเดินสองขา",
+    "กล้อง 5 ล้านพิกเซล 2 ตัว ไมโครโฟน 4 ตัว และเซนเซอร์สัมผัสหลายจุด",
+    "สังเคราะห์เสียงพูดและรู้จำเสียงได้ 22 ภาษา",
+    "เครื่องมือพัฒนาตั้งแต่ระดับเริ่มต้นด้วย Choregraphe จนถึงระดับวิจัยด้วย Python และ C++",
+    "ผู้ผลิตระบุว่ามีการใช้งานหุ่นยนต์ NAO แล้วกว่า 20,000 ตัวทั่วโลก"
+  ],
+  "pros": [
+    "ขนาดเล็กและน้ำหนักเบา ใช้งานบนโต๊ะหรือในห้องเรียนได้สะดวก",
+    "มีฐานผู้ใช้ เอกสาร และงานวิจัยอ้างอิงจำนวนมาก",
+    "ผ่านการรับรองมาตรฐานหลายประเทศ เช่น CE และ FCC",
+    "ตัวแทนจำหน่ายในฝรั่งเศสให้การรับประกัน 2 ปี และส่งมอบภายใน 3 สัปดาห์"
+  ],
+  "cons": [
+    "ใช้งานได้ราว 60 นาทีเมื่อเคลื่อนไหวต่อเนื่อง และราว 90 นาทีในการใช้งานทั่วไป",
+    "ฮาร์ดแวร์เป็นรุ่นที่เปิดตัวตั้งแต่ปี 2561 ขณะที่รุ่นถัดไปยังอยู่ระหว่างพัฒนา",
+    "รายชื่อภาษาที่ระบบเสียงในตัวรองรับยังไม่มีภาษาไทย",
+    "ไม่มีผู้จำหน่ายและศูนย์บริการในไทยที่ประกาศชัดเจน การซ่อมอาจต้องส่งกลับต่างประเทศ"
+  ],
+  "idealFor": [
+    "โรงเรียนและมหาวิทยาลัยที่สอนการเขียนโปรแกรมหุ่นยนต์",
+    "ห้องวิจัยด้านปฏิสัมพันธ์ระหว่างมนุษย์กับหุ่นยนต์",
+    "ทีมแข่งขันหุ่นยนต์ RoboCup",
+    "หน่วยงานด้านสุขภาพที่ต้องการทดลองใช้หุ่นยนต์เชิงสังคม"
+  ],
+  "considerations": [
+    "ตรวจสอบเงื่อนไขการส่งซ่อม เพราะผู้ขายในฝรั่งเศสระบุว่าค่าขนส่งคืนสินค้าจากนอกยุโรปเป็นภาระของผู้ซื้อ",
+    "รายชื่อประเทศที่ผ่านการรับรองในเอกสารข้อมูลจำเพาะยังไม่มีประเทศไทย ผู้นำเข้าต้องดำเนินการด้านอุปกรณ์ Wi-Fi กับ กสทช. เอง",
+    "หากต้องการสร้างกิจกรรมด้วย Generative AI โดยไม่เขียนโค้ด ต้องซื้อ NAO Activities เพิ่ม",
+    "ผู้ผลิตกำลังพัฒนา NAO7 ซึ่งยังไม่มีวันวางจำหน่าย ควรสอบถามแผนการสนับสนุน NAO6 ในระยะยาว",
+    "หากใช้งานในชั้นเรียนต่อเนื่อง ควรพิจารณาแบตเตอรี่และเครื่องชาร์จสำรอง"
+  ],
+  "funFact": "Maxtronics ระบุว่า NAO เป็นหุ่นยนต์ฮิวแมนนอยด์รุ่นแรกที่ผลิตในระดับอุตสาหกรรม และถูกใช้ในงานวิจัยที่ตีพิมพ์แล้วกว่า 3,600 ชิ้น",
+  "priceNote": "ราคา 10,020 ยูโร เป็นราคาที่ Generation Robots ตัวแทนจำหน่ายที่ได้รับอนุญาตในฝรั่งเศสประกาศ ซึ่งรวมภาษีมูลค่าเพิ่มของฝรั่งเศสร้อยละ 20 แล้ว (ราคาก่อนภาษี 8,350 ยูโร) ราคานี้รวมซอฟต์แวร์ Choregraphe และ SDK กับการรับประกัน 2 ปี แต่ยังไม่รวมค่าขนส่ง สำหรับการส่งออกนอกสหภาพยุโรป ผู้ซื้อต้องชำระอากรขาเข้าและภาษีมูลค่าเพิ่มร้อยละ 7 ของไทยเอง จึงควรสอบถามผู้ขายว่าคำสั่งซื้อส่งออกคิดราคาก่อนหรือหลังภาษีของฝรั่งเศส ซอฟต์แวร์ NAO Activities ขายแยก 1,200 ยูโร รวมภาษีมูลค่าเพิ่ม ส่วน RobotLAB ในสหรัฐฯ ขาย NAO V6 Standard Edition ที่ 16,990 ดอลลาร์สหรัฐ พร้อมการรับประกัน 1 ปี และมีบริการเช่าใช้",
+  "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Nao_-_Vivatech_2019_%2832924388687%29.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Nao_-_Vivatech_2019_(32924388687).jpg",
+    "author": "Jérémy Barande / École polytechnique",
+    "license": "CC BY-SA 2.0",
+    "focus": "38% 40%"
+  },
+  "gallery": [
+    {
+      "kind": "image",
+      "src": "images/gallery/nao6-1.jpg",
+      "srcSmall": "images/gallery/nao6-1-sm.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Nao_-_Vivatech_2019_%2846952311465%29.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Nao_-_Vivatech_2019_(46952311465).jpg",
+      "author": "Jérémy Barande / École polytechnique",
+      "license": "CC BY-SA 2.0",
+      "alt": "NAO6 สีเทาเข้มนั่งชันเข่าบนพื้นพรมในงาน VivaTech 2019 กรุงปารีส มุมหน้าตรง",
+      "focus": "50% 35%"
+    },
+    {
+      "kind": "video",
+      "src": "images/gallery/nao6-2.jpg",
+      "srcSmall": "images/gallery/nao6-2-sm.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/8/85/%E7%A7%91%E5%B9%BB%E7%85%A7%E8%BF%9B%E7%8E%B0%E5%AE%9E%EF%BC%81%E4%B8%AD%E5%9B%BD%E9%A6%96%E5%AE%B6%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA7S%E5%BA%97%E5%9C%A8%E6%AD%A6%E6%B1%89%E5%BC%80%E4%B8%9A.webm",
+      "seek": 89,
+      "page": "https://commons.wikimedia.org/wiki/File:%E7%A7%91%E5%B9%BB%E7%85%A7%E8%BF%9B%E7%8E%B0%E5%AE%9E%EF%BC%81%E4%B8%AD%E5%9B%BD%E9%A6%96%E5%AE%B6%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA7S%E5%BA%97%E5%9C%A8%E6%AD%A6%E6%B1%89%E5%BC%80%E4%B8%9A.webm",
+      "author": "中国新闻社 (China News Service)",
+      "license": "CC BY 3.0",
+      "alt": "คลิปข่าว: NAO6 หลายตัวเต้นพร้อมกันบนเวทีในวันเปิดร้านหุ่นยนต์ 7S เมืองอู่ฮั่น (เริ่มที่ช่วงหุ่นยนต์เต้น)",
+      "video": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/85/%E7%A7%91%E5%B9%BB%E7%85%A7%E8%BF%9B%E7%8E%B0%E5%AE%9E%EF%BC%81%E4%B8%AD%E5%9B%BD%E9%A6%96%E5%AE%B6%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA7S%E5%BA%97%E5%9C%A8%E6%AD%A6%E6%B1%89%E5%BC%80%E4%B8%9A.webm",
+        "duration": 154.4,
+        "start": 88
+      }
+    },
+    {
+      "kind": "image",
+      "src": "images/gallery/nao6-3.jpg",
+      "srcSmall": "images/gallery/nao6-3-sm.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/8/85/%E7%A7%91%E5%B9%BB%E7%85%A7%E8%BF%9B%E7%8E%B0%E5%AE%9E%EF%BC%81%E4%B8%AD%E5%9B%BD%E9%A6%96%E5%AE%B6%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA7S%E5%BA%97%E5%9C%A8%E6%AD%A6%E6%B1%89%E5%BC%80%E4%B8%9A.webm",
+      "seek": 37,
+      "page": "https://commons.wikimedia.org/wiki/File:%E7%A7%91%E5%B9%BB%E7%85%A7%E8%BF%9B%E7%8E%B0%E5%AE%9E%EF%BC%81%E4%B8%AD%E5%9B%BD%E9%A6%96%E5%AE%B6%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA7S%E5%BA%97%E5%9C%A8%E6%AD%A6%E6%B1%89%E5%BC%80%E4%B8%9A.webm",
+      "author": "中国新闻社 (China News Service)",
+      "license": "CC BY 3.0",
+      "alt": "NAO6 ถือไม้ตีไซโลโฟนหลากสีในร้านหุ่นยนต์ 7S เมืองอู่ฮั่น (ภาพนิ่งจากคลิปข่าว)",
+      "focus": "35% 50%"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NAO6 – Maxtronics",
+      "url": "https://maxtronics.com/en/nao6/"
+    },
+    {
+      "title": "NAO6 Datasheet, Model H25600 – Maxtronics",
+      "url": "https://maxtronics.com/wp-content/uploads/nao-v6-datasheet-en-20260605-maxtronics_v5.pdf"
+    },
+    {
+      "title": "Company – Maxtronics",
+      "url": "https://maxtronics.com/en/company/"
+    },
+    {
+      "title": "NAO7 Project – Maxtronics",
+      "url": "https://maxtronics.com/en/nao7/"
+    },
+    {
+      "title": "Programmable Humanoid Robot NAO V6 – Generation Robots",
+      "url": "https://www.generationrobots.com/en/403100-programmable-humanoid-robot-nao-v6.html"
+    },
+    {
+      "title": "Terms and Conditions of Sale – Generation Robots",
+      "url": "https://www.generationrobots.com/en/content/3-terms-and-conditions-of-use"
+    },
+    {
+      "title": "NAO V6 Humanoid Robot – RobotLAB",
+      "url": "https://www.robotlab.com/store/nao/"
+    },
+    {
+      "title": "Maxvision buys core robot assets, including NAO and Pepper, from Aldebaran – The Robot Report",
+      "url": "https://www.therobotreport.com/maxvision-buys-core-robot-assets-including-nao-pepper-aldebaran/"
+    },
+    {
+      "title": "Chartacloud Robotteca Announces SoftBank's NAO Power 6 Robot – PRWeb",
+      "url": "https://www.prweb.com/releases/chartacloud_robotteca_announces_softbank_s_nao_power_6_robot/prweb15469624.htm"
+    },
+    {
+      "title": "รู้จัก True Robotics หุ่นยนต์ NAO (นาโอะ) และหุ่นยนต์ Darwin Mini – iPhoneMod",
+      "url": "https://www.iphonemod.net/true-robotics-true-iot.html"
+    }
+  ]
+}

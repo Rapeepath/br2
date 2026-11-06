@@ -1,0 +1,940 @@
+{
+  "records": {
+    "agibot-x2": {
+      "segment": "Mid-size humanoid for reception and performances",
+      "originCountry": "China",
+      "tagline": "131 cm humanoid for reception and performances",
+      "summary": "AGIBOT X2 (known in China as Lingxi X2) is a mid-size bipedal humanoid robot, about 131 cm tall and weighing 35–39 kg, with 30 degrees of freedom (DoF). It is designed for reception, performances and interaction with people. The X2 Neo is sold on the maker's online store for US$25,600, while the X2 Ultra, which adds LiDAR, a depth camera and an NVIDIA Jetson Orin NX board, is priced in Thailand at 1,799,000 baht through VST ECS.",
+      "background": "AGIBOT was founded in Shanghai in February 2023 by former Huawei engineers and, according to Omdia, was the world's largest shipper of humanoid robots in 2025, with more than 5,100 units and a share of about 39%. The company unveiled the X2 on 11 March 2025 and began official sales in May 2025 in three versions (interactive, Pro and Ultra), priced at about CNY 100,000 to CNY 400,000. In March 2026 AGIBOT reached a total of 10,000 robots produced. In Thailand, AGIBOT announced a partnership with the GULF group to set up a joint venture in March 2026, and held a launch with VST ECS in Bangkok on 25 June 2026, where the X2 was described as the best-selling model. On 17 July 2026 an X2 demonstrated Muay Thai moves in front of the Thai Prime Minister during a visit to AGIBOT's headquarters in Shanghai.",
+      "availabilityNote": "VST ECS (Thailand) Co., Ltd. has been AGIBOT's partner and distributor in Thailand since June 2026. It has announced a baht price for the X2 Ultra, has a local training and after-sales service team, and offers outright sales, short-term rental for events and an annual subscription. The X2 Neo can be ordered from AGIBOT's online store, but buyers must ask the sales team about shipping to Thailand.",
+      "distributor": "VST ECS (Thailand) Co., Ltd., the Thai distributor; or order the X2 Neo directly from AGIBOT's online store",
+      "trims": [
+        {
+          "name": "X2 Neo",
+          "hand": "Standard fitted hands; does not support OmniHand hands",
+          "compute": "Rockchip RK3588 ×2"
+        },
+        {
+          "name": "X2 Ultra",
+          "hand": "No grasping hands as standard; supports OmniHand hands or the OmniPicker gripper (sold separately)",
+          "compute": "Rockchip RK3588 ×2 and NVIDIA Jetson Orin NX 16GB (157 TOPS)"
+        }
+      ],
+      "sensors": [
+        "RGB camera on the head for interaction (all versions)",
+        "Touch sensor on the head (all versions)",
+        "Microphone array and speaker (all versions)",
+        "Dual front RGB cameras and a rear RGB camera (Ultra only)",
+        "RGB-D depth camera (Ultra only)",
+        "3D LiDAR (Ultra only)"
+      ],
+      "charging": {
+        "note": "Battery of about 500 Wh, fully charged within 1.5 hours on 100–220 V. The maker does not state that the battery is swappable."
+      },
+      "software": {
+        "sdk": "AimDK development kit on ROS 2 with Python and C++ support, Ultra only; the Neo does not support further development",
+        "ai": "LinkCraft platform for creating motions, voice and gesture interaction, OTA software updates and autonomous navigation (Ultra only)"
+      },
+      "warranty": {
+        "robot": "18 months (when bought through VST ECS in Thailand)",
+        "battery": null,
+        "note": "AGIBOT's online store asks buyers to contact the sales team about warranty terms and shipping for the destination country."
+      },
+      "safety": {
+        "features": [
+          "Handheld remote control and control app included",
+          "Automatic obstacle avoidance using LiDAR and a depth camera (Ultra only)"
+        ],
+        "certifications": []
+      },
+      "useCases": [
+        "Greeting and informing visitors in showrooms, trade shows and events",
+        "Performances and dancing for marketing activities",
+        "Assisting with service in retail stores and supermarkets",
+        "Muay Thai demonstrations and cultural activities",
+        "Research and robot software development (Ultra)"
+      ],
+      "highlights": [
+        "The maker was the world's largest shipper of humanoid robots in 2025, according to Omdia",
+        "Thai distributor with announced baht pricing and a local after-sales service team",
+        "7 DoF per arm, 3 DoF at the waist and 6 DoF per leg",
+        "The Ultra has LiDAR, a depth camera and a Jetson Orin NX board for autonomous navigation",
+        "18-month warranty when bought through VST ECS, longer than the 1-year warranty on the A2"
+      ],
+      "pros": [
+        "Can be bought and serviced in Thailand through an official distributor",
+        "Short-term rental and annual subscription options for those not yet ready to buy outright",
+        "Size and weight suit indoor spaces such as showrooms and shopping malls",
+        "Fully charges in about 1.5 hours"
+      ],
+      "cons": [
+        "Runtime of about 2 hours per charge at a walking speed of 0.5 m/s",
+        "Maximum payload of 3 kg in specific poses and no more than 1 kg across the full range of motion, so it is not suited to lifting tasks",
+        "The Neo does not support further software development and has no autonomous navigation",
+        "OmniHand hands are a separate purchase and work only with the Ultra"
+      ],
+      "idealFor": [
+        "Retail stores, hotels and showrooms that want a reception robot",
+        "Event and exhibition organisers",
+        "System integrators that want a mid-size humanoid platform (Ultra)"
+      ],
+      "considerations": [
+        "Check with VST ECS whether the 1,799,000 baht price includes VAT, installation and training",
+        "The newer X2 Ultra version has a 2-DoF neck, for 31 DoF in total; confirm which variant you will receive",
+        "The payload figure applies to specific poses; test any lifting or delivery tasks before buying",
+        "For all-day continuous use, plan charging breaks or consider renting several units",
+        "Prices and specifications on different pages of the maker's website may differ slightly (for example, a top speed of 1.8 or 2 m/s); request the official specification sheet before signing a contract"
+      ],
+      "funFact": "On 17 July 2026 an X2 robot demonstrated the martial art of Muay Thai in front of the Thai Prime Minister during a visit to AGIBOT's headquarters in Shanghai.",
+      "priceNote": "The X2 Ultra price of 1,799,000 baht was announced by VST ECS at its launch event in Bangkok in June 2026, as reported by MGR Online, without stating whether it includes VAT. The X2 Neo price of US$25,600 is the price on AGIBOT's online store and excludes shipping, 7% import VAT and customs clearance fees. The OmniHand 3 hand starts at US$5,360 and is sold separately. In addition, the RBTX (igus) online store lists the X2 Basic with 25 DoF at 986,250 baht and the X2 Ultra at 2,032,800 baht, excluding VAT and shipping. VST ECS also offers short-term rental for events, an annual subscription and the AgiRaaS robot-as-a-service model.",
+      "gallery": []
+    },
+    "agibot-a2": {
+      "segment": "Human-size humanoid for reception and customer service",
+      "originCountry": "China",
+      "tagline": "169 cm humanoid for reception and guided tours",
+      "summary": "AGIBOT A2 (known in China as Yuanzheng A2) is a human-size bipedal humanoid robot, 169 cm tall and weighing 63–69 kg, designed for reception, exhibition tours and customer information. The A2 Ultra has dexterous hands, camera and LiDAR perception and an NVIDIA Jetson AGX Orin computer, and is priced in Thailand at 3,118,000 baht through VST ECS. The A2 Lite, intended for performances, is priced at US$44,560 on the maker's online store.",
+      "background": "AGIBOT unveiled the A2 in August 2024, and the company began mass production of robots in December 2024. The A2 is currently sold as the A2 Ultra and the A2 Lite, in addition to the wheeled A2-W. The maker states that more than 1,000 A2 Ultra units are already in real-world use, that it has passed 5,100 hours of continuous walking tests, and that it undergoes 92 quality checks to automotive-grade manufacturing standards. In November 2025 an A2 walked 106.286 km in 3 days and was recognised with a Guinness World Record. In Thailand, VST ECS launched the A2 Ultra as its flagship model in June 2026 for customer service, retail and healthcare, and stated that it supports 20 languages including Thai, while the GULF group is working with AGIBOT to deploy reception robots in retail stores and financial service branches.",
+      "availabilityNote": "VST ECS (Thailand) has been AGIBOT's distributor in Thailand since June 2026 and has announced a baht price for the A2 Ultra, with a local training and maintenance team; complex repairs are supported by engineers from China. The A2 Lite can be ordered from AGIBOT's online store, with the buyer responsible for shipping, customs duty and import duty.",
+      "distributor": "VST ECS (Thailand) Co., Ltd., the Thai distributor; or order the A2 Lite directly from AGIBOT's online store",
+      "trims": [
+        {
+          "name": "A2 Lite",
+          "hand": "No dexterous hands",
+          "compute": "14-core CPU (no NVIDIA Jetson board)"
+        },
+        {
+          "name": "A2 Ultra",
+          "hand": "Two five-fingered dexterous hands, 6 DoF per hand",
+          "compute": "NVIDIA Jetson AGX Orin 64GB"
+        }
+      ],
+      "sensors": [
+        "RGB-D depth camera on the head, range 0.3–10 m (Ultra)",
+        "RGB camera and 2 fisheye cameras on the chest (Ultra)",
+        "RGB-D depth camera at the waist, range 0.15–5 m (Ultra)",
+        "LiDAR with a range of 0.2–40 m at 10% reflectivity and up to 70 m at 80% reflectivity (Ultra)",
+        "5 W speakers: 2 (Ultra) or 1 (Lite)"
+      ],
+      "charging": {
+        "note": "14.4 Ah battery that can be swapped while the robot is powered on (hot-swap), charged at up to 500 W at 48 V DC. The maker does not state the capacity in Wh. The Ultra can stand in service for about 3 hours and the Lite for about 4 hours 35 minutes."
+      },
+      "software": {
+        "sdk": "AGIBOT's AimDK development kit for the Ultra; the Lite is focused on performances and has no perception or voice system",
+        "ai": "Multilingual voice conversation (VST ECS states 20 languages including Thai), autonomous reception and navigation, and brand-specific content customisation (Ultra)"
+      },
+      "warranty": {
+        "robot": "1 year",
+        "battery": null,
+        "note": "VST ECS states a general 1-year warranty in Thailand. AGIBOT's online store states 1 year or 3,000 operating hours, whichever comes first (A2 Lite)."
+      },
+      "safety": {
+        "features": [
+          "Arm collision detection (Ultra)",
+          "Obstacle detection up to 5 m away (Ultra)",
+          "Wireless emergency stop button included (A2 Lite)"
+        ],
+        "certifications": []
+      },
+      "useCases": [
+        "Reception and guided tours in showrooms, museums and exhibitions",
+        "Product and promotion information in retail stores",
+        "Greeting customers in financial service branches and healthcare facilities",
+        "Performances and promotion for marketing activities",
+        "Brand ambassador with appearance and content customised to the organisation"
+      ],
+      "highlights": [
+        "Human-size at 169 cm tall, suited to front-desk and reception work",
+        "The Ultra has five-fingered dexterous hands and a Jetson AGX Orin 64GB computer",
+        "Battery can be swapped while powered on, reducing downtime",
+        "The maker states that more than 1,000 units are already in real-world use",
+        "Thai distributor with announced baht pricing and local after-sales service"
+      ],
+      "pros": [
+        "Can be bought and serviced in Thailand through VST ECS",
+        "Swappable battery allows longer continuous service than waiting to recharge",
+        "Supports conversation in Thai, according to the distributor",
+        "Lower-priced Lite version for performances that do not need perception"
+      ],
+      "cons": [
+        "The Thai price of the Ultra is over 3 million baht",
+        "About 1.5 hours of continuous walking per battery",
+        "Top walking speed of about 1.2 m/s, and can step over obstacles only up to 20 mm high",
+        "Payload of 2 kg per arm (Ultra), so it is not suited to heavy lifting",
+        "The Lite has no cameras, voice system or grasping hands"
+      ],
+      "idealFor": [
+        "Shopping malls, showrooms and exhibition centres that want a human-size reception robot",
+        "Banks, hotels and hospitals that need front-desk information services",
+        "Event organisers that want a robot for performances (Lite)"
+      ],
+      "considerations": [
+        "Check with VST ECS whether the 3,118,000 baht price includes VAT, installation, software and training",
+        "The payload figure stated by the maker is per arm",
+        "The operating area should be level; the maker states it can climb 10-degree ramps, while overseas sellers state that autonomous navigation needs walkways wider than 2 m",
+        "Prepare spare batteries and a charging point if it will be used all day",
+        "The maker does not directly publish the total DoF of the Ultra; the figure of 40 DoF comes from overseas sellers, so request the official specification sheet"
+      ],
+      "funFact": "In November 2025 an A2 robot walked 106.286 km in 3 days and was recognised with a Guinness World Record.",
+      "priceNote": "The A2 Ultra price of 3,118,000 baht was announced by VST ECS at its launch event in Bangkok in June 2026, as reported by MGR Online, without stating whether it includes VAT. The A2 Lite price of US$44,560 is the price on AGIBOT's online store and excludes shipping (US$500–3,000), customs duty and import duty, which the buyer must pay. AGIBOT's online store gives the A2 Ultra price on request, and the retailer RobotShop lists the A2 Ultra at US$112,061. VST ECS offers short-term rental for events, an annual subscription and the AgiRaaS robot-as-a-service model.",
+      "gallery": [
+        {
+          "alt": "AgiBot A2 hanging from a safety gantry beside a desk where a team is programming it, seen from behind at an angle"
+        }
+      ]
+    },
+    "unitree-g1": {
+      "segment": "Mid-size humanoid for research and education",
+      "originCountry": "China",
+      "tagline": "Mid-size research humanoid, 132 cm tall",
+      "summary": "The Unitree G1 is a mid-size bipedal humanoid robot, about 132 cm tall and weighing about 35 kg, made by Unitree Robotics of Hangzhou, China. The base version has 23 DoF and a swappable battery with a runtime of about 2 hours, and has a starting price of US$13,500 on the maker's online store. It suits universities, research laboratories and demonstrations, although writing your own control programs requires the EDU version.",
+      "background": "Unitree launched the G1 in 2024 as the company's second humanoid robot after the H1, and has sold it through its online store since June 2024. The base version is currently priced at US$13,500, excluding taxes and shipping. In September 2026 the online store added the G1 Pro at US$21,500, which a European distributor states has 29 DoF and a maximum knee torque of 120 N·m. On 14 September 2026 the maker launched the G1+, which adds a 2-DoF neck, binocular cameras together with a wide-angle camera, and shoulder and waist motors with 110% higher maximum torque, priced at US$15,000 (CNY 95,000 including tax in China). The G1 EDU research version supports further development, can be configured with 23–43 DoF, and can be fitted with an NVIDIA Jetson Orin compute module and Dex3-1 hands, with the price given by the maker on enquiry. The maker has also released open-source code for training the G1's movement in simulation on Isaac Lab and MuJoCo.",
+      "availabilityNote": "Thai dealers such as SIAMBC (storefront in Thawi Watthana district, Bangkok) and MetaXR take orders by quotation, and Systronics Co., Ltd. was named as a Thai distributor in late 2024. Buyers can also order directly from Unitree's online store, but the store states that the G1 is on backorder and buyers must handle customs clearance themselves.",
+      "distributor": "SIAMBC, MetaXR (MTXR), Systronics",
+      "trims": [
+        {
+          "name": "G1",
+          "hand": "No grasping hands",
+          "compute": "8-core CPU"
+        },
+        {
+          "name": "G1+",
+          "hand": "No grasping hands",
+          "compute": "8-core CPU"
+        },
+        {
+          "name": "G1 Pro",
+          "hand": null,
+          "compute": null
+        }
+      ],
+      "sensors": [
+        "Livox MID-360 3D LiDAR",
+        "Intel RealSense depth camera",
+        "4 microphones and a 5 W speaker",
+        "G1+: binocular cameras, a wide-angle chest camera, 6 microphones and a touch-sensitive point on the head"
+      ],
+      "charging": {
+        "note": "9,000 mAh (about 421 Wh) quick-swap battery; a 54V 5A charger is included. The maker does not disclose the charging time. The G1+ can be connected to external power for continuous operation."
+      },
+      "software": {
+        "sdk": "Only the EDU version supports further development, via unitree_sdk2 (C++ and Python) and ROS 2. The G1, G1+ and G1 Pro are operated via a remote control and an app, with OTA updates.",
+        "ai": "The maker has released reinforcement learning motion-training code on Isaac Lab and MuJoCo (unitree_rl_lab) and a teleoperation kit using XR devices."
+      },
+      "warranty": {
+        "robot": "8 months (EDU version: 18 months)",
+        "battery": null,
+        "note": "This is the maker's warranty under Unitree's warranty documents. Ask the Thai dealer whether repairs are carried out in Thailand or the robot must be sent back to the maker."
+      },
+      "safety": {
+        "features": [
+          "Handheld remote control included",
+          "All wiring routed inside the joints, reducing tangling during movement"
+        ],
+        "certifications": []
+      },
+      "useCases": [
+        "University research on motion and reinforcement learning",
+        "Teaching robotics and AI",
+        "Demonstrations and visitor reception at trade shows",
+        "Dance performances and robot competitions",
+        "Rental for events and short-term research in Thailand"
+      ],
+      "highlights": [
+        "23 DoF on the base version, 25 DoF on the G1+, and a configurable 23–43 DoF on the EDU version",
+        "Maximum knee torque of 90 N·m (EDU version: 120 N·m)",
+        "9,000 mAh quick-swap battery with a runtime of about 2 hours per pack",
+        "Perceives its surroundings with 3D LiDAR combined with a depth camera",
+        "Folds down to 69 x 45 x 30 cm for easy transport",
+        "Arm payload of about 2 kg (G1+ and G1 Pro: about 3 kg); the actual figure depends on how far the arm is extended"
+      ],
+      "pros": [
+        "Publicly listed price, and it can genuinely be ordered from the maker's online store",
+        "Several dealers and rental providers in Thailand",
+        "The maker publishes open-source code for training and simulation, which shortens the start-up time for research",
+        "Compact and foldable, convenient to use in a classroom or booth"
+      ],
+      "cons": [
+        "The G1, G1+ and G1 Pro are not open for further development; that requires the EDU version, which is priced on enquiry",
+        "Runtime of about 2 hours per pack; continuous work requires spare batteries",
+        "Arm payload of only about 2–3 kg, not suited to serious lifting work",
+        "Bluetooth security vulnerabilities have been reported, along with concerns about data being sent to servers; the maker disputes the data-collection claims",
+        "The maker's online store lists the G1 as on backorder"
+      ],
+      "idealFor": [
+        "Universities and research centres working on robotics and embodied AI (EDU version)",
+        "Educational institutions that want an easily portable demonstration robot",
+        "Event organisers and organisations that want a robot for reception or performances"
+      ],
+      "considerations": [
+        "Decide first whether you need to write your own programs, as only the EDU version supports the SDK",
+        "Request a quotation that includes import duty, VAT and shipping, and names the after-sales service provider in Thailand",
+        "Ask about firmware update plans and network settings, as Bluetooth vulnerabilities were reported in 2025–2026",
+        "Prepare a test area, a safety gantry and trained operators, as the maker warns that the robot is powerful",
+        "Compare with the G1+, which costs US$1,500 more but has a movable neck, binocular cameras and a higher arm payload"
+      ],
+      "funFact": "When folded, the G1 is about 69 cm tall, down from its standing height of 132 cm.",
+      "priceNote": "Prices on Unitree's online store exclude import duty, VAT and shipping. The store quotes shipping at about US$300–1,200, and buyers must handle customs clearance themselves. The G1+ price (US$15,000) comes from the maker's product page, while the G1 Pro specifications are taken from a European distributor because the maker has not yet published a specification table. The G1, G1+ and G1 Pro do not support further development; the EDU version is priced on enquiry with the maker. Thai dealers give prices by quotation, depending on the version, accessories and import duty. MetaXR shows a price of 454,000 baht but states that this is a wholesale price for bulk orders, not a retail price, and excludes shipping and taxes. MetaXR also offers daily rental for events, and weekly or monthly rental for education and research.",
+      "gallery": [
+        {
+          "alt": "Unitree G1 with a Lenovo logo on its chest, standing on display at WAIC 2025 in Shanghai"
+        },
+        {
+          "alt": "Unitree G1 seated on a chair at the Tencent TAIROS platform booth at WAIC 2025"
+        },
+        {
+          "alt": "News clip: several Unitree G1 robots perform dance and fighting moves on a red carpet at a 6S robot centre in Jinan (starts at the robot performance)"
+        }
+      ]
+    },
+    "engineai-t800": {
+      "segment": "Full-size humanoid for research, development and demonstrations",
+      "originCountry": "China",
+      "tagline": "Adult-size bipedal robot with 450 N·m joint torque",
+      "summary": "The EngineAI T800 is a full-size bipedal humanoid robot, 173 cm tall and weighing 75–85 kg depending on the version. Its joints deliver a maximum torque of 450 N·m, and it has a runtime of 3–5 hours per charge. There are 4 versions, from the Basic for demonstrations up to the Pro and Max, which have dexterous hands and LiDAR and support further development. This makes it suitable for research organisations, system developers and show organisers.",
+      "background": "EngineAI (众擎机器人) was founded in October 2023 and is headquartered in Shenzhen. The company launched the T800 on 2 December 2025 and put it on sale immediately at a starting price of CNY 180,000, in Basic, Open Source, Pro and Max versions. A few days later, when some questioned whether the launch video used computer graphics, the company released a clip of its CEO letting the T800 kick him for real to confirm its capabilities. In late May 2026 the production base of about 12,000 m² in Honghualing, Shenzhen, began delivering the first batch of T800s; the maker states that it can produce one unit every 15 minutes and that each robot passes 79 quality checks. The overseas prices once shown on the website ranged from US$40,500 to US$80,800, before the maker removed the price table from both its Chinese and English websites in late September 2026.",
+      "availabilityNote": "No official EngineAI distributor has yet been found in Thailand. The order button on the maker's website leads to a JD.com store that serves China, so buyers in Thailand must contact EngineAI directly for an export quotation and handle the import themselves. The maker began delivering the first batch in late May 2026.",
+      "distributor": "Contact EngineAI (众擎机器人) directly; no Thai distributor yet",
+      "trims": [
+        {
+          "name": "T800 Basic",
+          "hand": "No grasping hands with articulated fingers",
+          "compute": "Rockchip RK3588S 8-core CPU + NVIDIA Jetson Orin NX 16GB"
+        },
+        {
+          "name": "T800 Open Source",
+          "hand": "No grasping hands with articulated fingers",
+          "compute": "Rockchip RK3588S 8-core CPU + NVIDIA Jetson AGX Orin 64GB"
+        },
+        {
+          "name": "T800 Pro",
+          "hand": "7-DoF dexterous hands with tactile sensors",
+          "compute": "Rockchip RK3588S 8-core CPU + NVIDIA Jetson AGX Orin 64GB"
+        },
+        {
+          "name": "T800 Max",
+          "hand": "7-DoF dexterous hands with tactile sensors",
+          "compute": "Rockchip RK3588S 8-core CPU + NVIDIA Jetson AGX Orin 64GB (upgradable to Jetson Thor on request)"
+        }
+      ],
+      "sensors": [
+        "Wide-angle binocular camera (Intel module) on the head (Basic version)",
+        "Ultra-wide-angle binocular camera (Open Source, Pro and Max versions)",
+        "3D LiDAR (Pro and Max versions)",
+        "Tactile sensors in the dexterous hands (Pro and Max versions)",
+        "Microphone and speaker",
+        "Dual absolute encoders in the joints"
+      ],
+      "charging": {
+        "note": "The standard battery is a 71.4 V 20 Ah ternary lithium pack (1,428 Wh) that fully charges in about 2.5 hours. A 74.8 V 40 Ah solid-state battery is available as an option and charges in about 3 hours. All versions support quick battery swaps. The capacity figures come from the September 2026 version of the product page; the current page does not state them."
+      },
+      "software": {
+        "sdk": "The Open Source, Pro and Max versions support further development according to the maker's SDK/API documentation; the Basic version does not.",
+        "ai": null
+      },
+      "warranty": {
+        "robot": "Not disclosed",
+        "battery": null,
+        "note": "The maker states that warranty details are in the warranty manual supplied with the product. Overseas buyers must ask EngineAI for the terms that apply to them."
+      },
+      "safety": {
+        "features": [],
+        "certifications": []
+      },
+      "useCases": [
+        "Research and development of motion control for adult-size bipedal robots",
+        "Robot competitions and combat performances",
+        "Demonstrations and events",
+        "Service work",
+        "Trials of working alongside people in industry"
+      ],
+      "highlights": [
+        "Maximum joint torque of 450 N·m and peak power of 14,000 W, according to launch information",
+        "Runtime of 3–5 hours per charge, with quick battery swaps",
+        "The Max has 46 degrees of freedom (DoF), including dexterous hands with 7 DoF per hand that can each lift 5 kg",
+        "Structure of aviation-grade aluminium combined with titanium, with air cooling",
+        "Mass-produced at the Shenzhen production base, at a rate of one unit every 15 minutes"
+      ],
+      "pros": [
+        "Adult size, suited to tasks that need human-like height and arm reach",
+        "High-torque joints support forceful movements such as running and kicking",
+        "4 versions to choose from according to budget and development needs",
+        "Quick-swap battery reduces downtime spent waiting to charge"
+      ],
+      "cons": [
+        "The maker currently shows no prices on its website; a quotation is required",
+        "The Basic version does not support further development and has no grasping hands",
+        "No distributor or service centre in Thailand yet",
+        "Weighs 75–85 kg, so it needs lifting equipment and a safe test area",
+        "The maker does not disclose the warranty period or any certified safety standards"
+      ],
+      "idealFor": [
+        "Universities and research institutes studying the control of adult-size bipedal robots",
+        "Companies developing software or applications on humanoid robots",
+        "Organisers of robot shows and competitions"
+      ],
+      "considerations": [
+        "Request an up-to-date quotation from EngineAI, as the maker removed the price table from its website in September 2026",
+        "If you need to write your own control programs, choose the Open Source version or above; if you need to grasp objects, choose the Pro or Max",
+        "Ask about warranty terms, spare parts and repairs for overseas buyers before ordering",
+        "The maker warns users to keep a safe distance during operation, as the drive system is very powerful",
+        "Include shipping, import customs duty and VAT in the import budget"
+      ],
+      "funFact": "After some questioned whether the launch video was computer graphics, EngineAI's CEO put on protective gear and took a real kick from the T800 on camera in December 2025.",
+      "priceNote": "Prices are the overseas US-dollar prices that EngineAI showed on its English product page until mid-September 2026; in China the versions are priced at CNY 180,000 / 240,000 / 280,000 / 360,000 respectively. In late September 2026 the maker removed the price table from its website in both languages, so a new quotation should be requested. A champagne-gold Pro, limited to 50 units, is priced at CNY 260,000. Prices exclude shipping, import customs duty and VAT in Thailand.",
+      "gallery": [
+        {
+          "alt": "EngineAI T800 launch clip showing it walking, moving and sparring with a person in a gym"
+        },
+        {
+          "alt": "EngineAI T800 in a boxing guard, sparring with a person in a gym, full body (still from the launch clip)"
+        }
+      ]
+    },
+    "nao6": {
+      "segment": "Small humanoid for education and research",
+      "originCountry": "France",
+      "tagline": "Small humanoid for the classroom and research",
+      "summary": "NAO6 is a small bipedal humanoid robot, 57.4 cm tall and weighing 5.48 kg, with 25 degrees of freedom (DoF). It is used for teaching, human–robot interaction research and healthcare applications. The authorised dealer in France prices it at €10,020 including VAT, and it can be programmed both with drag-and-drop blocks in Choregraphe and in Python or C++.",
+      "background": "NAO was developed by Aldebaran, a robotics company founded in Paris in 2005 that later became part of SoftBank Robotics. NAO6 is the sixth generation, launched in May 2018 with a faster processor, higher-resolution cameras and larger memory. The maker states that more than 20,000 NAO robots are in use worldwide. After a French court placed Aldebaran under a court-appointed administrator in June 2025, Maxvision of Shenzhen, China, bought its core assets in July 2025 and set up Maxtronics in France on 28 August 2025 to continue developing, selling and providing after-sales service for NAO. Maxtronics is currently developing the next model, NAO7, which has no announced release date. In Thailand, True Robotics, part of the True group, showcased NAO for business applications in 2017.",
+      "availabilityNote": "No Thai dealer publishing a selling price for NAO6 has been found yet. Thai buyers can order from an authorised overseas dealer such as Generation Robots in France, which states delivery within 3 weeks and can ship outside the European Union, or request a quotation directly from Maxtronics. The buyer acts as the importer and must handle customs clearance themselves.",
+      "distributor": "Order through Generation Robots (France) or request a quotation directly from Maxtronics",
+      "trims": [
+        {
+          "name": "NAO6",
+          "hand": "Hands that open and close, driven by a single motor per hand",
+          "compute": "Intel Atom E3845 1.91 GHz, 4 GB RAM"
+        }
+      ],
+      "sensors": [
+        "2 × 5-megapixel cameras in the head (OV5640)",
+        "4 microphones",
+        "Front sonar with 2 transmitters and 2 receivers, measuring range 0.20–0.80 m",
+        "Inertial measurement unit (IMU) with 3-axis gyroscope and accelerometer",
+        "Force-sensitive resistors (FSR), 4 on the sole of each foot",
+        "Touch sensors on the head and hands, a chest button and bumpers at the toes",
+        "36 magnetic rotary encoders (MRE) for joint angle sensing"
+      ],
+      "charging": {
+        "note": "A full charge takes about 90 minutes. 21.6 V 2.9 Ah lithium-ion battery. A spare charger is sold separately."
+      },
+      "software": {
+        "sdk": "Python and C++ SDKs, with Choregraphe for drag-and-drop block programming and Robot Settings for configuring the robot; runs on Windows, macOS and Linux",
+        "ai": "NAO Activities, a platform for creating conversation and learning activities with generative AI without writing code (sold separately)"
+      },
+      "warranty": {
+        "robot": "2 years (under Generation Robots' terms)",
+        "battery": null,
+        "note": "RobotLAB in the US gives a 1-year warranty. For repairs sent from outside Europe, the buyer pays the shipping costs."
+      },
+      "safety": {
+        "features": [
+          "Bumpers at the toes of both feet to detect collisions",
+          "Front sonar for obstacle detection"
+        ],
+        "certifications": [
+          "CE",
+          "FCC",
+          "IEC 62368-1:2014",
+          "UN38.3 (battery transport)"
+        ]
+      },
+      "useCases": [
+        "Teaching programming and robotics in schools and universities",
+        "Human–robot interaction research",
+        "RoboCup robot football competitions",
+        "Healthcare and elderly-care activities",
+        "Greeting visitors and presenting information at trade shows"
+      ],
+      "highlights": [
+        "25 DoF, with full-body movement including bipedal walking",
+        "2 × 5-megapixel cameras, 4 microphones and multiple touch sensors",
+        "Speech synthesis and speech recognition in 22 languages",
+        "Development tools from beginner level with Choregraphe to research level with Python and C++",
+        "The maker states that more than 20,000 NAO robots are in use worldwide"
+      ],
+      "pros": [
+        "Small and light, so it is easy to use on a desk or in a classroom",
+        "A large user base, plenty of documentation and a large body of research to refer to",
+        "Certified to standards in several countries, such as CE and FCC",
+        "The French dealer gives a 2-year warranty and delivers within 3 weeks"
+      ],
+      "cons": [
+        "Runtime is about 60 minutes in continuous motion and about 90 minutes in general use",
+        "The hardware dates from 2018, while the next model is still in development",
+        "Thai is not yet among the languages supported by the built-in speech system",
+        "No clearly announced Thai dealer or service centre; repairs may have to be sent abroad"
+      ],
+      "idealFor": [
+        "Schools and universities teaching robot programming",
+        "Human–robot interaction research labs",
+        "RoboCup robot competition teams",
+        "Healthcare organisations wanting to trial social robots"
+      ],
+      "considerations": [
+        "Check the repair terms, as the French seller states that return shipping costs from outside Europe are paid by the buyer",
+        "Thailand is not yet among the certified countries listed in the datasheet; the importer must handle the Wi-Fi equipment requirements with the NBTC (National Broadcasting and Telecommunications Commission) themselves",
+        "Creating activities with generative AI without writing code requires buying NAO Activities in addition",
+        "The maker is developing NAO7, which has no release date yet; ask about long-term support plans for NAO6",
+        "For continuous classroom use, consider a spare battery and charger"
+      ],
+      "funFact": "Maxtronics states that NAO was the first humanoid robot to be produced on an industrial scale, and that it has been used in more than 3,600 published research works",
+      "priceNote": "The €10,020 price is the one published by Generation Robots, the authorised dealer in France, and already includes French VAT at 20% (€8,350 before tax). It includes the Choregraphe software and SDK and a 2-year warranty, but not shipping. For exports outside the European Union, the buyer must pay Thai customs duty and 7% Thai VAT themselves, so ask the seller whether export orders are priced before or after French tax. The NAO Activities software is sold separately for €1,200 including VAT. RobotLAB in the US sells the NAO V6 Standard Edition at US$16,990 with a 1-year warranty and also offers rental.",
+      "gallery": [
+        {
+          "alt": "Dark grey NAO6 sitting with one knee raised on a carpet at VivaTech 2019 in Paris, front view"
+        },
+        {
+          "alt": "News clip: several NAO6 robots dance together on a stage at the opening of a 7S robot store in Wuhan (starts at the dance)"
+        },
+        {
+          "alt": "NAO6 holding mallets over a colourful xylophone in a 7S robot store in Wuhan (still from a news clip)"
+        }
+      ]
+    },
+    "limx-luna": {
+      "segment": "Full-size humanoid for performances and experiential events",
+      "originCountry": "China",
+      "tagline": "160 cm humanoid for performances and welcoming guests",
+      "summary": "LimX Luna is a full-size bipedal humanoid robot, 160 cm tall and weighing about 54–56 kg, with 27 degrees of freedom (DoF) in the body. It is designed for performances, dancing and audience interaction in shopping malls, museums and theme parks. Its retail price in China is CNY 298,000, and it has a runtime of about 4 hours with 2 swappable batteries.",
+      "background": "LimX Dynamics (逐际动力) was founded in Shenzhen in January 2022. Its major investors include Alibaba, JD.com and Lenovo Capital, and it raised a total of US$400 million between February and July 2026. Earlier products include the TRON 1 bipedal robot (2024) and the full-size humanoid Oli (July 2025, starting price CNY 158,000). The company launched Luna on 25 May 2026, positioning it as a commercial performance robot with a female form and a fabric-covered outer shell. Its retail price in China is CNY 298,000, and the first 100 buyers received a CNY 40,000 discount. Luna can learn dance moves from video, and more than 200 units can be controlled together in a synchronised performance.",
+      "availabilityNote": "LimX Dynamics has taken pre-orders for Luna in China since May 2026 and plans to expand into overseas markets by 2027. In Thailand, the Drone Association Thailand website (droneth.or.th) lists the product for pre-order with pricing by quotation, but no announcement of an official distributor appointment has been found yet. Buyers should therefore contact LimX Dynamics directly to confirm delivery dates.",
+      "distributor": "Pre-order directly from LimX Dynamics, or enquire through Drone Association Thailand (droneth.or.th)",
+      "trims": [
+        {
+          "name": "Luna",
+          "hand": "Open-palm or fist-type hands (a five-fingered hand with 6 DoF is optional)",
+          "compute": "Rockchip RK3588 ×2 (motion control and perception)"
+        }
+      ],
+      "sensors": [
+        "6-axis inertial measurement unit (IMU)",
+        "RGB camera",
+        "Microphone and speaker",
+        "LED status light strip"
+      ],
+      "charging": {
+        "note": "2 swappable drawer-type batteries of 10,000 mAh each, supporting both in-robot charging and battery swapping. The charger outputs 58.8 V 10 A. The maker does not state the capacity in Wh."
+      },
+      "software": {
+        "sdk": "LimX UP app and LimX Studio software for creating motions and sequencing performances without writing code, running on the LimX COSA operating system",
+        "ai": "Dance creation from video (Video to Motion), motion teaching by physically guiding the robot, a natural-language editor, and synchronised control of more than 200 units in a performance; 20 dance routines and 20 gestures come preinstalled"
+      },
+      "warranty": {
+        "robot": "12 months",
+        "battery": null,
+        "note": null
+      },
+      "safety": {
+        "features": [
+          "Posture detection that stops movement immediately in a fall",
+          "Automatic stop when subjected to external force or impact",
+          "Emergency stop button",
+          "Can be stopped and reset instantly during movement or a performance"
+        ],
+        "certifications": []
+      },
+      "useCases": [
+        "Stage performances and dancing in shopping malls and at events",
+        "Greeting visitors and providing information in shopping malls and museums",
+        "Interactive characters in theme parks and role-play activities",
+        "Group performances with multiple robots controlled at the same time"
+      ],
+      "highlights": [
+        "Runtime of about 4 hours, with 2 swappable batteries",
+        "Learns dance moves from imported video without programming",
+        "More than 200 units can be controlled together in a synchronised performance",
+        "Multi-layer safety system, including stopping on a fall and an emergency stop button",
+        "Maximum joint torque of 200 N·m and a top walking speed of 5 km/h"
+      ],
+      "pros": [
+        "Runtime of about 4 hours per charge, and the batteries can be swapped without waiting for a recharge",
+        "Full charge in about 1 hour",
+        "No-code content creation tools suit event teams",
+        "The maker publishes a clear retail price, which helps with initial budgeting"
+      ],
+      "cons": [
+        "No official Thai distributor yet, and no price for overseas markets yet",
+        "The standard hands are open-palm or fist type and cannot grasp objects unless the optional five-fingered hands are bought",
+        "Payload of 3 kg per arm, and designed more for performances than for physical work",
+        "Sensors are limited to an RGB camera and an IMU, with no LiDAR or depth camera for autonomous navigation"
+      ],
+      "idealFor": [
+        "Shopping malls and theme parks wanting robot performances",
+        "Event organisers and agencies looking for show robots",
+        "Museums and learning centres wanting an attraction for visitors"
+      ],
+      "considerations": [
+        "Confirm the sales timetable outside China, as the maker plans to expand into overseas markets by 2027",
+        "A Thai seller states that some advanced functions, such as motion creation and multi-robot control, may require a separate LimX Studio subscription; ask about annual costs",
+        "The maker's Chinese website gives a weight of 54 kg and its English website 56 kg; request the latest specifications",
+        "The 3 kg payload figure is per arm",
+        "Check whether the 12-month warranty covers repairs in Thailand"
+      ],
+      "funFact": "Luna can import a dance video, analyse it and imitate the moves straight away, so new performances can be created without programming",
+      "priceNote": "The CNY 298,000 price is the retail price in China announced by LimX Dynamics in May 2026 (the first 100 buyers received a CNY 40,000 discount). There is no price for overseas markets yet, and it excludes shipping, 7% import VAT and customs clearance fees. The five-fingered hand is optional. Thai media reported a baht-converted price of about 1.34 million baht, which is a currency conversion, not a dealer price, while the Thai seller gives prices by quotation.",
+      "gallery": []
+    },
+    "galbot-g1": {
+      "segment": "Wheeled dual-arm humanoid for retail and warehouses",
+      "originCountry": "China",
+      "tagline": "Dual-arm robot on a wheeled base for picking goods",
+      "summary": "Galbot G1 is a robot with a humanlike upper body and two arms mounted on an omnidirectional wheeled base. It stands up to 173 cm tall, weighs 92.5 kg and is designed for picking and delivering goods in retail stores, unstaffed pharmacies and warehouses. It has a runtime of 8 hours per charge and is listed on JD.com in China at CNY 699,900 before discounts.",
+      "background": "Galbot (银河通用) was founded in Beijing in 2023 by Wang He and first unveiled the G1 in June 2024, then began commercial service in pharmacies and retail. The maker states that its \"银河太空舱\" (Galaxy Space Capsule) automated store system using the G1 is operating at more than 170 sites in more than 40 cities, and that the G1 has been used in more than 100 quick-commerce retail warehouses 24 hours a day, continuously for more than a year and a half. Baidu Baike states that cumulative deliveries exceeded 1,200 units by 2025. After the G1 appeared on CCTV's Spring Festival Gala in February 2026, nearly 300 units of the JD.com listing were ordered or added to carts in a single night, with a retailer in Suzhou ordering 2 units within 12 minutes. Chinese media reported that the company had raised about CNY 7 billion in total and was valued at more than CNY 20 billion in March 2026.",
+      "availabilityNote": "No Galbot distributor has been found in Thailand yet. The purchase channel recommended on the maker's website is JD.com's self-operated store (sold directly by JD), which serves China. Thai buyers therefore need to contact Galbot directly for an export quotation and handle the import themselves.",
+      "distributor": "Contact Galbot (北京银河通用机器人) directly; no Thai distributor yet",
+      "trims": [
+        {
+          "name": "Galbot G1",
+          "hand": "Interchangeable end effectors: dexterous hand, suction cup or gripper",
+          "compute": "NVIDIA Jetson AGX Orin 64GB (275 TOPS)"
+        }
+      ],
+      "sensors": [
+        "Stereo camera in the head",
+        "4 RGB cameras on the torso",
+        "2 depth cameras on the wrists",
+        "2 × 6-axis force/torque sensors at the wrists",
+        "3D LiDAR and 8 ultrasonic sensors on the base",
+        "2 linear arrays of 4 microphones each, and an IMU"
+      ],
+      "charging": {
+        "note": "48 V 30 Ah battery (1,440 Wh), charged with a 54.6 V 10 A adapter in about 3.5 hours. The maker does not state whether the battery is swappable."
+      },
+      "software": {
+        "sdk": "The maker's website has a secondary development (二次开发) section for developers",
+        "ai": "AstraBrain (银河星脑) end-to-end foundation model that combines planning, motion control and joint-level control"
+      },
+      "warranty": {
+        "robot": "Not disclosed",
+        "battery": null,
+        "note": "Units sold directly by JD.com (self-operated) in China come with nationwide warranty service in China based on the warranty card and tax invoice. Terms for overseas buyers must be confirmed with Galbot."
+      },
+      "safety": {
+        "features": [
+          "Emergency stop button",
+          "8 ultrasonic sensors and LiDAR for detecting obstacles around the base",
+          "IP54 dust and water protection rating, according to the maker's specifications"
+        ],
+        "certifications": []
+      },
+      "useCases": [
+        "Picking and delivering goods in automated stores and unstaffed pharmacies",
+        "Stock counting and shelf restocking in retail stores",
+        "Picking, packing and dispatching goods in quick-commerce retail warehouses",
+        "Parts sorting and material feeding in factories",
+        "Household tasks such as putting things away and fetching parcels"
+      ],
+      "highlights": [
+        "Runtime of 8 hours per charge from a 1,440 Wh battery",
+        "650 mm telescopic torso, with reach from floor level up to a height of 2.1 m",
+        "Payload of 5 kg per arm, 10 kg in total",
+        "In commercial use at more than 170 sites in more than 40 cities in China",
+        "IP54 dust and water protection rating"
+      ],
+      "pros": [
+        "Long runtime per charge, suited to full-shift work",
+        "The omnidirectional wheeled base is more stable than bipedal walking for picking work",
+        "End effectors can be changed to suit the task: hand, suction cup or gripper",
+        "A retail price is published on the maker's recommended sales channel"
+      ],
+      "cons": [
+        "No Thai distributor or service centre yet",
+        "Weighs 92.5 kg and has a 600 mm-wide base, so aisles must be wide enough",
+        "The maker does not disclose the warranty period",
+        "The published price is for the Chinese market; there is no export price yet"
+      ],
+      "idealFor": [
+        "Retailers and convenience store operators wanting to trial automated stores",
+        "Warehouse and logistics service providers",
+        "System integrators wanting a dual-arm manipulation platform on a mobile base"
+      ],
+      "considerations": [
+        "Ask Galbot about export sales, pricing and warranty for Thailand",
+        "Check language support and software customisation for Thai products and store systems",
+        "The payload is 5 kg per arm, measured at the centre of the wrist",
+        "The 21 DoF figure does not include the wheeled base or the end effectors",
+        "Plan charging space and the roughly 3.5-hour charging time after each full shift"
+      ],
+      "funFact": "After the Galbot G1 appeared on CCTV's Spring Festival Gala in February 2026, a retailer in Suzhou ordered 2 units on JD.com within 12 minutes",
+      "priceNote": "The CNY 699,900 price is from JD.com's self-operated store, which the Galbot website uses as its \"Buy now\" channel. In February 2026 the price after subsidies was about CNY 630,000, and Chinese media reported a JD price of about CNY 700,000 in September 2026. These are prices in China and exclude shipping to Thailand, 7% import VAT and customs clearance fees. No rental or instalment options for Thai buyers have been found yet.",
+      "gallery": [
+        {
+          "alt": "Close-up of Galbot G1 extending a gripper-fitted arm in a convenience-store set at WAIC 2025"
+        },
+        {
+          "alt": "Galbot G1 staffing the HooLoo Coffee drinks kiosk of a Galbot Store in Bao'an district, Shenzhen, seen through the glass"
+        },
+        {
+          "alt": "Roadside Galbot Store kiosk in Shenzhen, with a Galbot G1 working behind the glass"
+        }
+      ]
+    }
+  },
+  "market": {
+    "fx": {
+      "note": "Average commercial-bank selling rates (baht per unit of foreign currency) published by the Bank of Thailand on 22 October 2026, the latest data before the Chulalongkorn Day holiday. At that time the average interbank mid rate was 33.650 baht per US dollar. These rates are used only to convert makers' foreign-currency prices for comparison; actual selling prices in Thailand depend on shipping, taxes and the dealer."
+    },
+    "marketContext": "2025 was the first year in which humanoid robots shipped in the tens of thousands. Omdia estimated global shipments at 13,318 units, while IDC estimated about 18,000 units, an increase of about 5–6 times over 2024, with a market value of about US$440 million. Chinese makers held a share of nearly 90%, led by AgiBot and Unitree, while US makers such as Tesla, Figure AI and Agility Robotics each shipped about 150 units. For the first half of 2026, IDC reported shipments of nearly 25,000 units, and TrendForce expects full-year 2026 shipments to exceed 50,000 units. The main buyers are still research and educational institutions, along with exhibitions and reception work, while factory use remains at the pilot stage. Prices continue to trend downwards: for example, Unitree cut the starting price of the R1 from CNY 39,900 to CNY 29,900 in 2026, and there are small models priced below CNY 10,000. In Thailand the market is still at an early stage. The main sellers are VST ECS, AGIBOT's partner in Thailand since June 2026 (starting price 1,799,000 baht), and several Unitree dealers, focusing on educational and research institutions, events, retail, customer service and airports, while AGIBOT has announced plans to set up a joint venture with the GULF group. On the government side, the Board of Investment (BOI) has granted promotion to 10 humanoid-robot component manufacturing projects with total investment of 15,000 million baht since early 2026, and offers the Smart and Sustainable Industry upgrading measure for businesses investing in automation and robotics.",
+    "shipments": [
+      {
+        "brand": "AgiBot",
+        "period": "2025",
+        "note": "Estimate by Omdia, which put total global shipments in 2025 at 13,318 units; AgiBot's share was about 39%."
+      },
+      {
+        "brand": "Unitree",
+        "period": "2025",
+        "note": "Unitree's own figure is more than 5,500 humanoid robots shipped; the difference comes from the way each source counts."
+      },
+      {
+        "brand": "UBTech",
+        "period": "2025",
+        "note": null
+      },
+      {
+        "brand": "Leju",
+        "period": "2025",
+        "note": null
+      },
+      {
+        "brand": "EngineAI",
+        "period": "2025",
+        "note": null
+      },
+      {
+        "brand": "Fourier",
+        "period": "2025",
+        "note": null
+      },
+      {
+        "brand": "Figure AI",
+        "period": "2025",
+        "note": "Approximate figure."
+      },
+      {
+        "brand": "Agility Robotics",
+        "period": "2025",
+        "note": "Approximate figure."
+      },
+      {
+        "brand": "Tesla",
+        "period": "2025",
+        "note": "Approximate figure; mostly used within the company."
+      }
+    ],
+    "priceFactors": [
+      "The number of degrees of freedom (DoF) and the joint actuators are the main cost of a humanoid robot: the more joints and the higher the torque, the higher the price. For example, the standard Unitree G1 has 23 DoF, while the G1 EDU can be expanded to 43 DoF.",
+      "Multi-fingered dexterous hands can add a great deal to the price and are often offered only on research and development versions. Many base versions have no grasping hands, or only simple ones.",
+      "Onboard computers such as NVIDIA Jetson Orin or Jetson Thor let AI models run on the robot without relying on the cloud, but add cost and power consumption; a single Jetson AGX Thor developer kit alone costs US$3,499.",
+      "The sensor suite, such as 3D LiDAR, depth cameras and multiple microphones, determines how well the robot perceives its surroundings and walks around obstacles, so it is another factor behind price differences.",
+      "Access to the software development kit (SDK) and to further development means that versions that look identical can differ in price several times over. Some makers allow low-level control programming only on EDU versions and give them a longer warranty, for example 18 months versus 8 months for the standard version.",
+      "Body size, payload and battery capacity directly affect the price. A full-size robot about 170 cm tall, such as the AGIBOT A2 Ultra, is priced at 3,118,000 baht in Thailand, higher than the mid-size X2 Ultra, which starts at 1,799,000 baht.",
+      "Makers' prices quoted in US dollars or yuan do not include shipping, customs clearance fees or 7% VAT, so the selling price in Thailand also depends on the exchange rate and the method of import.",
+      "Local after-sales service, training, spare parts and spare batteries, as well as rental or monthly subscription options (Robot-as-a-Service), are costs that dealers build into their prices in different ways. Compare the whole package of terms, not just the price of the robot."
+    ],
+    "buyerChecklist": [
+      {
+        "title": "See a demonstration before deciding",
+        "detail": "Ask to see or try the model you plan to buy under real operating conditions. Some dealers have a shop or offer on-location demonstrations, and some offer short-term rental so you can try the robot first."
+      },
+      {
+        "title": "Check the version and development rights",
+        "detail": "Base and EDU versions may differ in DoF count, onboard computer and SDK access. If you need to program the robot or carry out research, get written confirmation that the version you buy is open for further development."
+      },
+      {
+        "title": "Warranty period and service centres in Thailand",
+        "detail": "Warranty periods vary widely, from 6 to 18 months depending on the model. Ask whether repairs can be done in Thailand or the robot must be sent abroad, and how long this takes."
+      },
+      {
+        "title": "Spare parts and spare batteries",
+        "detail": "Ask about prices and lead times for batteries, joints and parts that wear quickly, such as feet and hands. As one battery gives a runtime of about 2 hours, a spare battery allows continuous operation."
+      },
+      {
+        "title": "Space and safety",
+        "detail": "Bipedal robots can fall during use or testing. Prepare a clear area with a flat, non-slip floor, a keep-out zone for people and, for full-size models, a safety gantry, and check where the emergency stop button is."
+      },
+      {
+        "title": "Network and personal data",
+        "detail": "Robots with cameras and microphones capture images and audio of people. Check which servers the data is sent to and whether the robot can be used offline, and prepare a privacy notice under the Personal Data Protection Act if it will be used at business premises."
+      },
+      {
+        "title": "Import documents and NBTC certification",
+        "detail": "Buy through a Thai importer that fully completes customs clearance and NBTC radiocommunication equipment certification. If you import the robot yourself, you take on this paperwork and become the importer under the unsafe products liability law."
+      },
+      {
+        "title": "User training",
+        "detail": "Check whether the price includes training for operators and system administrators, covering use of the remote control, charging and storing batteries, software updates and handling emergencies."
+      },
+      {
+        "title": "Compare buying with renting",
+        "detail": "For events or pilot projects, rental or a monthly subscription may be better value than buying. Before deciding, weigh how often the robot will be used, maintenance costs and how quickly models are replaced."
+      }
+    ],
+    "setup": {
+      "steps": [
+        {
+          "title": "Prepare the space and floor",
+          "detail": "Set aside a clear area of at least about 3 x 3 m for testing and demonstrations, with a flat, dry, non-slip floor. Lay impact-absorbing rubber mats in the test area and set a safety zone that keeps bystanders away while the robot is moving."
+        },
+        {
+          "title": "Install a safety gantry",
+          "detail": "Mid-size and full-size bipedal robots should have a safety gantry or lifting hoist for start-up, testing new motions and program development, to prevent damage if the robot falls."
+        },
+        {
+          "title": "Charging point and battery storage",
+          "detail": "Provide an earthed power socket in a well-ventilated spot away from flammable materials, set aside a separate place for spare batteries, and assign someone responsible for charging in line with the maker's manual."
+        },
+        {
+          "title": "Network",
+          "detail": "Provide Wi-Fi coverage across the operating area, separate the robot's network from the organisation's main network, and set permissions for access and software updates."
+        },
+        {
+          "title": "Assess risks and appoint operators",
+          "detail": "Assess the risks of the tasks the robot will perform, appoint trained operators, and check that the emergency stop button and remote control work before every use."
+        },
+        {
+          "title": "Train users and maintainers",
+          "detail": "Arrange training in switching the robot on and off, charging, basic maintenance and program development (for EDU versions), and ask the dealer to include the training in the sales contract."
+        },
+        {
+          "title": "Insurance and personal data",
+          "detail": "Inform your insurer so that it can consider cover for property and third-party liability, and put up signs or notices that images and audio are recorded in areas where the robot operates."
+        }
+      ],
+      "costs": [
+        {
+          "item": "The maker's safety gantry, overseas price, excluding shipping and taxes (mid-size to full-size models)"
+        },
+        {
+          "item": "One spare battery (mid-size to full-size models)"
+        },
+        {
+          "item": "Impact-absorbing rubber floor mats for a test area of 9–25 square metres"
+        },
+        {
+          "item": "1–3 Wi-Fi 6 routers or access points"
+        }
+      ]
+    },
+    "electricity": [
+      {
+        "label": "Residential, standard rate (MEA/PEA)",
+        "unit": "baht/kWh",
+        "note": "New tariff structure from the September 2026 billing cycle, including the Ft charge of 16.23 satang and 7% VAT: about 3.38 baht/kWh for the first 200 kWh, about 4.62 baht/kWh for 201–400 kWh and about 4.84 baht/kWh from the 401st kWh onwards."
+      },
+      {
+        "label": "Residential, TOU rate, off-peak",
+        "unit": "baht/kWh",
+        "note": "Energy charge of 2.6369 baht plus Ft of 0.1623 baht and 7% VAT. Applies 22:00–09:00 Monday–Friday and all day on Saturdays, Sundays and regular public holidays. Suitable for charging spare batteries overnight."
+      },
+      {
+        "label": "Residential, TOU rate, on-peak",
+        "unit": "baht/kWh",
+        "note": "Energy charge of 5.7982 baht plus Ft of 0.1623 baht and 7% VAT. Applies 09:00–22:00 Monday–Friday."
+      },
+      {
+        "label": "Average across all customer types (used as an estimate for organisations)",
+        "unit": "baht/kWh",
+        "note": "Average electricity charge across all customer types of 3.86 baht/kWh under the ERC resolution for the September–December 2026 period; the rate shown is calculated with 7% VAT included. A business's actual rate depends on its customer category."
+      }
+    ],
+    "ownershipCost": {
+      "yearly": [
+        {
+          "item": "Maintenance and service contract after the warranty ends (about 10–18% of the robot's price per year, for robots priced at 0.2–3.1 million baht)"
+        },
+        {
+          "item": "Replacement batteries, averaged per year (assuming replacement every 1–2 years)"
+        },
+        {
+          "item": "Software or AI subscription (if any, e.g. 1X NEO in the US at US$499 per month)"
+        },
+        {
+          "item": "Electricity for battery charging (from a mid-size model used once a day to a full-size model charged 3 times a day)"
+        }
+      ],
+      "oneTime": [
+        {
+          "item": "International shipping from China to Thailand (by road, sea or air, depending on package size)"
+        },
+        {
+          "item": "Import duty (HS code 8479.50, industrial robots, or 8479.89: 0% rate)"
+        },
+        {
+          "item": "7% VAT on the CIF value including duty (robots valued at 0.2–3.1 million baht)"
+        },
+        {
+          "item": "Customs broker and warehouse fees if you import yourself (estimate)"
+        },
+        {
+          "item": "System installation and training (from included in the robot's price to installation for industrial use)"
+        }
+      ]
+    },
+    "sellers": [
+      {
+        "name": "VST ECS (Thailand)",
+        "detail": "AGIBOT's local partner and Thai distributor since June 2026. Sells the AGIBOT A2 Ultra at 3,118,000 baht and the X2 Ultra from 1,799,000 baht. Offers on-location demonstrations, rental for events and a monthly service model, with training and after-sales teams. Standard warranty of 1 year (X2: 18 months)."
+      },
+      {
+        "name": "SIAMBC",
+        "detail": "States that it is Unitree's official Thai distributor. Sells the Unitree G1 and R1 by quotation. Has a shop in Thawi Watthana district, Bangkok, open Monday–Saturday, and gives the maker's warranty as 8 months for the G1, 18 months for the G1 EDU and 6–12 months for the R1, depending on version."
+      },
+      {
+        "name": "Neotech (3DD)",
+        "detail": "Neotech Co., Ltd., Bangkok, sells Unitree robots, including the G1 EDU Plus and R1 EDU, alongside 3D printers. Prices by quotation; has an after-sales support team and gives a 1-year warranty on the G1 EDU Plus."
+      },
+      {
+        "name": "MetaXR (MTXR)",
+        "detail": "Sells and rents out the Unitree G1 and G1 EDU, as well as the Unitree H1. Offers daily rental for events and weekly or monthly rental for education and research, with an operator. The G1 price shown on its website does not include shipping or taxes."
+      },
+      {
+        "name": "SKY ICT",
+        "detail": "SKY ICT Public Company Limited works with AGIBOT to develop an AI robot platform in Thailand and deploys humanoid robots to provide services in organisations, such as welcoming passengers at airports. Suited to organisations that want a complete solution with software rather than buying the bare robot."
+      }
+    ],
+    "notForSale": [
+      {
+        "name": "Tesla Optimus",
+        "status": "As of October 2026, Tesla has begun initial production on a large-scale production line at its Fremont factory and is using the robots internally. Deliveries to outside companies are expected to start around late 2027, and no selling price has been announced."
+      },
+      {
+        "name": "Figure 03",
+        "status": "Unveiled in October 2025 and used in the company's own projects and with partner customers, such as a BMW plant in the US. There is no channel for the general public to buy or pre-order it, and no public price."
+      },
+      {
+        "name": "Atlas",
+        "status": "The production version was unveiled in January 2026. All 2026 deliveries are allocated to Hyundai and Google DeepMind; the company plans to take on other customers from early 2027."
+      },
+      {
+        "name": "IRON",
+        "status": "The production line in Guangzhou started up in September 2026, with mass production targeted by the end of 2026. The robots will first be used in XPENG showrooms and offices, and sales in China and abroad are planned to start in 2027. No price has been announced."
+      },
+      {
+        "name": "Apollo",
+        "status": "Apollo 2 was unveiled in June 2026 and is still used in pilot projects with customers such as Mercedes-Benz and GXO. The company states that the commercial model will be Apollo 3, for which no price or release date has been announced."
+      },
+      {
+        "name": "NEO",
+        "status": "Open for pre-order in the US at US$20,000, or by subscription at US$499 per month. US deliveries start in 2026, with expansion to other markets planned from 2027, so it is not yet sold in Thailand."
+      }
+    ],
+    "incentives": [
+      "Under the BOI's Smart and Sustainable Industry upgrading measure, existing businesses, whether or not already BOI-promoted, that invest at least 1 million baht (excluding land and working capital) in upgrading with automation or robots receive an exemption from import duty on machinery and a 3-year corporate income tax exemption capped at 50% of the investment.",
+      "If the automation or robots invested in have links with the domestic automation industry of at least 30% of the machinery value, the corporate income tax exemption cap rises to 100% of the investment, and spending on AI, machine learning and data analytics can be counted in full as investment. Those interested should check the application deadline and the latest conditions with the BOI before ordering.",
+      "The tax measure to support SME digital transformation under Royal Decree (No. 802) of 2026 lets companies with paid-up capital of no more than 5 million baht and revenue of no more than 30 million baht deduct 2 times the expense for software, hardware, smart devices or digital services registered in the digital service catalogue of the Digital Economy Promotion Agency (depa), up to 300,000 baht, for expenses from 24 June 2025 to 31 December 2027. It applies only if the robot or service purchased is in that catalogue.",
+      "For those who want to make parts or assemble robots in Thailand: since early 2026 the BOI has granted promotion to 10 humanoid-robot component manufacturing projects with total investment of 15,000 million baht, covering frames, joint control units, arms and fingers."
+    ],
+    "legalNotes": [
+      "As of October 2026, Thailand has no law specifically regulating humanoid robots. The draft Artificial Intelligence Act of the Electronic Transactions Development Agency (ETDA) closed for public consultation in August 2026 and is not yet in force, so robot use falls under existing general laws.",
+      "Imports must go through Customs Department clearance. Robots classified under HS code 8479.50 (industrial robots) or 8479.89 carry a 0% import duty rate, but small entertainment robots may be classified under other codes that carry duty. Importers should request an advance tariff classification ruling, and must pay 7% VAT, a rate that will be kept until 30 September 2027.",
+      "Robots with Wi-Fi, Bluetooth or a mobile network module count as radiocommunication equipment and must be certified or covered by a supplier's declaration of conformity (SDoC), according to the category set by the Office of the NBTC. The applicant must be a maker, importer or dealer in Thailand registered with the NBTC.",
+      "Using a robot with cameras or microphones for personal benefit or family activities is exempt under Section 4 (1) of the Personal Data Protection Act 2019, but use at business premises requires informing employees and customers of the purpose and providing a privacy notice, setting a data retention period and managing transfers of data to overseas servers. The Office of the Personal Data Protection Committee issued its first AI guidelines in October 2026; they are not legally binding.",
+      "The Liability for Damages Arising from Unsafe Products Act 2008 makes the maker, the importer and any seller unable to identify the maker or importer jointly liable to the injured party, who does not have to prove negligence, and the court may award punitive damages of up to 2 times the actual damages. Buying through a Thai importer therefore gives a clearly responsible party, whereas importing yourself makes the buyer the importer.",
+      "Employers using robots in the workplace have safety duties under the Occupational Safety, Health and Environment Act 2011 and the Ministerial Regulation on safety concerning machinery, cranes and boilers 2021, and may refer to the international standards ISO 10218 for industrial robots and ISO 13482 for service robots when assessing risks.",
+      "Our checks found no mandatory Thai Industrial Standard (TIS) that applies directly to humanoid robots, but accessories such as chargers may fall under mandatory standards depending on their tariff classification. Ask the importer.",
+      "Existing property and third-party liability insurance policies may not automatically cover damage caused by robots. Buyers should inform their insurer and extend cover before starting to use a robot in areas where members of the public are present."
+    ]
+  }
+}

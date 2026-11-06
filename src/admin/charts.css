@@ -1,0 +1,177 @@
+/* Charts: thin marks, recessive solid hairlines, ink-coloured text; the data is the only loud thing */
+.chart {
+  margin: 0;
+}
+
+.chart__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.chart__title {
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+}
+
+.chart__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.chart__toggle[aria-pressed='true'] {
+  border-color: var(--selected-bg);
+  background: var(--selected-bg);
+  color: var(--selected-fg);
+}
+
+.chart__plot {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-sm);
+}
+
+.chart__plot svg {
+  display: block;
+  overflow: visible;
+}
+
+.chart__grid {
+  stroke: var(--line);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.chart__base {
+  stroke: var(--line-strong);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.chart__tick,
+.chart__xlabel {
+  fill: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart__col {
+  fill: var(--chart-bar);
+  transition: opacity 120ms ease;
+}
+
+.chart__plot:has(.chart__col.is-active) .chart__col:not(.is-active) {
+  opacity: 0.45;
+}
+
+.chart__empty {
+  position: absolute;
+  inset: 0 0 30px 48px;
+  display: grid;
+  place-items: center;
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  pointer-events: none;
+}
+
+.chart__tip {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  gap: 2px;
+  min-width: 140px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  background: var(--navy);
+  color: var(--on-navy);
+  box-shadow: var(--elev-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  line-height: 1.4;
+  white-space: nowrap;
+  translate: -50% -100%;
+  pointer-events: none;
+}
+
+.chart__tip strong {
+  font-size: var(--fs-sm);
+}
+
+.chart__tip-label {
+  color: var(--on-navy-muted);
+}
+
+:root[data-theme='dark'] .chart__tip {
+  border: 1px solid var(--navy-line);
+  background: var(--navy-raised);
+}
+
+/* Ranked horizontal bars, value at the tip of each row */
+.barlist {
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+}
+
+.barlist__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+}
+
+.barlist__label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.barlist__value {
+  flex: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.barlist__note {
+  display: block;
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+}
+
+.barlist__track {
+  display: block;
+  height: 10px;
+  margin-top: 6px;
+  border-radius: 0 4px 4px 0;
+  background: var(--meter-off);
+}
+
+.barlist__fill {
+  display: block;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  background: var(--chart-bar);
+}
+
+@media (forced-colors: active) {
+  .chart__col,
+  .barlist__fill {
+    fill: CanvasText;
+    background: CanvasText;
+  }
+}

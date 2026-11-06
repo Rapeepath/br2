@@ -1,0 +1,2147 @@
+/*
+  Model page, laid out like a car maker's model page:
+    1  the showroom stage (dark): the way back, the robot under a spotlight bleeding off the right edge,
+       brand, name, Thai name, labels, the starting price and the actions; then the key figures as an
+       instrument cluster that counts up as it comes into view
+    2  on the studio floor: what the robot is beside a price panel that says what the price is based on
+    3  the sticky sub-navigation and its panels: story, highlights and uses; the trim spec table; size
+       beside an adult, sensors, software and charging; safety and warranty; and the verdict
+    4  references, then the neighbouring models as two tiles
+  Square corners, white tiles on the grey floor, hairlines instead of boxes inside boxes.
+*/
+
+.mp {
+  --icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  --icon-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E");
+  --icon-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M5 12h14'/%3E%3C/svg%3E");
+  --icon-bang: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 5v9M12 19h.01'/%3E%3C/svg%3E");
+}
+
+/* Shared bits ---------------------------------------------------------------------------------- */
+
+/* Units sit smaller beside their figure, as on a price tag */
+.mp-unit {
+  margin-left: 0.1em;
+  color: var(--ink-muted);
+  font-size: 0.8em;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+/* A figure the maker does not publish: quieter, never hidden */
+.mp-missing {
+  color: var(--ink-subtle);
+  font-weight: 500;
+}
+
+.mp-aside {
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+/* "ประมาณ" before a converted price: set like a unit, so the figure still leads */
+.mp-approx {
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.mp-card {
+  container-type: inline-size;
+  min-width: 0;
+  padding: var(--space-5) var(--space-6) var(--space-6);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.mp-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.mp-card__head .mp-subhead {
+  margin-bottom: 0;
+}
+
+.mp-card__meta {
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.mp-card__link {
+  margin-top: var(--space-3);
+}
+
+.mp-card__note {
+  max-width: 70ch;
+  margin-top: var(--space-3);
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+/* A list the maker has not published: said in a hairline box where the list would be */
+.mp-card__empty {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* Card titles: plain Bai Jamjuree, as a maker's spec page sets them */
+.mp-subhead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Stage ------------------------------------------------------------------------------------------ */
+
+.mstage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-bottom: var(--space-5);
+  background: var(--stage-dark);
+  color: var(--on-navy);
+}
+
+/* The way back as a plain link with an arrow, then where you are */
+.mp-crumbs {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  padding-top: var(--space-5);
+  color: var(--on-navy-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.mp-crumbs a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 32px;
+  color: var(--on-navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.4em;
+  transition: text-decoration-color var(--dur-2) var(--ease-out);
+}
+
+/* The link stays slim; its hit area is 44px tall */
+.mp-crumbs a::after {
+  content: '';
+  position: absolute;
+  inset: -6px -4px;
+}
+
+.mp-crumbs a:hover {
+  color: var(--on-navy);
+  text-decoration-color: var(--led);
+}
+
+.mp-crumbs a svg {
+  transition: translate var(--dur-2) var(--ease-out);
+}
+
+.mp-crumbs a:hover svg {
+  translate: -3px 0;
+}
+
+.mp-crumbs > svg {
+  flex: none;
+  color: var(--on-navy-muted);
+}
+
+/* The robot fills the right of the stage and fades into the dark on the copy side and at its foot */
+.mstage__hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: clamp(520px, 72svh, 780px);
+}
+
+.mstage__photo {
+  position: absolute;
+  inset: 0 0 0 36%;
+  z-index: -1;
+  overflow: hidden;
+  /* Fades on the copy side, at the foot and along the top edge under the way back */
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0%, #000 32%),
+    linear-gradient(0deg, transparent 0%, #000 24%, #000 86%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(90deg, transparent 0%, #000 32%),
+    linear-gradient(0deg, transparent 0%, #000 24%, #000 86%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* A tall photo is cropped from near its top, so the head and torso stay in frame (a photo's own
+   focus point, set inline, wins) */
+.mstage__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  filter: saturate(0.92) contrast(1.06) brightness(0.88);
+}
+
+/* On load the photo is revealed top to bottom behind one LED scan line, as on the home stage */
+.motion-ok .mstage__img {
+  animation: mstage-reveal var(--dur-4) var(--ease-out) both;
+}
+
+.mstage__scan {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 62%,
+    rgb(255 255 255 / 0.1) 98.6%,
+    var(--led) 99.4%,
+    var(--led) 100%
+  );
+  filter: drop-shadow(0 0 8px var(--led-glow));
+  pointer-events: none;
+}
+
+.motion-ok .mstage__scan {
+  animation: mstage-scan var(--dur-4) var(--ease-out) both;
+}
+
+@keyframes mstage-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+    scale: 1.05;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    scale: 1;
+  }
+}
+
+@keyframes mstage-scan {
+  0% {
+    opacity: 1;
+    translate: 0 -100%;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    translate: 0 0;
+  }
+}
+
+@keyframes mstage-rise {
+  from {
+    opacity: 0;
+    translate: 0 16px;
+  }
+}
+
+.mstage__inner {
+  position: relative;
+}
+
+.mstage__copy {
+  container-type: inline-size;
+  width: min(600px, 54%);
+  padding-block: var(--space-6) var(--space-7);
+}
+
+/* The name plate rises in line by line, once */
+.motion-ok .mstage__copy > * {
+  animation: mstage-rise var(--dur-3) var(--ease-out) both;
+}
+
+.motion-ok .mstage__copy > :nth-child(2) {
+  animation-delay: 60ms;
+}
+
+.motion-ok .mstage__copy > :nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.motion-ok .mstage__copy > :nth-child(4) {
+  animation-delay: 170ms;
+}
+
+.motion-ok .mstage__copy > :nth-child(5) {
+  animation-delay: 220ms;
+}
+
+.motion-ok .mstage__copy > :nth-child(n + 6) {
+  animation-delay: 270ms;
+}
+
+/* Brand, small and steel, above the name */
+.mp-brand {
+  color: var(--on-navy-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+/* The name as large as the column allows for its length */
+.mstage__name {
+  /* Model names in the condensed cut, like the lettering on a vehicle badge */
+  font-family: var(--font-nameplate);
+  margin-top: var(--space-2);
+  color: var(--on-navy);
+  font-size: min(5.5rem, calc(100cqi / (var(--chars, 10) * 0.56)));
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.mp-nameth {
+  margin-top: var(--space-3);
+  color: var(--on-navy);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Labels on the stage: outlined, quiet; a dealer or pre-order label carries a coloured mark */
+.mp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: var(--space-4);
+  list-style: none;
+}
+
+.mstage .mp-chips .chip {
+  gap: 6px;
+  border: 1px solid var(--navy-line);
+  background: rgb(255 255 255 / 0.04);
+  color: var(--on-navy-muted);
+  font-weight: 500;
+}
+
+.mstage .mp-chips .tone-sage::before,
+.mstage .mp-chips .tone-sand::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  background: #6fd3a0;
+}
+
+.mstage .mp-chips .tone-sand::before {
+  background: #f2b45a;
+}
+
+.mp-tagline {
+  margin-top: var(--space-4);
+  max-width: 34ch;
+  color: var(--on-navy-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.mstage__price {
+  display: grid;
+  gap: 2px;
+  margin-top: var(--space-5);
+}
+
+.mstage__price-label {
+  color: var(--on-navy-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.mstage__price-figure {
+  color: var(--on-navy);
+  font-size: clamp(1.75rem, 1.3rem + 1.4vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.mstage__price-unit {
+  color: var(--on-navy-muted);
+  font-size: 0.5em;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.mp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.mp-compare {
+  min-height: 52px;
+  font-size: var(--fs-md);
+}
+
+/* In the compare list: lit by the LED edge on the dark stage */
+.mstage .mp-compare[data-selected] {
+  border-color: var(--led);
+  background: rgb(255 255 255 / 0.08);
+  color: var(--on-navy);
+  box-shadow: 0 0 24px -8px var(--led-glow);
+}
+
+.mstage .mp-compare[data-selected]:hover {
+  background: rgb(255 255 255 / 0.14);
+  color: var(--on-navy);
+}
+
+@media (forced-colors: active) {
+  .mp-compare[data-selected] {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+}
+
+.mp-actions__trims {
+  min-height: 52px;
+}
+
+.mp-actions__hint {
+  flex-basis: 100%;
+  color: var(--on-navy-muted);
+  font-size: var(--fs-sm);
+}
+
+/* Key figures: an instrument cluster along the stage floor --------------------------------------- */
+
+.mp-keyspecs {
+  position: relative;
+  z-index: 1;
+}
+
+.mp-keyspecs__list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid var(--navy-line);
+}
+
+.mp-keyspecs__list > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: var(--space-4) var(--space-4) var(--space-5);
+}
+
+.mp-keyspecs__list > div:first-child {
+  padding-left: 0;
+}
+
+.mp-keyspecs__list > div + div {
+  border-left: 1px solid var(--navy-line);
+}
+
+.mp-keyspecs dt {
+  order: 2;
+  margin-top: var(--space-1);
+  color: var(--on-navy-muted);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.mp-keyspecs__value {
+  order: 1;
+  margin: 0;
+  color: var(--on-navy);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1rem + 1.7vw, 2.75rem);
+  font-weight: 400;
+  /* Equal-width digits so a counting figure doesn't jitter */
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.mp-keyspecs .mp-unit,
+.mp-keyspecs .mp-missing {
+  color: var(--on-navy-muted);
+}
+
+.mp-keyspecs .mp-unit {
+  font-size: 0.42em;
+  letter-spacing: 0;
+}
+
+.mp-keyspecs .mp-missing {
+  font-size: 0.6em;
+  font-weight: 400;
+}
+
+.mp-keyspecs__sub {
+  order: 3;
+  margin: var(--space-1) 0 0;
+  color: var(--on-navy-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+.mp-keyspecs__note {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--navy-line);
+  color: var(--on-navy-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.65;
+}
+
+.mstage__credit {
+  margin-top: var(--space-2);
+  color: var(--on-navy-muted);
+  font-size: var(--fs-2xs);
+}
+
+/* Intro on the studio floor: what it is, beside the price panel ----------------------------------- */
+
+.mp-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: start;
+  gap: var(--space-6) clamp(var(--space-6), 5vw, var(--space-8));
+  padding-block: var(--space-8) var(--space-7);
+}
+
+.mp-intro__title {
+  font-size: var(--fs-2xl);
+}
+
+.mp-lede {
+  max-width: 62ch;
+  margin-top: var(--space-4);
+  color: var(--ink-muted);
+  font-size: var(--fs-lg);
+  line-height: 1.8;
+}
+
+/* Maker's rank: a square trophy key, then the rank and its period and units */
+.mp-rank {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+.mp-rank__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--tint-gold);
+  color: var(--on-gold);
+}
+
+.mp-rank strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+/* Price panel: the configurator's summary — the figure, then what it is based on under a hairline */
+.mp-price {
+  border-top: 2px solid var(--ink);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--elev-2);
+}
+
+.mp-price__main {
+  padding: var(--space-5) var(--space-5) var(--space-4);
+}
+
+.mp-price__main dt {
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.mp-price__figure {
+  margin: var(--space-1) 0 0;
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.5rem + 1.4vw, 2.75rem);
+  font-variant-numeric: proportional-nums;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.mp-price__figure .mp-unit,
+.mp-price__approx {
+  color: var(--ink-subtle);
+  font-size: 0.45em;
+  letter-spacing: 0;
+}
+
+.mp-price__approx {
+  font-weight: 500;
+}
+
+.mp-price__meta {
+  margin-top: var(--space-1);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+}
+
+.mp-price__basis {
+  padding: var(--space-3) var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
+.mp-price__basis[open] {
+  padding-bottom: var(--space-5);
+}
+
+/* "ที่มาของราคา": the price's small print stays folded until someone asks */
+.mp-price__more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 44px;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+}
+
+.mp-price__more::-webkit-details-marker {
+  display: none;
+}
+
+.mp-price__more::after {
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  transition: rotate var(--dur-2) var(--ease-out);
+}
+
+.mp-price__basis[open] > .mp-price__more::after {
+  rotate: 45deg;
+}
+
+.mp-price__basis[open] > .mp-price__more {
+  margin-bottom: var(--space-3);
+}
+
+.mp-price__trims {
+  margin-top: var(--space-2);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.mp-price__basis dt,
+.mp-price__basis-title {
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* The maker's own price, in its own currency */
+.mp-price__list {
+  margin: 2px 0 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.mp-price__list .mp-unit {
+  font-size: var(--fs-sm);
+}
+
+.mp-price__scope {
+  color: var(--ink-subtle);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.mp-price__rate {
+  margin: var(--space-1) 0 0;
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+}
+
+.mp-price__note {
+  max-width: 62ch;
+  margin-top: var(--space-3);
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.7;
+}
+
+/* After the rate, the conditions read as a separate paragraph under a hairline */
+.mp-price__basis dl + .mp-price__note {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+}
+
+/* Detail tabs ----------------------------------------------------------------------------------- */
+
+/* Overview: the story (with the fun fact) beside the highlights, the uses underneath */
+.mp-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.mp-uses {
+  grid-column: 1 / -1;
+}
+
+.mp-story > p {
+  color: var(--ink-muted);
+  line-height: 1.85;
+}
+
+.mp-fact {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--ink);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+}
+
+:root[data-theme='dark'] .mp-fact {
+  border-left-color: var(--led);
+}
+
+.mp-fact__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--tint-gold);
+  color: var(--on-gold);
+}
+
+.mp-fact p {
+  padding-top: 7px;
+}
+
+.mp-fact strong {
+  margin-right: var(--space-1);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* Highlights: rows split by hairlines, each led by a short rule (they are not steps, so no numbers) */
+.mp-numlist {
+  display: grid;
+  list-style: none;
+}
+
+.mp-numlist li {
+  position: relative;
+  padding: var(--space-3) 0 var(--space-3) 28px;
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.mp-numlist li + li {
+  border-top: 1px solid var(--line);
+}
+
+.mp-numlist li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: calc(var(--space-3) + 0.8em);
+  width: 14px;
+  height: 2px;
+  background: var(--ink);
+}
+
+:root[data-theme='dark'] .mp-numlist li::before {
+  background: var(--led);
+}
+
+/* Trims: the spec table (wider screens) or one card per trim (phones) */
+.mp-trims__scroll {
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.mp-trims__scroll:focus-visible {
+  outline-offset: 2px;
+}
+
+.mp-table {
+  width: 100%;
+  min-width: calc(12rem + var(--trims) * 9rem);
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--fs-sm);
+}
+
+.mp-table th,
+.mp-table td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Each trim heads its column like a configurator's choice: the name large over an ink rule */
+.mp-table thead th {
+  padding-block: var(--space-5) var(--space-4);
+  border-bottom: 2px solid var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.mp-table thead th + th {
+  border-left: 1px solid var(--line);
+}
+
+.mp-table .mp-table__corner {
+  width: 12rem;
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0;
+  vertical-align: bottom;
+}
+
+.mp-table__group th {
+  padding-block: var(--space-2);
+  background: var(--surface-sunk);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.mp-table tbody + tbody .mp-table__group th {
+  border-top: 1px solid var(--line);
+}
+
+.mp-table tbody th[scope='row'] {
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+.mp-table tbody tr:not(.mp-table__group) + tr > * {
+  border-top: 1px solid var(--line);
+}
+
+.mp-table td {
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.mp-table td + td {
+  border-left: 1px solid var(--line);
+}
+
+/* The baht price is the row a buyer reads first: set it as the column's headline figure */
+.mp-table tbody:first-of-type tr:nth-of-type(2) td {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+/* The bracketed half of a trim name ("(รุ่นวิจัย)") stays whole and a little quieter */
+.mp-trimname-note {
+  display: inline-block;
+  font-weight: 500;
+}
+
+.mp-trimcards {
+  display: none;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.mp-trimcard {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.mp-trimcard__head {
+  padding: var(--space-4);
+  border-bottom: 2px solid var(--ink);
+}
+
+.mp-trimcard__num {
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+}
+
+.mp-trimcard h3 {
+  color: var(--ink);
+  font-size: var(--fs-xl);
+  text-wrap: pretty;
+}
+
+.mp-notes {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.7;
+}
+
+.mp-notes__title {
+  margin-right: var(--space-1);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* Label–value spec sheet rows (trim cards, software, the Thai sales facts) */
+.mp-sheet {
+  display: grid;
+}
+
+.mp-sheet > div {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: 10px 0;
+}
+
+.mp-sheet > div + div {
+  border-top: 1px solid var(--line);
+}
+
+.mp-sheet dt {
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.mp-sheet dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.mp-sheet__lead {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* One fact per line within a value: a note under its lead, or one trim's computer each */
+.mp-sheet__line {
+  display: block;
+}
+
+.mp-sheet__lead + .mp-sheet__line {
+  margin-top: 2px;
+  color: var(--ink-muted);
+}
+
+.mp-sheet--trim > div {
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: var(--space-3);
+  padding: 9px var(--space-4);
+}
+
+.mp-sheet--trim dd {
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.mp-sheet--trim > .mp-sheet__wide {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px;
+}
+
+.mp-sheet--trim > .mp-sheet__wide dd {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/* Size and systems: the height diagram beside sensors and software, charging across the foot */
+.mp-dims {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-areas:
+    'size sensors'
+    'size software'
+    'charge charge';
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.mp-dims__size {
+  grid-area: size;
+}
+
+.mp-dims__sensors {
+  grid-area: sensors;
+}
+
+.mp-dims__software {
+  grid-area: software;
+}
+
+.mp-dims__charge {
+  grid-area: charge;
+}
+
+/* Height beside a 170 cm adult, both to scale on an ink floor line, a hairline rule every 50 cm. The
+   plot leaves a gutter on the left for the scale's figures and room underneath for the names. */
+.mp-height {
+  margin-bottom: var(--space-4);
+}
+
+.mp-height__chart {
+  position: relative;
+  height: 16rem;
+  margin: var(--space-6) 0 3.25rem 2.25rem;
+}
+
+.mp-height__step {
+  position: absolute;
+  inset-inline: 0;
+  bottom: calc(var(--at) * 100%);
+  border-top: 1px solid var(--line);
+}
+
+.mp-height__step:first-child {
+  border-top: 2px solid var(--ink);
+}
+
+.mp-height__step span {
+  position: absolute;
+  right: calc(100% + var(--space-2));
+  top: -0.75em;
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.mp-height__figure {
+  position: absolute;
+  bottom: 0;
+  height: calc(var(--h) * 100%);
+  aspect-ratio: 40 / 100;
+  translate: -50% 0;
+}
+
+.mp-height__figure svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.mp-height__figure--robot {
+  left: 34%;
+  color: var(--meter-on);
+}
+
+.mp-height__figure--adult {
+  left: 70%;
+  color: color-mix(in srgb, var(--ink-subtle) 45%, var(--surface));
+}
+
+/* The robot's face plate, cut out of its head in the card's own colour */
+.mp-height__visor {
+  fill: var(--surface);
+}
+
+/* Each figure's height above its head, on a chip so the rules never strike through it */
+.mp-height__label {
+  position: absolute;
+  bottom: calc(100% + var(--space-1));
+  left: 50%;
+  translate: -50% 0;
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.mp-height__figure--robot .mp-height__label {
+  background: var(--meter-on);
+  color: var(--surface);
+}
+
+.mp-height__name {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  left: 50%;
+  translate: -50% 0;
+  width: max-content;
+  max-width: 9.5rem;
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.mp-height__figure--robot .mp-height__name {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.mp-height figcaption {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+/* Figure tiles on a hairline grid (1px gaps over the line colour) */
+.mp-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.mp-tiles--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mp-tiles > div {
+  min-width: 0;
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  background: var(--surface);
+}
+
+.mp-tiles dt {
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.mp-tiles dd {
+  margin: 2px 0 0;
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.mp-tiles .mp-unit {
+  font-size: var(--fs-sm);
+}
+
+.mp-tiles .mp-missing {
+  font-size: var(--fs-md);
+}
+
+.mp-tiles dd.mp-tiles__sub {
+  margin-top: var(--space-1);
+  color: var(--ink-muted);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* In a narrow card the tiles become spec-sheet rows: label left, figure right, any note underneath
+   at full width. Half-width tiles would break their labels mid-phrase ("ความจุแบต / เตอรี่")
+   and push a long figure (1,000–2,000 Wh) onto two lines. */
+@container (max-width: 460px) {
+  .mp-tiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mp-tiles > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 2px var(--space-3);
+    padding: var(--space-3);
+  }
+
+  .mp-tiles dd {
+    margin: 0;
+    font-size: var(--fs-lg);
+    text-align: right;
+  }
+
+  .mp-tiles dd.mp-tiles__sub {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    text-align: left;
+  }
+}
+
+@container (max-width: 700px) {
+  .mp-tiles--three {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mp-tiles--three > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 2px var(--space-3);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .mp-tiles--three dd {
+    margin: 0;
+    font-size: var(--fs-lg);
+    text-align: right;
+  }
+
+  .mp-tiles--three dd.mp-tiles__sub {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    text-align: left;
+  }
+}
+
+/* Safety: the safety systems beside the certifications and a dark warranty tile */
+.mp-safety {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'features certs'
+    'features warranty';
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.mp-safety__features {
+  grid-area: features;
+}
+
+.mp-certs {
+  grid-area: certs;
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  border-radius: var(--radius-sm);
+  background: var(--tone-bg);
+}
+
+.mp-certs__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--tone-ink);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Each standard as a white chip on the tinted tile */
+.mp-certs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: var(--space-3);
+  list-style: none;
+}
+
+.mp-certs__list .chip {
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.mp-certs__none {
+  margin-top: var(--space-2);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+/* Warranty on a piece of the dark stage, with the LED hairline along its top */
+.mp-warranty {
+  position: relative;
+  grid-area: warranty;
+  padding: var(--space-5);
+  border-radius: var(--radius-sm);
+  background: var(--stage-dark);
+  box-shadow: var(--elev-2);
+}
+
+.mp-warranty::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, var(--led), transparent 70%);
+}
+
+.mp-warranty__title {
+  color: var(--on-navy);
+  font-size: var(--fs-xl);
+}
+
+.mp-warranty__list {
+  margin-top: var(--space-3);
+}
+
+.mp-warranty__list > div {
+  padding: var(--space-3) 0;
+}
+
+.mp-warranty__list > div + div {
+  border-top: 1px solid var(--navy-line);
+}
+
+.mp-warranty dt {
+  color: var(--on-navy-muted);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.mp-warranty dd {
+  margin: 2px 0 0;
+  color: var(--on-navy);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.mp-warranty .mp-missing {
+  color: var(--on-navy-muted);
+}
+
+.mp-warranty__note {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--navy-line);
+  color: var(--on-navy-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.65;
+}
+
+/* Lists with a squared marker: ✓ by default, + / − for pros and cons, ! for things to weigh.
+   Rows split by hairlines rather than sitting in filled boxes. */
+.mp-ticks {
+  display: grid;
+  list-style: none;
+}
+
+.mp-ticks li {
+  position: relative;
+  min-height: 44px;
+  padding: 11px 0 11px 38px;
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.mp-ticks li + li {
+  border-top: 1px solid var(--line);
+}
+
+.mp-ticks li::before,
+.mp-ticks li::after {
+  content: '';
+  position: absolute;
+}
+
+.mp-ticks li::before {
+  left: 0;
+  top: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  background: var(--tick-bg, var(--tint-sage));
+}
+
+.mp-ticks li::after {
+  left: 5px;
+  top: 17px;
+  width: 14px;
+  height: 14px;
+  background: var(--tick-ink, var(--on-sage));
+  -webkit-mask: var(--tick-icon, var(--icon-check)) center / contain no-repeat;
+  mask: var(--tick-icon, var(--icon-check)) center / contain no-repeat;
+}
+
+/* Short items (the uses) side by side across a full-width card, each column split by hairlines */
+.mp-ticks--grid {
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  column-gap: var(--space-6);
+}
+
+.mp-ticks--grid li + li {
+  border-top: 0;
+}
+
+.mp-ticks--grid li {
+  border-bottom: 1px solid var(--line);
+}
+
+.mp-ticks--plus {
+  --tick-icon: var(--icon-plus);
+}
+
+.mp-ticks--minus {
+  --tick-icon: var(--icon-minus);
+  --tick-bg: var(--tint-sand);
+  --tick-ink: var(--on-sand);
+}
+
+.mp-ticks--caution {
+  --tick-icon: var(--icon-bang);
+  --tick-bg: var(--caution-soft);
+  --tick-ink: var(--caution-ink);
+}
+
+/* Before you decide: pros and cons on their tints, then the two lists to weigh, then how to buy one
+   in Thailand */
+.mp-decide {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.mp-decide__pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.mp-verdict {
+  min-width: 0;
+  padding: var(--space-5) var(--space-6) var(--space-5);
+  border-radius: var(--radius-sm);
+  background: var(--tone-bg);
+}
+
+.mp-verdict__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  color: var(--tone-ink);
+  font-size: var(--fs-xl);
+}
+
+.mp-verdict__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--tone-ink);
+}
+
+.mp-verdict .mp-ticks li + li {
+  border-top-color: color-mix(in srgb, var(--tone-ink) 18%, transparent);
+}
+
+.mp-verdict .mp-ticks {
+  --tick-bg: var(--surface);
+  --tick-ink: var(--tone-ink);
+}
+
+.mp-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-6);
+  margin-top: var(--space-3);
+}
+
+/* References ------------------------------------------------------------------------------------ */
+
+.mp-sources {
+  margin-top: var(--space-7);
+  border-block: 1px solid var(--line-strong);
+}
+
+.mp-sources summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 64px;
+  padding: var(--space-3) 0;
+  list-style: none;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mp-sources summary::-webkit-details-marker {
+  display: none;
+}
+
+.mp-sources summary:focus-visible {
+  outline-offset: 2px;
+}
+
+.mp-sources__mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  transition:
+    rotate var(--dur-3) var(--ease-out),
+    background-color var(--dur-2) var(--ease-out),
+    border-color var(--dur-2) var(--ease-out),
+    color var(--dur-2) var(--ease-out);
+}
+
+.mp-sources summary:hover .mp-sources__mark,
+.mp-sources[open] .mp-sources__mark {
+  border-color: var(--selected-bg);
+  background: var(--selected-bg);
+  color: var(--selected-fg);
+}
+
+.mp-sources[open] .mp-sources__mark {
+  rotate: 45deg;
+}
+
+.mp-sources ol {
+  columns: 2;
+  column-gap: var(--space-7);
+  padding: var(--space-1) 0 var(--space-5);
+  list-style: none;
+  counter-reset: src;
+  font-size: var(--fs-sm);
+}
+
+.mp-sources li {
+  position: relative;
+  padding: 5px 0 5px 40px;
+  break-inside: avoid;
+  counter-increment: src;
+}
+
+/* Citation numbers: a reference list really is numbered */
+.mp-sources li::before {
+  content: counter(src);
+  content: counter(src) / '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-sunk);
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+}
+
+.mp-sources a {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+/* Pager: the neighbouring models as two tiles ---------------------------------------------------- */
+
+.mp-more {
+  margin-top: var(--space-8);
+}
+
+.mp-more__title {
+  margin-bottom: var(--space-5);
+  font-size: var(--fs-2xl);
+}
+
+.mp-pager {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.mp-pager__link {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(140px, 2fr) minmax(0, 3fr);
+  grid-template-areas: 'thumb text';
+  align-items: center;
+  gap: var(--space-5);
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+  color: var(--ink);
+  text-decoration: none;
+  transition: box-shadow var(--dur-3) var(--ease-out);
+}
+
+/* An LED line along the tile's foot when pointed at */
+.mp-pager__link::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--led);
+  box-shadow: 0 0 12px var(--led-glow);
+  scale: 0 1;
+  transform-origin: left;
+  transition: scale var(--dur-3) var(--ease-out);
+}
+
+.mp-pager__link--next {
+  grid-template-columns: minmax(0, 3fr) minmax(140px, 2fr);
+  grid-template-areas: 'text thumb';
+  text-align: right;
+}
+
+.mp-pager__link--next::after {
+  transform-origin: right;
+}
+
+.mp-pager__thumb {
+  grid-area: thumb;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--stage);
+}
+
+.mp-pager__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 15%;
+  transition: scale 900ms var(--ease-out);
+}
+
+.mp-pager__text {
+  grid-area: text;
+  display: grid;
+  justify-items: start;
+  gap: 2px;
+  min-width: 0;
+  padding-block: var(--space-3);
+}
+
+.mp-pager__link--prev .mp-pager__text {
+  padding-right: var(--space-5);
+}
+
+.mp-pager__link--next .mp-pager__text {
+  justify-items: end;
+  padding-left: var(--space-5);
+}
+
+.mp-pager__dir {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.mp-pager__link--next .mp-pager__dir {
+  flex-direction: row-reverse;
+}
+
+.mp-pager__arrow {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  transition:
+    background-color var(--dur-2) var(--ease-out),
+    border-color var(--dur-2) var(--ease-out),
+    color var(--dur-2) var(--ease-out);
+}
+
+.mp-pager__name {
+  /* Model names in the condensed cut, like the lettering on a vehicle badge */
+  font-family: var(--font-nameplate);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.mp-pager__price {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+.mp-pager__link:hover {
+  box-shadow: var(--elev-3);
+  color: var(--ink);
+}
+
+.mp-pager__link:hover::after,
+.mp-pager__link:focus-visible::after {
+  scale: 1 1;
+}
+
+.mp-pager__link:hover .mp-pager__thumb img {
+  scale: 1.045;
+}
+
+.mp-pager__link:hover .mp-pager__name {
+  color: var(--accent);
+}
+
+.mp-pager__link:hover .mp-pager__arrow {
+  border-color: var(--selected-bg);
+  background: var(--selected-bg);
+  color: var(--selected-fg);
+}
+
+/* Responsive ------------------------------------------------------------------------------------ */
+
+@media (max-width: 1080px) {
+  .mp-keyspecs__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mp-keyspecs__list > div:nth-child(4) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .mp-keyspecs__list > div:nth-child(n + 4) {
+    border-top: 1px solid var(--navy-line);
+  }
+
+  .mp-safety {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+/* Single columns are minmax(0, 1fr), not 1fr: a plain 1fr track grows to its widest unbreakable
+   content (a nowrap price) and would push past the gutter on a narrow phone */
+@media (max-width: 960px) {
+  /* The photo joins the flow, full-bleed under the way back, and the name plate overlaps its foot */
+  .mstage__hero {
+    display: block;
+    min-height: 0;
+  }
+
+  .mstage__photo {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    height: clamp(300px, 66vw, 560px);
+    margin-top: var(--space-4);
+    -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 26%);
+    mask-image: linear-gradient(0deg, transparent 0%, #000 26%);
+  }
+
+  .mstage__inner {
+    z-index: 1;
+    margin-top: calc(-1 * var(--space-8));
+  }
+
+  .mstage__copy {
+    width: 100%;
+    max-width: 640px;
+    padding-block: 0 var(--space-6);
+  }
+
+  .mp-intro {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: var(--space-7) var(--space-6);
+  }
+
+  .mp-overview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mp-dims {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'size'
+      'sensors'
+      'software'
+      'charge';
+  }
+
+  .mp-safety {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-template-areas:
+      'certs'
+      'features'
+      'warranty';
+  }
+}
+
+/* Below this the four-trim table no longer fits beside its label column: one card per trim,
+   two to a row */
+@media (max-width: 900px) {
+  .mp-trims__scroll {
+    display: none;
+  }
+
+  .mp-trimcards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  /* Key figures as a spec sheet: label on the left, the figure (and its note) on the right */
+  .mp-keyspecs__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mp-keyspecs__list > div:nth-child(n) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 0 var(--space-4);
+    padding: var(--space-3) 0;
+    border-left: 0;
+    border-top: 1px solid var(--navy-line);
+  }
+
+  .mp-keyspecs__list > div:first-child {
+    border-top: 0;
+  }
+
+  .mp-keyspecs dt {
+    grid-row: 1;
+    grid-column: 1;
+    margin: 0;
+  }
+
+  .mp-keyspecs__value {
+    grid-row: 1;
+    grid-column: 2;
+    margin: 0;
+    font-size: 1.625rem;
+    text-align: right;
+  }
+
+  .mp-keyspecs__sub {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    margin-top: 2px;
+    text-align: right;
+  }
+
+  .mp-keyspecs__note {
+    padding-top: var(--space-3);
+  }
+
+  /* Two cards to a row: each row's value goes under its label, so a value never squeezes into a
+     column narrower than "NVIDIA Jetson Orin" */
+  .mp-sheet--trim > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .mp-decide__pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mp-sources ol {
+    columns: 1;
+  }
+
+  /* Previous / next: two matching tiles (photo, direction, name, price), mirrored so each arrow
+     points to its own side */
+  .mp-pager {
+    gap: var(--space-3);
+  }
+
+  .mp-pager__link,
+  .mp-pager__link--next {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'thumb'
+      'text';
+    align-items: start;
+    gap: var(--space-2);
+  }
+
+  .mp-pager__text,
+  .mp-pager__link--prev .mp-pager__text,
+  .mp-pager__link--next .mp-pager__text {
+    padding: 0 var(--space-3) var(--space-3);
+  }
+
+  .mp-pager__dir {
+    margin-bottom: 2px;
+  }
+
+  .mp-pager__arrow {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mp-pager__name {
+    font-size: var(--fs-md);
+  }
+
+  /* "เริ่มต้น" and the figure on their own lines, so both tiles keep the same shape */
+  .mp-pager__price {
+    font-size: var(--fs-xs);
+    line-height: 1.5;
+  }
+
+  .mp-pager__price .nowrap {
+    display: block;
+  }
+}
+
+/*
+  Phones: the page reads like a product sheet — the way back, the photo full-bleed, the name plate
+  over its foot, the price and actions, then the key figures as a label–value sheet on the dark
+  stage. Everything shares the container's left edge and every tile one inner padding (--space-4).
+*/
+@media (max-width: 560px) {
+  .mp-crumbs {
+    padding-top: var(--space-4);
+  }
+
+  .mstage__photo {
+    height: clamp(260px, 82vw, 420px);
+  }
+
+  .mstage__inner {
+    margin-top: calc(-1 * var(--space-7));
+  }
+
+  .mstage__name {
+    font-size: min(3.5rem, calc(100cqi / (var(--chars, 10) * 0.56)));
+  }
+
+  .mp-nameth {
+    font-size: var(--fs-md);
+  }
+
+  .mp-tagline {
+    font-size: 1.0625rem;
+  }
+
+  /* Thumb-friendly: the actions full width, stacked */
+  .mp-actions {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .mp-actions > .btn,
+  .mp-actions > .link-arrow {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* The "list is full" note sits straight under the button it explains */
+  .mp-actions__hint {
+    order: 1;
+    text-align: center;
+  }
+
+  .mp-actions__trims {
+    order: 2;
+  }
+
+  .mp-actions__link {
+    order: 3;
+  }
+
+  .mp-intro__title {
+    font-size: var(--fs-xl);
+  }
+
+  .mp-lede {
+    font-size: var(--fs-md);
+  }
+
+  /* Rank on two lines: the rank itself, then the period and units */
+  .mp-rank {
+    align-items: flex-start;
+  }
+
+  .mp-rank strong,
+  .mp-rank__meta {
+    display: block;
+  }
+
+  .mp-price__main,
+  .mp-price__basis {
+    padding-inline: var(--space-4);
+  }
+
+  .mp-price__figure {
+    font-size: clamp(1.875rem, 1.3rem + 2.6vw, 2.25rem);
+  }
+
+  .mp-card,
+  .mp-verdict,
+  .mp-warranty {
+    padding: var(--space-4);
+  }
+
+  .mp-card__head {
+    margin-bottom: var(--space-3);
+  }
+
+  .mp-subhead {
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-lg);
+  }
+
+  /* Fun fact: "รู้หรือไม่" beside the icon as a title, the fact underneath at full width */
+  .mp-fact {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+    padding: var(--space-3) var(--space-4) var(--space-4);
+  }
+
+  .mp-fact p {
+    display: contents;
+  }
+
+  .mp-fact strong {
+    font-size: var(--fs-md);
+  }
+
+  .mp-fact__text {
+    grid-column: 1 / -1;
+  }
+
+  .mp-trimcards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mp-notes {
+    padding: var(--space-4);
+  }
+
+  /* Long free text (distributor, SDK): the value under its label at full width */
+  .mp-sheet:not(.mp-sheet--trim) > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+
+  /* Wide enough for "องศาอิสระ (DOF)" on one line from about 400px */
+  .mp-sheet--trim > div {
+    grid-template-columns: clamp(7.75rem, 42%, 10rem) minmax(0, 1fr);
+    gap: var(--space-3);
+    padding-inline: var(--space-3);
+  }
+
+  /* A shorter plot, so the diagram and its caption share one screen */
+  .mp-height__chart {
+    height: 13rem;
+    margin-top: var(--space-5);
+  }
+
+  .mp-certs {
+    padding: var(--space-3) var(--space-4) var(--space-4);
+  }
+
+  .mp-more {
+    margin-top: var(--space-7);
+  }
+
+  .mp-more__title {
+    font-size: var(--fs-xl);
+  }
+}

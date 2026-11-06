@@ -1,0 +1,232 @@
+/*
+  Servo design tokens — showroom theme, retyped and recoloured (2026-11-06)
+  Built like a car maker's site, where one house typeface and plain black and white carry the brand:
+  - Type: one family, IBM Plex. Plex Sans Thai (its Latin is Plex Sans) sets every heading, figure and
+    paragraph; IBM Plex Sans Condensed sets only the big model nameplates, like the lettering on a
+    vehicle badge. Weights stay in the 400–600 range: no hairline figures, no heavy display.
+  - Colour: true black and white with two neutral greys (no blue-tinted slate), a black stage under a
+    soft spotlight for the hero moments, black buttons on white floors. Light on the stage is white;
+    on light floors the same marker token is black. One blue is kept for links.
+  Light is the default whatever the OS prefers; dark is an opt-in "night" variant via the header toggle.
+  Token names are kept from earlier themes so the admin back office follows along.
+*/
+:root {
+  color-scheme: light;
+
+  /* Floors and surfaces: neutral, no tint */
+  --paper: #f2f2f2;
+  --surface: #ffffff;
+  --surface-sunk: #e9e9e9;
+  /* Photo stage on light floors: a studio sweep, lighter at the top */
+  --stage: linear-gradient(180deg, #f7f7f7 0%, #e3e3e3 100%);
+  --band: #ebebeb;
+
+  /* The dark stage: hero, key figures, footer */
+  --navy: #000000;
+  --navy-raised: #161616;
+  --navy-line: #2e2e2e;
+  --on-navy: #ffffff;
+  --on-navy-muted: #a3a3a3;
+  /* A soft spotlight on the black stage */
+  --stage-dark: radial-gradient(120% 90% at 70% 35%, #2a2a2a 0%, #111111 45%, #000000 100%);
+
+  /* Text: black, then two neutral greys (≥4.5:1 on paper, surface and sunk) */
+  --ink: #000000;
+  --ink-muted: #3d3d3d;
+  --ink-subtle: #5e5e5e;
+  /* Secondary marks ("ประมาณ", ranks, list markers); headings themselves are one colour (base.css .tint) */
+  --tint: #5e5e5e;
+  --line: #dcdcdc;
+  --line-strong: #bdbdbd;
+  /* Text-field and select outlines: ≥3:1 against surface and paper (WCAG 1.4.11) */
+  --control-line: #767676;
+
+  /* Links and anything you can follow */
+  --accent: #0a50c8;
+  --accent-hover: #083c99;
+  --accent-soft: #e6edf9;
+  --on-accent: #ffffff;
+  /* Buttons are black on light floors, as on a car configurator */
+  --btn-bg: #000000;
+  --btn-bg-hover: #2b2b2b;
+  --btn-fg: #ffffff;
+  --selected-bg: #000000;
+  --selected-fg: #ffffff;
+  /* Default fill for UI tracks (nav, tabs, segmented) */
+  --soft: #ececec;
+  --on-soft: #1f1f1f;
+
+  /* Markers (active underlines, rules, the scan line): black on light floors, white on the stage */
+  --gold: #000000;
+  --gold-soft: #ececec;
+  --led: #000000;
+  --led-glow: transparent;
+
+  /* Quiet tints for chips and tiles, each paired with an ink that reads ≥5:1 on it */
+  --tint-sand: #eeebe4;
+  --on-sand: #574a32;
+  --tint-slate: #ececec;
+  --on-slate: #333333;
+  --tint-sky: #e6edf9;
+  --on-sky: #1c4688;
+  --tint-sage: #e5eee8;
+  --on-sage: #245238;
+  --tint-gold: #ececec;
+  --on-gold: #333333;
+
+  /* Figures, meters and charts */
+  --figure: #000000;
+  --meter-on: #0a50c8;
+  --meter-off: #e0e0e0;
+  --chart-bar: #0a50c8;
+  --positive: #1d6b45;
+  --negative: #a23a22;
+
+  /* Cautions (buyer warnings, uncertain data) */
+  --caution: #b7791f;
+  --caution-ink: #6e4a0f;
+  --caution-soft: #fbf1dc;
+  --caution-line: color-mix(in srgb, var(--caution) 45%, transparent);
+
+  --focus: #0a50c8;
+  --overlay: rgb(0 0 0 / 0.04);
+
+  /* Crisp, low shadows: panels sit on the floor like machined parts */
+  --elev-1: 0 1px 0 rgb(0 0 0 / 0.06);
+  --elev-2: 0 1px 2px rgb(0 0 0 / 0.06), 0 14px 32px -22px rgb(0 0 0 / 0.28);
+  --elev-3: 0 2px 4px rgb(0 0 0 / 0.06), 0 24px 48px -26px rgb(0 0 0 / 0.34);
+  --elev-4: 0 4px 8px rgb(0 0 0 / 0.08), 0 32px 64px -28px rgb(0 0 0 / 0.42);
+  --glass: rgb(255 255 255 / 0.88);
+  --glass-dark: rgb(0 0 0 / 0.72);
+
+  /* One house family; the condensed cut is for model nameplates only */
+  --font-display: 'IBM Plex Sans Thai', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans Thai', system-ui, sans-serif;
+  --font-nameplate: 'IBM Plex Sans Condensed', 'IBM Plex Sans Thai', system-ui, sans-serif;
+
+  /* Type scale, ratio ≈ 1.25; Thai needs taller lines than Latin for stacked marks */
+  --fs-2xs: 0.75rem;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.1875rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: clamp(1.875rem, 1.45rem + 1.5vw, 2.75rem);
+  --fs-3xl: clamp(2.375rem, 1.6rem + 3vw, 4.25rem);
+  --fs-page: clamp(2.125rem, 1.6rem + 2.2vw, 3.5rem);
+  /* A model name on the stage, the one oversized thing on a page */
+  --fs-hero: clamp(3rem, 1.2rem + 6.4vw, 7.25rem);
+  --lh-body: 1.7;
+  --lh-heading: 1.3;
+  --tracking-eyebrow: 0;
+  --tracking-display: -0.005em;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: clamp(3.5rem, 2rem + 5vw, 6.5rem);
+  --space-9: 8rem;
+
+  /* Sharp: hairline-rounded controls, square panels */
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-pill: 999px;
+
+  --page-max: 1320px;
+  --gutter: clamp(16px, 4.5vw, 72px);
+  --header-h: 72px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* Long, decelerating moves for reveals; quick ones for answers to a press */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 160ms;
+  --dur-2: 280ms;
+  --dur-3: 620ms;
+  --dur-4: 1100ms;
+}
+
+/* On the black stage (and every dark band) the markers are white light */
+.on-navy,
+.stage {
+  --gold: #ffffff;
+  --led: #ffffff;
+  --led-glow: rgb(255 255 255 / 0.28);
+}
+
+/* Night: the whole floor becomes the stage */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #000000;
+  --surface: #121212;
+  --surface-sunk: #1c1c1c;
+  --stage: linear-gradient(180deg, #222222 0%, #121212 100%);
+  --band: #0b0b0b;
+
+  --navy: #000000;
+  --navy-raised: #121212;
+  --navy-line: #2b2b2b;
+  --on-navy: #ffffff;
+  --on-navy-muted: #a3a3a3;
+  --stage-dark: radial-gradient(120% 90% at 70% 35%, #242424 0%, #0e0e0e 45%, #000000 100%);
+
+  --ink: #ffffff;
+  --ink-muted: #d0d0d0;
+  --ink-subtle: #a3a3a3;
+  --tint: #a3a3a3;
+  --line: #2b2b2b;
+  --line-strong: #3d3d3d;
+  --control-line: #7a7a7a;
+
+  --accent: #8ab4ff;
+  --accent-hover: #b3ceff;
+  --accent-soft: #16233a;
+  --on-accent: #000000;
+  --btn-bg: #ffffff;
+  --btn-bg-hover: #dcdcdc;
+  --btn-fg: #000000;
+  --selected-bg: #ffffff;
+  --selected-fg: #000000;
+  --soft: #1f1f1f;
+  --on-soft: #e6e6e6;
+
+  --gold: #ffffff;
+  --gold-soft: #1f1f1f;
+  --led: #ffffff;
+  --led-glow: rgb(255 255 255 / 0.28);
+
+  --tint-sand: #24211b;
+  --on-sand: #e4d8bd;
+  --tint-slate: #262626;
+  --on-slate: #d6d6d6;
+  --tint-sky: #14213a;
+  --on-sky: #bcd2fb;
+  --tint-sage: #15261c;
+  --on-sage: #b8dcc4;
+  --tint-gold: #262626;
+  --on-gold: #d6d6d6;
+
+  --figure: #ffffff;
+  --meter-on: #8ab4ff;
+  --meter-off: #2b2b2b;
+  --chart-bar: #8ab4ff;
+  --positive: #8fd6ad;
+  --negative: #f2a48f;
+
+  --caution: #e0a53c;
+  --caution-ink: #f3d39a;
+  --caution-soft: #2b2312;
+
+  --focus: #8ab4ff;
+  --overlay: rgb(255 255 255 / 0.05);
+
+  --elev-1: 0 1px 0 rgb(0 0 0 / 0.5);
+  --elev-2: 0 1px 2px rgb(0 0 0 / 0.5), 0 14px 32px -22px rgb(0 0 0 / 0.8);
+  --elev-3: 0 2px 4px rgb(0 0 0 / 0.5), 0 24px 48px -26px rgb(0 0 0 / 0.85);
+  --elev-4: 0 4px 8px rgb(0 0 0 / 0.55), 0 32px 64px -28px rgb(0 0 0 / 0.9);
+  --glass: rgb(18 18 18 / 0.88);
+  --glass-dark: rgb(0 0 0 / 0.72);
+}

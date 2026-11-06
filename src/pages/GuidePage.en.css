@@ -1,0 +1,115 @@
+/* The English guide summary: reuses the Thai guide's cover, index, sections and tables (GuidePage.css) */
+.gen-thai {
+  margin: 0 0 var(--space-6);
+}
+
+.gen-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  margin-bottom: var(--space-5);
+  list-style: none;
+  background: var(--line);
+}
+
+.gen-items > li {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: var(--surface);
+}
+
+.gen-items h3,
+.gen-steps h3 {
+  font-size: var(--fs-md);
+}
+
+.gen-items p,
+.gen-steps p {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* Set-up is a real sequence, so its steps are numbered */
+.gen-steps {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.gen-steps > li {
+  position: relative;
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5) var(--space-4) calc(var(--space-5) + 40px);
+  background: var(--surface);
+  counter-increment: step;
+}
+
+.gen-steps > li::before {
+  content: counter(step);
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  background: var(--navy);
+  color: var(--led);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.gen-sub {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+}
+
+.gen-subhead {
+  margin: var(--space-6) 0 var(--space-3);
+  font-size: var(--fs-lg);
+}
+
+.gen-plain {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: 1.2em;
+  color: var(--ink-muted);
+}
+
+.gen-total > * {
+  border-top: 2px solid var(--ink) !important;
+  font-weight: 600;
+}
+
+.gmain .gtable + .gtable {
+  margin-top: var(--space-5);
+}
+
+.gen-end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-block: var(--space-8);
+}
+
+@media (max-width: 560px) {
+  .gmain .gtable {
+    overflow-x: auto;
+  }
+
+  .gen-items {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,262 @@
+/* A white control strip over the lineup, square like the tiles under it */
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+/* Brand, budget and sort wait behind one button, so the strip stays calm until someone wants them */
+.toolbar__more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--accent);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.toolbar__more:hover {
+  background: var(--accent-soft);
+}
+
+.toolbar__search {
+  position: relative;
+}
+
+.toolbar__search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--ink-subtle);
+  pointer-events: none;
+}
+
+.toolbar__search input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 var(--space-4) 0 42px;
+  border: 1px solid var(--control-line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  transition: border-color var(--dur-2) var(--ease-out);
+}
+
+.toolbar__search input::placeholder {
+  color: var(--ink-subtle);
+}
+
+.toolbar__search input:hover {
+  border-color: var(--ink);
+}
+
+.toolbar__search input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+/* Segmented control built on native radios: a grey track, the choice in solid black */
+.segmented {
+  display: inline-flex;
+  margin: 0;
+  padding: 3px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--soft);
+}
+
+.segmented__option {
+  position: relative;
+}
+
+.segmented__option input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.segmented__option span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-sm);
+  color: var(--on-soft);
+  transition:
+    background-color var(--dur-2) var(--ease-out),
+    color var(--dur-2) var(--ease-out);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.segmented__option input:checked + span {
+  background: var(--selected-bg);
+  color: var(--selected-fg);
+  font-weight: 600;
+}
+
+.segmented__option input:not(:checked):hover + span {
+  background: color-mix(in srgb, var(--ink) 7%, transparent);
+}
+
+@media (forced-colors: active) {
+  .segmented__option input:checked + span {
+    background: Highlight;
+    color: HighlightText;
+    forced-color-adjust: none;
+  }
+}
+
+.segmented__option input:focus-visible + span {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+/* Second row, once opened: the three selects share the width evenly */
+.toolbar__selects {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.toolbar__selects:not([data-open]) {
+  display: none;
+}
+
+.select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  border: 1px solid var(--control-line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  transition: border-color var(--dur-2) var(--ease-out);
+}
+
+.select:hover {
+  border-color: var(--ink);
+}
+
+.select:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.select__label {
+  padding-left: var(--space-4);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  white-space: nowrap;
+}
+
+.select select {
+  flex: 1;
+  min-width: 0;
+  appearance: none;
+  min-height: 42px;
+  padding: 0 36px 0 var(--space-2);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.select select:focus {
+  outline: none;
+}
+
+.select select option {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.select__icon {
+  position: absolute;
+  right: 12px;
+  color: var(--ink-subtle);
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .segmented {
+    display: grid;
+    grid-template-columns: repeat(var(--segments, 4), minmax(0, 1fr));
+  }
+
+  .segmented__option span {
+    justify-content: center;
+    width: 100%;
+    padding: 0 var(--space-2);
+  }
+
+  .toolbar__more {
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
+    gap: var(--space-2);
+    min-height: 40px;
+    padding: 0 var(--space-3);
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--accent);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+  }
+
+  .toolbar__more:hover {
+    background: var(--accent-soft);
+  }
+
+  /* One select per row: label and value side by side need the full width in Thai */
+  .toolbar__selects {
+    display: none;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .toolbar__selects[data-open] {
+    display: grid;
+  }
+
+  .select select {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .segmented__option span {
+    font-size: var(--fs-xs);
+  }
+}

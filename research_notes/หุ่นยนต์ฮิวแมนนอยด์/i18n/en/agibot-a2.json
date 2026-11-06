@@ -1,0 +1,95 @@
+{
+  "id": "agibot-a2",
+  "segment": "Human-size humanoid for reception and customer service",
+  "originCountry": "China",
+  "tagline": "169 cm humanoid for reception and guided tours",
+  "summary": "AGIBOT A2 (known in China as Yuanzheng A2) is a human-size bipedal humanoid robot, 169 cm tall and weighing 63–69 kg, designed for reception, exhibition tours and customer information. The A2 Ultra has dexterous hands, camera and LiDAR perception and an NVIDIA Jetson AGX Orin computer, and is priced in Thailand at 3,118,000 baht through VST ECS. The A2 Lite, intended for performances, is priced at US$44,560 on the maker's online store.",
+  "background": "AGIBOT unveiled the A2 in August 2024, and the company began mass production of robots in December 2024. The A2 is currently sold as the A2 Ultra and the A2 Lite, in addition to the wheeled A2-W. The maker states that more than 1,000 A2 Ultra units are already in real-world use, that it has passed 5,100 hours of continuous walking tests, and that it undergoes 92 quality checks to automotive-grade manufacturing standards. In November 2025 an A2 walked 106.286 km in 3 days and was recognised with a Guinness World Record. In Thailand, VST ECS launched the A2 Ultra as its flagship model in June 2026 for customer service, retail and healthcare, and stated that it supports 20 languages including Thai, while the GULF group is working with AGIBOT to deploy reception robots in retail stores and financial service branches.",
+  "availabilityNote": "VST ECS (Thailand) has been AGIBOT's distributor in Thailand since June 2026 and has announced a baht price for the A2 Ultra, with a local training and maintenance team; complex repairs are supported by engineers from China. The A2 Lite can be ordered from AGIBOT's online store, with the buyer responsible for shipping, customs duty and import duty.",
+  "distributor": "VST ECS (Thailand) Co., Ltd., the Thai distributor; or order the A2 Lite directly from AGIBOT's online store",
+  "trims": [
+    {
+      "name": "A2 Lite",
+      "hand": "No dexterous hands",
+      "compute": "14-core CPU (no NVIDIA Jetson board)"
+    },
+    {
+      "name": "A2 Ultra",
+      "hand": "Two five-fingered dexterous hands, 6 DoF per hand",
+      "compute": "NVIDIA Jetson AGX Orin 64GB"
+    }
+  ],
+  "sensors": [
+    "RGB-D depth camera on the head, range 0.3–10 m (Ultra)",
+    "RGB camera and 2 fisheye cameras on the chest (Ultra)",
+    "RGB-D depth camera at the waist, range 0.15–5 m (Ultra)",
+    "LiDAR with a range of 0.2–40 m at 10% reflectivity and up to 70 m at 80% reflectivity (Ultra)",
+    "5 W speakers: 2 (Ultra) or 1 (Lite)"
+  ],
+  "charging": {
+    "note": "14.4 Ah battery that can be swapped while the robot is powered on (hot-swap), charged at up to 500 W at 48 V DC. The maker does not state the capacity in Wh. The Ultra can stand in service for about 3 hours and the Lite for about 4 hours 35 minutes."
+  },
+  "software": {
+    "sdk": "AGIBOT's AimDK development kit for the Ultra; the Lite is focused on performances and has no perception or voice system",
+    "ai": "Multilingual voice conversation (VST ECS states 20 languages including Thai), autonomous reception and navigation, and brand-specific content customisation (Ultra)"
+  },
+  "warranty": {
+    "robot": "1 year",
+    "battery": null,
+    "note": "VST ECS states a general 1-year warranty in Thailand. AGIBOT's online store states 1 year or 3,000 operating hours, whichever comes first (A2 Lite)."
+  },
+  "safety": {
+    "features": [
+      "Arm collision detection (Ultra)",
+      "Obstacle detection up to 5 m away (Ultra)",
+      "Wireless emergency stop button included (A2 Lite)"
+    ],
+    "certifications": []
+  },
+  "useCases": [
+    "Reception and guided tours in showrooms, museums and exhibitions",
+    "Product and promotion information in retail stores",
+    "Greeting customers in financial service branches and healthcare facilities",
+    "Performances and promotion for marketing activities",
+    "Brand ambassador with appearance and content customised to the organisation"
+  ],
+  "highlights": [
+    "Human-size at 169 cm tall, suited to front-desk and reception work",
+    "The Ultra has five-fingered dexterous hands and a Jetson AGX Orin 64GB computer",
+    "Battery can be swapped while powered on, reducing downtime",
+    "The maker states that more than 1,000 units are already in real-world use",
+    "Thai distributor with announced baht pricing and local after-sales service"
+  ],
+  "pros": [
+    "Can be bought and serviced in Thailand through VST ECS",
+    "Swappable battery allows longer continuous service than waiting to recharge",
+    "Supports conversation in Thai, according to the distributor",
+    "Lower-priced Lite version for performances that do not need perception"
+  ],
+  "cons": [
+    "The Thai price of the Ultra is over 3 million baht",
+    "About 1.5 hours of continuous walking per battery",
+    "Top walking speed of about 1.2 m/s, and can step over obstacles only up to 20 mm high",
+    "Payload of 2 kg per arm (Ultra), so it is not suited to heavy lifting",
+    "The Lite has no cameras, voice system or grasping hands"
+  ],
+  "idealFor": [
+    "Shopping malls, showrooms and exhibition centres that want a human-size reception robot",
+    "Banks, hotels and hospitals that need front-desk information services",
+    "Event organisers that want a robot for performances (Lite)"
+  ],
+  "considerations": [
+    "Check with VST ECS whether the 3,118,000 baht price includes VAT, installation, software and training",
+    "The payload figure stated by the maker is per arm",
+    "The operating area should be level; the maker states it can climb 10-degree ramps, while overseas sellers state that autonomous navigation needs walkways wider than 2 m",
+    "Prepare spare batteries and a charging point if it will be used all day",
+    "The maker does not directly publish the total DoF of the Ultra; the figure of 40 DoF comes from overseas sellers, so request the official specification sheet"
+  ],
+  "funFact": "In November 2025 an A2 robot walked 106.286 km in 3 days and was recognised with a Guinness World Record.",
+  "priceNote": "The A2 Ultra price of 3,118,000 baht was announced by VST ECS at its launch event in Bangkok in June 2026, as reported by MGR Online, without stating whether it includes VAT. The A2 Lite price of US$44,560 is the price on AGIBOT's online store and excludes shipping (US$500–3,000), customs duty and import duty, which the buyer must pay. AGIBOT's online store gives the A2 Ultra price on request, and the retailer RobotShop lists the A2 Ultra at US$112,061. VST ECS offers short-term rental for events, an annual subscription and the AgiRaaS robot-as-a-service model.",
+  "gallery": [
+    {
+      "alt": "AgiBot A2 hanging from a safety gantry beside a desk where a team is programming it, seen from behind at an angle"
+    }
+  ]
+}

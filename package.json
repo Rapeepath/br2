@@ -1,0 +1,46 @@
+{
+  "name": "watt-ev-catalogue",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "แค็ตตาล็อกรถยนต์ไฟฟ้ายอดนิยมในไทย — เว็บโบรชัวร์สินค้าด้วย React",
+  "scripts": {
+    "dev": "vite",
+    "data": "node scripts/build-data.mjs",
+    "build": "tsc --noEmit && node scripts/build-images.mjs && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "preview": "vite preview --port 4174 --strictPort",
+    "server": "node server/index.ts",
+    "pos:reset": "node server/reset.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:all": "npm run typecheck && npm run test && npm run build && npm run test:e2e",
+    "images": "node scripts/build-images.mjs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-sans-condensed": "^5.3.0",
+    "@fontsource/ibm-plex-sans-thai": "^5.3.0",
+    "@fontsource/ibm-plex-sans-thai-looped": "^5.3.0",
+    "lucide-react": "^1.61.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^8.5.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "jsdom": "^29.1.1",
+    "sharp": "^0.34.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}

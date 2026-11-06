@@ -1,0 +1,2021 @@
+/*
+  Buyer's guide in the showroom style: a dark stage with key figures that count up, then chapters on
+  the studio floor beside a pinned contents list. Tables are white sheets under an ink rule with
+  hairlines between rows and an ink-ruled total; cards are square with hairline edges. Sky marks how a
+  figure is worked out, sage reassuring figures and sand cautions. Only the setup steps are numbered.
+*/
+
+/* ---------- Shared pieces ---------- */
+/* The quieter second line of a name: its bracketed aside, a tariff's conditions, a total's basis */
+.g-aside {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-subtle);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  line-height: 1.55;
+  text-wrap-style: pretty;
+}
+
+/* Table cells wrap like paragraphs do in base.css: no one-word last line (Thai has no spaces to
+   balance on, so the browser's default leaves one often). The longhand, because the text-wrap
+   shorthand would also reset the wrap mode and undo nowrap on the figure cells. */
+.gmain :is(th, td) {
+  text-wrap-style: pretty;
+}
+
+/* ---------- Cover ---------- */
+/* Layout pads a first-in-main .stage for the floating header, so the cover's own air sits on the inner */
+.gcover {
+  background: var(--stage-dark);
+}
+
+.gcover__inner {
+  padding-top: var(--space-8);
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  align-items: end;
+  gap: var(--space-5) var(--space-8);
+}
+
+.gcover h1 {
+  font-size: var(--fs-3xl);
+}
+
+.gcover__lede {
+  max-width: 46ch;
+  color: var(--on-navy-muted);
+  font-size: var(--fs-lg);
+  line-height: 1.75;
+}
+
+/* inline-block, not inline-flex: a flex box would turn the text and the date span into separate
+   items and drop the space between "ณ" and the month */
+.gcover__meta {
+  display: inline-block;
+  margin-top: var(--space-4);
+  padding: 5px var(--space-3);
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius-sm);
+  color: var(--on-navy);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+/* Key figures on the stage's floor, divided by hairlines, like the home page's readouts */
+.gfigures {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: var(--space-7);
+  border-top: 1px solid var(--navy-line);
+}
+
+.gfigures > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: var(--space-1);
+  padding: var(--space-5) var(--space-5) var(--space-6);
+}
+
+.gfigures > div + div {
+  border-left: 1px solid var(--navy-line);
+}
+
+.gfigures > div:first-child {
+  padding-left: 0;
+}
+
+.gfigures dt {
+  color: var(--on-navy-muted);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.gfigures dd {
+  margin: 0;
+  color: var(--on-navy);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.625rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.gfigures__unit {
+  color: var(--on-navy-muted);
+  font-size: 0.5em;
+  font-weight: 500;
+}
+
+/* ---------- Layout: contents card beside the chapters ---------- */
+.glayout {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-7);
+  padding-top: var(--space-7);
+}
+
+/* Pinned under the site header, in a column of its own: it can never cover the text it indexes,
+   and as a grid item it stops at the end of the chapters, above the closing band and footer. */
+.gtoc {
+  position: sticky;
+  top: calc(var(--header-h) + var(--space-5));
+  max-height: calc(100vh - var(--header-h) - var(--space-5) * 2);
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-3) var(--space-3);
+  border-top: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface);
+}
+
+/* While the compare dock floats at the bottom, the card ends above it */
+body:has(.compare-tray) .gtoc {
+  max-height: calc(100vh - var(--header-h) - var(--space-5) - 104px);
+}
+
+.gtoc__title {
+  padding: 0 var(--space-3) var(--space-2);
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.gtoc ol {
+  display: grid;
+  gap: 2px;
+  list-style: none;
+}
+
+.gtoc button {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.gtoc button:hover {
+  background: var(--overlay);
+  color: var(--ink);
+}
+
+.gtoc button:focus-visible {
+  outline-offset: -3px;
+}
+
+/* "You are here": a filled row with an ink bar on its edge */
+.gtoc button[aria-current='location'] {
+  background: var(--soft);
+  color: var(--on-soft);
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 var(--ink);
+}
+
+@media (forced-colors: active) {
+  .gtoc button[aria-current='location'] {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+}
+
+.gmain {
+  min-width: 0;
+}
+
+/* ---------- Chapters ---------- */
+.gsec {
+  padding-block: var(--space-7);
+}
+
+.gsec:first-child {
+  padding-top: 0;
+}
+
+.gsec + .gsec {
+  border-top: 1px solid var(--line-strong);
+}
+
+.gsec__head {
+  margin-bottom: var(--space-6);
+}
+
+.gsec__head h2 {
+  font-size: clamp(1.75rem, 1.35rem + 1.3vw, 2.375rem);
+}
+
+.gsec__intro {
+  max-width: 68ch;
+  margin-top: var(--space-4);
+  color: var(--ink-muted);
+}
+
+.gsec__intro strong {
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* The market summary is the longest paragraph: set in two columns like a brochure's lead text */
+@media (min-width: 1280px) {
+  .gsec--market .gsec__intro {
+    max-width: none;
+    columns: 2;
+    column-gap: var(--space-6);
+  }
+}
+
+.gblock + .gblock,
+.gblock + *,
+* + .gblock {
+  margin-top: var(--space-6);
+}
+
+.gblock__title {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+}
+
+.gblock__title--sm {
+  margin-bottom: var(--space-3);
+  font-size: var(--fs-lg);
+}
+
+/* ---------- Tables: a white sheet under an ink rule ---------- */
+.gtable {
+  overflow: hidden;
+  border-top: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface);
+}
+
+.gtable table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.gtable caption {
+  padding: var(--space-4) var(--space-5) var(--space-3);
+  color: var(--ink);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: var(--lh-heading);
+  text-align: left;
+}
+
+.gtable th,
+.gtable td {
+  padding: var(--space-3) var(--space-5);
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.gtable thead th {
+  padding-block: 10px;
+  border-bottom: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.4;
+  vertical-align: middle;
+}
+
+.gtable tbody tr + tr > * {
+  border-top: 1px solid var(--line);
+}
+
+.gtable tbody th {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.gtable__foot {
+  padding: var(--space-3) var(--space-5) var(--space-4);
+  border-top: 1px solid var(--line);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+}
+
+/* ---------- 01 Market: ranking with a bar beside each figure ---------- */
+.rank__pos {
+  width: 4.5rem;
+  text-align: center !important;
+}
+
+.rank__table tbody .rank__pos {
+  color: var(--tint);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  vertical-align: middle;
+}
+
+.rank__name a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration-color: var(--line-strong);
+}
+
+.rank__name a:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+.rank__name > span[lang] {
+  font-weight: 600;
+}
+
+/* "ในแค็ตตาล็อก: Unitree G1, Unitree H2" under the maker */
+.rank__models a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  text-underline-offset: 0.2em;
+}
+
+.rank__models a:hover {
+  color: var(--accent-hover);
+  text-decoration-color: currentColor;
+}
+
+.rank__units-head {
+  width: 46%;
+  text-align: right !important;
+}
+
+.rank__units {
+  width: 46%;
+  vertical-align: middle !important;
+}
+
+.rank__cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.rank__track {
+  position: relative;
+  flex: 1;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--meter-off);
+}
+
+.rank__track > span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 2px;
+  background: var(--chart-bar);
+}
+
+.rank__fig {
+  flex: none;
+  min-width: 4.5rem;
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.rank__unit {
+  display: none;
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+/* ---------- 02 Checklist: square cards with a squared checkbox ---------- */
+.check-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.check-bar__progress {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 48px;
+  padding: 0 var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.check-bar__progress strong {
+  color: var(--figure);
+  font-weight: 700;
+}
+
+.check-bar__meter {
+  position: relative;
+  width: 160px;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--meter-off);
+}
+
+.check-bar__meter > span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--meter-on);
+  transition: width 320ms var(--ease);
+}
+
+.check-bar .btn-sm {
+  min-height: 48px;
+}
+
+.checklist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.checklist li {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px var(--space-3);
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.checklist li:hover {
+  border-color: var(--ink);
+}
+
+.checklist li:has(input:checked) {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  background: var(--accent-soft);
+}
+
+.checklist label {
+  grid-column: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  cursor: pointer;
+}
+
+/* The whole card toggles the box; the box stays on top as the hit target */
+.checklist label::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.checklist__title {
+  padding-top: 3px;
+  color: var(--ink);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.checklist input {
+  position: relative;
+  z-index: 1;
+  order: 2;
+  flex: none;
+  display: grid;
+  place-content: center;
+  width: 26px;
+  height: 26px;
+  margin: 2px 0 0;
+  border: 2px solid var(--control-line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.checklist input::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  background: var(--selected-fg);
+  clip-path: polygon(12% 48%, 0 62%, 40% 100%, 100% 22%, 87% 9%, 39% 72%);
+  scale: 0;
+  transition: scale 180ms var(--ease);
+}
+
+.checklist input:checked {
+  border-color: var(--selected-bg);
+  background: var(--selected-bg);
+}
+
+.checklist input:checked::before {
+  scale: 1;
+}
+
+.checklist li:hover input:not(:checked) {
+  border-color: var(--accent);
+}
+
+@media (forced-colors: active) {
+  .checklist input {
+    appearance: auto;
+    -webkit-appearance: auto;
+  }
+}
+
+.checklist p {
+  grid-column: 1;
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* ---------- 03 Site preparation: a numbered path, then the price list ---------- */
+.steps {
+  display: grid;
+  gap: 0;
+  padding: var(--space-5) var(--space-6);
+  border-top: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface);
+  list-style: none;
+}
+
+.steps li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: var(--space-4);
+  padding-bottom: var(--space-5);
+}
+
+.steps li:last-child {
+  padding-bottom: 0;
+}
+
+/* The path joining one square to the next */
+.steps li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 44px;
+  bottom: 4px;
+  left: 19px;
+  width: 1px;
+  background: var(--line-strong);
+}
+
+.steps__num {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--navy);
+  /* LED digits on a dark square: the one place the light shows on this floor */
+  color: var(--led);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+:root[data-theme='dark'] .steps__num {
+  box-shadow: inset 0 0 0 1px var(--navy-line);
+}
+
+.steps__title {
+  padding-top: 7px;
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+.steps p {
+  margin-top: var(--space-1);
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* Item / baht price lists and cost tables */
+.cost td {
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.cost thead th:last-child {
+  text-align: right;
+}
+
+/* Tariff alternatives: a labelled group whose rows are read as "one of these" */
+.cost__choice tr:first-child > * {
+  border-top: 1px solid var(--line-strong);
+  background: var(--soft);
+  font-weight: 600;
+}
+
+.cost__choice tr:not(:first-child) th {
+  padding-left: calc(var(--space-5) + var(--space-4));
+}
+
+/* Totals: under an ink rule on a quiet fill */
+.cost tfoot th,
+.cost tfoot td {
+  border-top: 1px solid var(--line-strong);
+  background: var(--soft);
+  color: var(--ink);
+  vertical-align: middle;
+}
+
+.cost tfoot tr:first-child > * {
+  border-top: 2px solid var(--ink);
+}
+
+.cost tfoot th {
+  font-weight: 700;
+}
+
+.cost tfoot td {
+  color: var(--figure);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
+.cost tfoot .g-aside {
+  color: var(--ink-subtle);
+}
+
+/* Cautions and pointers under a block: an icon and a sentence on a tinted strip */
+.gnote {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-left: 2px solid var(--tone-ink);
+  border-radius: 0;
+  background: var(--tone-bg);
+  color: var(--tone-ink);
+  font-size: var(--fs-sm);
+}
+
+.gnote > svg {
+  flex: none;
+  margin-top: 4px;
+}
+
+.gnote__link {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  text-underline-offset: 0.24em;
+  white-space: nowrap;
+}
+
+.gnote__link:hover {
+  color: var(--accent-hover);
+  text-decoration-color: currentColor;
+}
+
+/* ---------- 04 Where to buy: linked seller rows, the exchange-rate box, models not on sale ---------- */
+.sellers {
+  border-top: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface);
+  list-style: none;
+}
+
+.sellers li {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) minmax(0, 1fr) 44px;
+  align-items: start;
+  gap: var(--space-2) var(--space-5);
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-5);
+  transition: background-color 160ms ease;
+}
+
+.sellers li + li {
+  border-top: 1px solid var(--line);
+}
+
+.sellers li:first-child {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.sellers li:last-child {
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.sellers a {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+/* The whole row is the link's hit area */
+.sellers a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.sellers a:focus-visible {
+  outline: none;
+}
+
+.sellers li:has(a:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: -3px;
+}
+
+.sellers li:hover {
+  background: var(--overlay);
+}
+
+.sellers li:hover a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.24em;
+}
+
+.sellers p {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+.sellers__arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  color: var(--accent);
+  pointer-events: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.sellers li:hover .sellers__arrow,
+.sellers li:has(a:focus-visible) .sellers__arrow {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+
+/* How converted prices are worked out: a sky panel with the rates as white figure tiles */
+.fx {
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--tone-bg);
+  color: var(--tone-ink);
+}
+
+.fx__title {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+.fx__rates {
+  display: grid;
+  /* auto-fill keeps a lone rate a tile, not a full-width bar */
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.fx__rates > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.fx__rates dt {
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.fx__currency {
+  color: var(--ink-subtle);
+  font-weight: 400;
+}
+
+.fx__rates dd {
+  margin: 0;
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.fx__unit {
+  color: var(--ink-subtle);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.fx__text {
+  max-width: 72ch;
+  color: var(--ink);
+  font-size: var(--fs-sm);
+}
+
+.fx__source {
+  margin-top: var(--space-2);
+  font-size: var(--fs-xs);
+}
+
+.fx__source a {
+  color: var(--accent);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+/* Well-known robots a buyer cannot order yet: name beside its status on a quiet sheet */
+.unlisted {
+  padding: var(--space-1) var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--surface-sunk);
+  list-style: none;
+}
+
+.unlisted li {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: var(--space-1) var(--space-6);
+  padding-block: var(--space-3);
+}
+
+.unlisted li + li {
+  border-top: 1px solid var(--line);
+}
+
+.unlisted__name {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.unlisted__status {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* ---------- 05 Energy: the tariff table, then the cost of a charge on one zero-based axis ---------- */
+.rates th:first-child {
+  width: 34%;
+}
+
+.rates__label {
+  display: block;
+  font-weight: 600;
+}
+
+.rates__fig {
+  width: 9.5rem;
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.rates tbody .rates__fig {
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
+
+.rates__note {
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+}
+
+.energy {
+  --energy-inset: 10px;
+  --energy-bar: var(--chart-bar);
+
+  padding: var(--space-5) var(--space-6) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.energy__legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.energy__key {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  white-space: nowrap;
+}
+
+.energy__key--note {
+  margin-left: auto;
+  color: var(--ink-subtle);
+}
+
+.energy__swatch {
+  width: 28px;
+  height: 10px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--energy-bar) 60%, color-mix(in srgb, var(--energy-bar) 35%, var(--surface)) 60%);
+}
+
+.energy__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.energy__table th,
+.energy__table td {
+  padding: var(--space-3);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.energy__table thead th {
+  padding-block: 0 var(--space-2);
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  vertical-align: bottom;
+}
+
+.energy__table tbody tr + tr > * {
+  border-top: 1px solid var(--line);
+}
+
+.energy__table th:first-child {
+  width: 12.5rem;
+  padding-left: 0;
+}
+
+/* The robot's name links to its page; battery and runtime sit beneath as the figures' basis */
+.energy__name a {
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration-color: var(--line-strong);
+}
+
+.energy__name a:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+.energy__name .g-aside {
+  margin-top: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.energy__axis-head {
+  min-width: 180px;
+}
+
+.energy__ticks,
+.energy__scale {
+  position: relative;
+  height: 1.4em;
+  margin-inline: var(--energy-inset);
+}
+
+.energy__ticks span,
+.energy__scale span {
+  position: absolute;
+  bottom: 0;
+  translate: -50% 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.energy__scale {
+  display: none;
+}
+
+.energy__plot {
+  position: relative;
+  height: 36px;
+  margin-inline: var(--energy-inset);
+  background:
+    linear-gradient(var(--line-strong), var(--line-strong)) right / 1px 100% no-repeat,
+    linear-gradient(90deg, var(--line-strong) 0 1px, transparent 1px) 0 0 / calc(100% / var(--energy-intervals, 4)) 100%;
+}
+
+.energy__bar,
+.energy__reach {
+  position: absolute;
+  top: 50%;
+  height: 20px;
+  translate: 0 -50%;
+}
+
+.energy__bar {
+  left: 0;
+  border-radius: 2px 0 0 2px;
+  background: var(--energy-bar);
+}
+
+.energy__reach {
+  border-radius: 0 2px 2px 0;
+  background: color-mix(in srgb, var(--energy-bar) 35%, var(--surface));
+}
+
+@media (forced-colors: active) {
+  .energy__bar,
+  .energy__swatch {
+    background: CanvasText;
+  }
+
+  .energy__reach {
+    background: GrayText;
+  }
+}
+
+/* Figures shrink to their content (width: 1% with nowrap), so the bars get the rest of the row */
+.energy__fig,
+.energy__hour {
+  width: 1%;
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.energy__table .energy__fig {
+  padding-inline: var(--space-5);
+}
+
+.energy__table tbody .energy__fig {
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.energy__table thead .energy__hour,
+.energy__table tbody .energy__hour {
+  padding-right: 0;
+}
+
+.energy__table tbody .energy__hour {
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* "ต่อชั่วโมงทำงาน … บาท" is only spelled out on phones, where the head row is hidden */
+.energy__hour-label {
+  display: none;
+}
+
+/* The reassuring headline under the chart: a sage strip with the most a charge costs */
+.callout {
+  display: grid;
+  grid-template-columns: 48px auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-6) var(--space-4) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--tone-bg);
+  color: var(--tone-ink);
+}
+
+.callout__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--tone-ink);
+}
+
+.callout__figure {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.callout__lead {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.callout__num {
+  font-size: 2.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.callout__text {
+  font-size: var(--fs-sm);
+}
+
+/* How the figures were worked out: a quiet sheet of label / note pairs */
+.basis {
+  padding: var(--space-2) var(--space-5);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+}
+
+.basis > div {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: var(--space-1) var(--space-6);
+  padding-block: var(--space-3);
+}
+
+.basis > div + div {
+  border-top: 1px solid var(--line);
+}
+
+.basis dt {
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.basis dd {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* ---------- 06 Ownership costs: yearly, then one-time, each at full width so item names keep to a
+   line or two beside their amounts ---------- */
+.cost-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.cost-foot {
+  max-width: 68ch;
+  margin-top: var(--space-3);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+}
+
+/* ---------- 07 Price factors: square cards, hairline edges ---------- */
+.factors {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  list-style: none;
+}
+
+.factors li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+/* An odd last card takes the full row rather than leaving a hole */
+.factors li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.factors p {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+.factors strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+/* ---------- 08 Incentives (sage) and legal notes (sand) ---------- */
+.law-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--space-5);
+}
+
+.notes {
+  padding: var(--space-5) var(--space-6) var(--space-3);
+  border-top: 2px solid var(--tone-ink);
+  border-radius: 0;
+  background: var(--tone-bg);
+  color: var(--ink);
+}
+
+.notes__title {
+  margin-bottom: var(--space-2);
+  color: var(--tone-ink);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+}
+
+.notes ol {
+  list-style: none;
+}
+
+.notes li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+  padding-block: var(--space-4);
+}
+
+.notes li + li {
+  border-top: 1px solid color-mix(in srgb, var(--tone-ink) 20%, transparent);
+}
+
+.notes p {
+  font-size: var(--fs-sm);
+}
+
+/* ---------- Closing band ---------- */
+.gend {
+  margin-top: var(--space-7);
+  padding-block: var(--space-8);
+  background: var(--stage-dark);
+}
+
+.gend__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--space-5) var(--space-7);
+}
+
+.gend__lede {
+  max-width: 48ch;
+  margin-top: var(--space-3);
+  color: var(--on-navy-muted);
+}
+
+.gend__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* ---------- Responsive ---------- */
+/* Narrower desktops: the chapters keep the room; paired panels stack */
+@media (max-width: 1279px) {
+  .law-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Below the width where a side column fits, the contents card sits in the flow above the chapters */
+@media (max-width: 1099px) {
+  .glayout {
+    display: block;
+  }
+
+  .gtoc {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    margin-bottom: var(--space-7);
+    padding: var(--space-4);
+  }
+
+  .gtoc__title {
+    padding-inline: var(--space-1);
+  }
+
+  .gtoc ol {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-2);
+  }
+
+  .gtoc button {
+    flex-direction: column;
+    gap: 0;
+    height: 100%;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+}
+
+@media (max-width: 960px) {
+  .gcover__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .gfigures {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gfigures > div:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .gfigures > div:nth-child(n + 3) {
+    border-top: 1px solid var(--navy-line);
+  }
+
+  .gtoc ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gtoc button {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .checklist,
+  .factors {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sellers li {
+    grid-template-columns: minmax(0, 1fr) 44px;
+  }
+
+  .sellers li > p {
+    grid-column: 1;
+  }
+
+  /* The arrow spans both lines, so the note follows its name with no gap whatever the name's length */
+  .sellers__arrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .basis > div,
+  .unlisted li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gend__inner {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  /* Rates: three columns leave the tariff notes a sliver, so each row becomes tariff and rate over
+     its note. The head row stays in the accessibility tree (hidden visually only); the caption
+     carries the unit. */
+  .rates thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .rates tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    column-gap: var(--space-4);
+    padding: var(--space-3) var(--space-5);
+  }
+
+  .rates tbody tr + tr {
+    border-top: 1px solid var(--line);
+  }
+
+  .rates tbody tr + tr > * {
+    border-top: 0;
+  }
+
+  .rates tbody th,
+  .rates tbody td {
+    width: auto !important;
+    padding: 0;
+  }
+
+  .rates__note {
+    grid-column: 1 / -1;
+    margin-top: var(--space-2);
+  }
+
+  /* A tariff without a note would leave a lone dash on a line of its own */
+  .rates__note.is-empty {
+    display: none;
+  }
+}
+
+/* Small tablets and phones: the wide charts re-flow row by row (each row is a small grid); head rows
+   stay in the accessibility tree, hidden visually only where a row spells its own labels out */
+@media (max-width: 720px) {
+  /* Energy: name and the cost of a charge, then the bar, then the cost per hour of work */
+  .energy {
+    --energy-inset: 6px;
+
+    padding: var(--space-4) var(--space-5) var(--space-3);
+  }
+
+  .energy__key--note {
+    margin-left: 0;
+  }
+
+  .energy__scale {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--ink-subtle);
+    font-family: var(--font-display);
+    font-size: var(--fs-2xs);
+    font-weight: 600;
+  }
+
+  .energy__scale span:first-child {
+    translate: calc(var(--energy-inset) * -1) 0;
+  }
+
+  .energy__scale span:last-child {
+    translate: calc(-100% + var(--energy-inset)) 0;
+  }
+
+  .energy__table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .energy__table tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    column-gap: var(--space-3);
+    padding-block: var(--space-3);
+  }
+
+  .energy__table tbody tr + tr {
+    border-top: 1px solid var(--line);
+  }
+
+  .energy__table tbody tr + tr > * {
+    border-top: 0;
+  }
+
+  .energy__table tbody th,
+  .energy__table tbody td {
+    width: auto !important;
+    padding: 0;
+  }
+
+  .energy__name {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .energy__table tbody .energy__fig {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .energy__plot-cell {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: var(--space-2);
+  }
+
+  .energy__plot {
+    height: 20px;
+  }
+
+  .energy__bar,
+  .energy__reach {
+    height: 12px;
+  }
+
+  .energy__table tbody .energy__hour {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: var(--space-1);
+    font-size: var(--fs-xs);
+    text-align: left !important;
+  }
+
+  .energy__hour-label {
+    display: inline;
+  }
+}
+
+@media (max-width: 720px) {
+  .gcover__inner {
+    padding-top: var(--space-7);
+  }
+
+  .gcover__lede {
+    font-size: var(--fs-md);
+  }
+
+  .glayout {
+    padding-top: var(--space-5);
+  }
+
+  .gsec {
+    padding-block: var(--space-6);
+  }
+
+  .callout {
+    grid-template-columns: 48px minmax(0, 1fr);
+    padding: var(--space-4);
+  }
+
+  .callout__text {
+    grid-column: 1 / -1;
+  }
+
+  .fx {
+    padding: var(--space-4) var(--space-5);
+  }
+}
+
+/* Phones: one left edge for every list — 16px card padding, numerals in a fixed column, text starting
+   12px after it — and every label / value pair on one line where it fits, like a spec sheet */
+@media (max-width: 560px) {
+  /* Key figures become a spec sheet: label left, figure right, on hairlines */
+  .gfigures {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: var(--space-6);
+  }
+
+  .gfigures > div,
+  .gfigures > div:first-child,
+  .gfigures > div:nth-child(odd) {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+  }
+
+  .gfigures > div + div,
+  .gfigures > div:nth-child(n + 3) {
+    border-top: 1px solid var(--navy-line);
+    border-left: 0;
+  }
+
+  .gfigures dt {
+    order: -1;
+    font-size: var(--fs-sm);
+  }
+
+  .gfigures dd {
+    font-size: var(--fs-xl);
+  }
+
+  .gfigures > div:last-child {
+    padding-bottom: var(--space-5);
+  }
+
+  /* Index: a card of two-up buttons */
+  .gtoc {
+    margin-bottom: var(--space-6);
+    padding: var(--space-3);
+  }
+
+  .gtoc__title {
+    padding: var(--space-1) var(--space-1) var(--space-2);
+  }
+
+  .gtoc ol {
+    gap: var(--space-1);
+  }
+
+  .gtoc button {
+    gap: var(--space-2);
+    padding: var(--space-2);
+    font-size: var(--fs-xs);
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+
+  .gsec__head {
+    margin-bottom: var(--space-5);
+  }
+
+  .gblock + .gblock,
+  .gblock + *,
+  * + .gblock {
+    margin-top: var(--space-5);
+  }
+
+  .gblock__title {
+    font-size: var(--fs-lg);
+  }
+
+  /* Tables: caption, head row and cells share one 16px inner edge */
+  .gtable caption {
+    padding: var(--space-3) var(--space-4) var(--space-2);
+    font-size: var(--fs-md);
+  }
+
+  .gtable th,
+  .gtable td {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .gtable thead th {
+    padding-block: var(--space-2);
+  }
+
+  .gtable__foot {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  /* Ranking: the rank beside two lines — the name (and note), then a full-width bar ending in the
+     figure. The head row is hidden visually only; the caption and the figure's unit stand in for it. */
+  .rank__table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .rank__table tbody tr {
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    column-gap: var(--space-2);
+    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3);
+  }
+
+  .rank__table tbody tr + tr {
+    border-top: 1px solid var(--line);
+  }
+
+  .gtable .rank__table tbody tr > * {
+    width: auto;
+    padding: 0;
+    border-top: 0;
+  }
+
+  .rank__table tbody .rank__pos {
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+
+  .rank__units {
+    grid-column: 2;
+    margin-top: var(--space-1);
+  }
+
+  .rank__cell {
+    gap: var(--space-3);
+  }
+
+  .rank__fig {
+    min-width: 5.5rem;
+  }
+
+  .rank__unit {
+    display: inline;
+  }
+
+  /* Cost tables: each row lays out on its own (name left, amount right), so a wide total no longer
+     sets the amount column and squeezes every name */
+  .cost tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    column-gap: var(--space-3);
+  }
+
+  .cost th,
+  .cost td {
+    padding: var(--space-3) 0;
+  }
+
+  .cost tr {
+    padding-inline: var(--space-4);
+  }
+
+  .cost thead tr {
+    background: var(--navy);
+  }
+
+  .cost thead th {
+    padding-block: var(--space-2);
+  }
+
+  .cost tbody tr + tr {
+    border-top: 1px solid var(--line);
+  }
+
+  .cost tbody tr + tr > * {
+    border-top: 0;
+  }
+
+  .cost__choice tr:first-child {
+    border-top: 1px solid var(--line-strong);
+    background: color-mix(in srgb, var(--surface-sunk) 70%, var(--line));
+  }
+
+  .cost__choice tr:first-child > * {
+    grid-column: 1 / -1;
+    border-top: 0;
+    background: none;
+  }
+
+  .cost__choice tr:not(:first-child) th {
+    padding-left: var(--space-3);
+  }
+
+  .cost tfoot tr {
+    border-top: 1px solid var(--line-strong);
+    background: var(--soft);
+  }
+
+  .cost tfoot tr:first-child {
+    border-top: 2px solid var(--ink);
+  }
+
+  .cost tfoot th,
+  .cost tfoot td,
+  .cost tfoot tr:first-child > * {
+    border-top: 0;
+    background: none;
+  }
+
+  .cost tfoot td {
+    font-size: var(--fs-md);
+  }
+
+  .rates tbody tr {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .rates tbody .rates__fig {
+    font-size: var(--fs-md);
+  }
+
+  /* Checklist cards */
+  .check-bar {
+    gap: var(--space-2);
+  }
+
+  .check-bar__progress {
+    flex: 1;
+    justify-content: space-between;
+    min-width: 0;
+    gap: var(--space-3);
+    padding: 0 var(--space-4);
+  }
+
+  .check-bar__progress p {
+    white-space: nowrap;
+  }
+
+  .check-bar__meter {
+    flex: 1;
+    width: auto;
+    min-width: 40px;
+    max-width: 120px;
+  }
+
+  .check-bar .btn-sm {
+    flex: none;
+    padding-inline: var(--space-4);
+  }
+
+  .checklist {
+    gap: var(--space-3);
+  }
+
+  .checklist li,
+  .factors li {
+    padding: var(--space-4);
+  }
+
+  .checklist__title {
+    font-size: var(--fs-sm);
+    text-wrap: balance;
+  }
+
+  .checklist p,
+  .factors p {
+    text-wrap: pretty;
+  }
+
+
+  .factors strong {
+    font-size: var(--fs-sm);
+  }
+
+  .steps {
+    padding: var(--space-4);
+  }
+
+  .steps li {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: var(--space-3);
+  }
+
+  .steps li:not(:last-child)::before {
+    top: 40px;
+    left: 17px;
+  }
+
+  .steps__num {
+    width: 36px;
+    height: 36px;
+  }
+
+  .steps__title {
+    padding-top: 6px;
+    font-size: var(--fs-sm);
+  }
+
+  /* The note takes the full width under the name; a smaller arrow keeps the name row tight */
+  .sellers li {
+    grid-template-columns: minmax(0, 1fr) 32px;
+    gap: var(--space-1) var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .sellers li > p {
+    grid-column: 1 / -1;
+  }
+
+  .sellers__arrow {
+    grid-row: 1;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+  }
+
+  .energy {
+    padding: var(--space-4) var(--space-4) var(--space-2);
+  }
+
+  .energy__table tbody .energy__fig {
+    font-size: var(--fs-md);
+  }
+
+  .basis,
+  .unlisted {
+    padding: var(--space-1) var(--space-4);
+  }
+
+  .fx {
+    padding: var(--space-4);
+  }
+
+  .fx__rates {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2);
+  }
+
+  /* Rate tiles become one-line rows: the currency left, its rate in baht right */
+  .fx__rates > div {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .fx__rates dd {
+    font-size: var(--fs-lg);
+  }
+
+  .notes {
+    padding: var(--space-4) var(--space-4) var(--space-2);
+  }
+
+  .notes__title {
+    font-size: var(--fs-lg);
+  }
+
+  .notes li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gend {
+    padding-block: var(--space-7);
+  }
+
+  .gend__actions {
+    display: grid;
+  }
+
+  .gend__actions > * {
+    width: 100%;
+  }
+}
+
+/* Narrow phones: a price beside a name would leave the name a 140px column, so each item's amount
+   moves under it, still on the right edge with every other amount */
+@media (max-width: 400px) {
+  .cost tbody tr {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cost tbody th[scope='row'] {
+    padding-bottom: var(--space-1);
+  }
+
+  .cost tbody td {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .gtoc ol {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .check-bar__meter {
+    display: none;
+  }
+}

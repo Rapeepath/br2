@@ -1,0 +1,189 @@
+{
+  "id": "agibot-a2",
+  "brand": "AGIBOT",
+  "nameEn": "AGIBOT A2",
+  "nameTh": "อะจิบอท เอ 2",
+  "category": "service",
+  "locomotion": "legs",
+  "segment": "หุ่นยนต์ฮิวแมนนอยด์ขนาดเท่าคนสำหรับงานต้อนรับและบริการลูกค้า",
+  "originCountry": "จีน",
+  "originGroup": "china",
+  "availability": "thai-dealer",
+  "availabilityNote": "VST ECS (Thailand) เป็นผู้จัดจำหน่าย AGIBOT ในไทยตั้งแต่มิถุนายน 2569 และประกาศราคา A2 Ultra เป็นเงินบาท พร้อมทีมอบรมและซ่อมบำรุงในประเทศ โดยงานซ่อมที่ซับซ้อนมีวิศวกรจากจีนสนับสนุน ส่วนรุ่น A2 Lite สั่งซื้อได้จากร้านค้าออนไลน์ของ AGIBOT ซึ่งผู้ซื้อต้องรับผิดชอบค่าขนส่ง อากร และภาษีนำเข้าเอง",
+  "distributor": "VST ECS (Thailand) Co., Ltd. ผู้จัดจำหน่ายในไทย หรือสั่ง A2 Lite จากร้านค้าออนไลน์ของ AGIBOT โดยตรง",
+  "launched": "2024-08",
+  "tagline": "ฮิวแมนนอยด์ 169 ซม. สำหรับงานต้อนรับและนำชม",
+  "summary": "AGIBOT A2 (ชื่อในจีน Yuanzheng A2) เป็นหุ่นยนต์ฮิวแมนนอยด์สองขาขนาดเท่าคน สูง 169 ซม. หนัก 63–69 กก. ออกแบบสำหรับงานต้อนรับ นำชมนิทรรศการ และให้ข้อมูลลูกค้า รุ่น A2 Ultra มีมือคล่องแคล่ว ระบบรับรู้ด้วยกล้องและ LiDAR และหน่วยประมวลผล NVIDIA Jetson AGX Orin มีราคาในไทย 3,118,000 บาท ผ่าน VST ECS ส่วนรุ่น A2 Lite สำหรับงานแสดงมีราคา 44,560 ดอลลาร์สหรัฐ บนร้านค้าออนไลน์ของผู้ผลิต",
+  "background": "AGIBOT เปิดตัว A2 เมื่อสิงหาคม 2567 และบริษัทเริ่มผลิตหุ่นยนต์จำนวนมากในเดือนธันวาคม 2567 ปัจจุบัน A2 จำหน่ายเป็นรุ่น A2 Ultra และ A2 Lite นอกเหนือจากรุ่นล้อเลื่อน A2-W ผู้ผลิตระบุว่ามีการใช้งาน A2 Ultra จริงแล้วกว่า 1,000 ตัว ผ่านการทดสอบเดินต่อเนื่อง 5,100 ชั่วโมง และตรวจสอบคุณภาพ 92 รายการตามมาตรฐานการผลิตระดับยานยนต์ เมื่อพฤศจิกายน 2568 A2 เดินได้ระยะทาง 106.286 กม. ภายใน 3 วัน และได้รับการบันทึกสถิติโลกกินเนสส์ ในไทย VST ECS เปิดตัว A2 Ultra เป็นรุ่นเรือธงเมื่อมิถุนายน 2569 สำหรับงานบริการลูกค้า ค้าปลีก และสุขภาพ และระบุว่ารองรับ 20 ภาษารวมภาษาไทย ขณะที่กลุ่ม GULF ร่วมมือกับ AGIBOT เพื่อนำหุ่นยนต์ต้อนรับไปใช้ในร้านค้าปลีกและสาขาบริการทางการเงิน",
+  "heightCm": 169,
+  "weightKg": [
+    63,
+    69
+  ],
+  "trims": [
+    {
+      "name": "A2 Lite",
+      "priceTHB": null,
+      "listPrice": {
+        "amount": 44560,
+        "currency": "USD"
+      },
+      "dof": 23,
+      "handDof": null,
+      "hand": "ไม่มีมือคล่องแคล่ว",
+      "payloadKg": 1.5,
+      "speedMs": 0.8,
+      "runtimeH": 1.5,
+      "batteryWh": null,
+      "compute": "CPU 14 คอร์ (ไม่มีบอร์ด NVIDIA Jetson)",
+      "jointTorqueNm": 270
+    },
+    {
+      "name": "A2 Ultra",
+      "priceTHB": 3118000,
+      "listPrice": null,
+      "dof": 40,
+      "handDof": 6,
+      "hand": "มือคล่องแคล่วห้านิ้ว 2 ข้าง ข้างละ 6 องศาอิสระ",
+      "payloadKg": 2,
+      "speedMs": 1.2,
+      "runtimeH": 1.5,
+      "batteryWh": null,
+      "compute": "NVIDIA Jetson AGX Orin 64GB",
+      "jointTorqueNm": 270
+    }
+  ],
+  "sensors": [
+    "กล้องวัดความลึก RGB-D ที่ศีรษะ ระยะ 0.3–10 ม. (Ultra)",
+    "กล้อง RGB ที่หน้าอก และกล้องฟิชอาย 2 ตัวที่หน้าอก (Ultra)",
+    "กล้องวัดความลึก RGB-D ที่ช่วงเอว ระยะ 0.15–5 ม. (Ultra)",
+    "LiDAR ระยะ 0.2–40 ม. ที่ค่าสะท้อน 10% และสูงสุด 70 ม. ที่ค่าสะท้อน 80% (Ultra)",
+    "ลำโพง 5 วัตต์ 2 ตัว (Ultra) หรือ 1 ตัว (Lite)"
+  ],
+  "charging": {
+    "timeH": 2,
+    "swappable": true,
+    "note": "แบตเตอรี่ 14.4 Ah เปลี่ยนก้อนได้ขณะเปิดเครื่อง (hot-swap) ชาร์จด้วยกำลังไม่เกิน 500 วัตต์ที่ 48 V DC ผู้ผลิตไม่ได้ระบุความจุเป็น Wh รุ่น Ultra ยืนให้บริการได้ราว 3 ชั่วโมง และรุ่น Lite ราว 4 ชั่วโมง 35 นาที"
+  },
+  "software": {
+    "sdk": "ชุดพัฒนา AimDK ของ AGIBOT สำหรับรุ่น Ultra ส่วนรุ่น Lite เน้นการใช้งานแสดงและไม่มีระบบรับรู้หรือระบบเสียง",
+    "ai": "ระบบสนทนาด้วยเสียงหลายภาษา (VST ECS ระบุ 20 ภาษารวมภาษาไทย) การต้อนรับและนำทางอัตโนมัติ และการปรับแต่งเนื้อหาตามแบรนด์ (รุ่น Ultra)"
+  },
+  "warranty": {
+    "robot": "1 ปี",
+    "battery": null,
+    "note": "VST ECS ระบุการรับประกันทั่วไป 1 ปีในไทย ร้านค้าออนไลน์ของ AGIBOT ระบุ 1 ปี หรือ 3,000 ชั่วโมงการทำงาน แล้วแต่ว่าอย่างใดถึงก่อน (A2 Lite)"
+  },
+  "safety": {
+    "features": [
+      "ตรวจจับการชนของแขน (Ultra)",
+      "ตรวจจับสิ่งกีดขวางได้ไกลสุด 5 ม. (Ultra)",
+      "ปุ่มหยุดฉุกเฉินแบบไร้สายมาพร้อมเครื่อง (A2 Lite)"
+    ],
+    "certifications": []
+  },
+  "useCases": [
+    "ต้อนรับและนำชมในโชว์รูม พิพิธภัณฑ์ และนิทรรศการ",
+    "ให้ข้อมูลสินค้าและโปรโมชันในร้านค้าปลีก",
+    "ต้อนรับลูกค้าในสาขาบริการทางการเงินและสถานพยาบาล",
+    "การแสดงและโปรโมตกิจกรรมทางการตลาด",
+    "ทูตแบรนด์ที่ปรับแต่งรูปลักษณ์และเนื้อหาตามองค์กร"
+  ],
+  "highlights": [
+    "ขนาดเท่าคนจริง สูง 169 ซม. เหมาะกับงานหน้าเคาน์เตอร์และงานต้อนรับ",
+    "รุ่น Ultra มีมือคล่องแคล่วห้านิ้ว และหน่วยประมวลผล Jetson AGX Orin 64GB",
+    "แบตเตอรี่เปลี่ยนก้อนได้ขณะเปิดเครื่อง ลดเวลาหยุดงาน",
+    "ผู้ผลิตระบุว่ามีการใช้งานจริงแล้วกว่า 1,000 ตัว",
+    "มีผู้จัดจำหน่ายในไทยที่ประกาศราคาเป็นเงินบาทและให้บริการหลังการขายในประเทศ"
+  ],
+  "pros": [
+    "ซื้อและรับบริการได้ในไทยผ่าน VST ECS",
+    "เปลี่ยนแบตเตอรี่ได้ จึงให้บริการต่อเนื่องได้นานกว่าการรอชาร์จ",
+    "รองรับการสนทนาภาษาไทยตามข้อมูลของผู้จัดจำหน่าย",
+    "มีรุ่น Lite ราคาต่ำกว่าสำหรับงานแสดงที่ไม่ต้องใช้ระบบรับรู้"
+  ],
+  "cons": [
+    "ราคาในไทยของรุ่น Ultra สูงกว่า 3 ล้านบาท",
+    "เดินต่อเนื่องได้ราว 1.5 ชั่วโมงต่อแบตเตอรี่หนึ่งก้อน",
+    "ความเร็วเดินสูงสุดประมาณ 1.2 ม./วินาที และข้ามสิ่งกีดขวางสูงได้เพียง 20 มม.",
+    "รับน้ำหนักได้ข้างละ 2 กก. (Ultra) จึงไม่เหมาะกับงานยกของหนัก",
+    "รุ่น Lite ไม่มีกล้อง ระบบเสียง และมือหยิบจับ"
+  ],
+  "idealFor": [
+    "ห้างสรรพสินค้า โชว์รูม และศูนย์นิทรรศการที่ต้องการหุ่นยนต์ต้อนรับขนาดเท่าคน",
+    "ธนาคาร โรงแรม และโรงพยาบาลที่ต้องการงานให้ข้อมูลหน้าเคาน์เตอร์",
+    "ผู้จัดงานอีเวนต์ที่ต้องการหุ่นยนต์สำหรับการแสดง (รุ่น Lite)"
+  ],
+  "considerations": [
+    "ตรวจสอบกับ VST ECS ว่าราคา 3,118,000 บาท รวมภาษีมูลค่าเพิ่ม การติดตั้ง ซอฟต์แวร์ และการอบรมหรือไม่",
+    "ค่ารับน้ำหนักที่ผู้ผลิตระบุเป็นค่าต่อแขนหนึ่งข้าง",
+    "พื้นที่ใช้งานควรเรียบ ผู้ผลิตระบุว่าขึ้นทางลาด 10 องศาได้ ส่วนผู้ขายต่างประเทศระบุว่าการนำทางอัตโนมัติต้องการทางเดินกว้างกว่า 2 ม.",
+    "ควรเตรียมแบตเตอรี่สำรองและจุดชาร์จหากใช้งานตลอดวัน",
+    "ผู้ผลิตไม่ได้เผยแพร่จำนวนองศาอิสระรวมของรุ่น Ultra โดยตรง ตัวเลข 40 องศาอิสระมาจากผู้ขายต่างประเทศ ควรขอสเปกฉบับทางการ"
+  ],
+  "funFact": "เมื่อพฤศจิกายน 2568 หุ่นยนต์ A2 เดินได้ระยะทาง 106.286 กม. ภายใน 3 วัน และได้รับการบันทึกสถิติโลกกินเนสส์",
+  "priceNote": "ราคา A2 Ultra 3,118,000 บาท เป็นราคาที่ VST ECS ประกาศในงานเปิดตัวที่กรุงเทพฯ เมื่อมิถุนายน 2569 ตามรายงานของผู้จัดการออนไลน์ โดยไม่ได้ระบุว่ารวมภาษีมูลค่าเพิ่มหรือไม่ ราคา A2 Lite 44,560 ดอลลาร์สหรัฐ เป็นราคาบนร้านค้าออนไลน์ของ AGIBOT ไม่รวมค่าขนส่ง (500–3,000 ดอลลาร์สหรัฐ) อากร และภาษีนำเข้า ซึ่งผู้ซื้อต้องชำระเอง ร้านค้าออนไลน์ของ AGIBOT แจ้งราคา A2 Ultra ตามคำขอ และผู้ค้าปลีก RobotShop แสดงราคา A2 Ultra 112,061 ดอลลาร์สหรัฐ VST ECS มีบริการเช่าระยะสั้นสำหรับงานอีเวนต์ รูปแบบสมาชิกรายปี และบริการหุ่นยนต์แบบ AgiRaaS",
+  "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/National_instrument_Dombra_and_humanoid_robot.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:National_instrument_Dombra_and_humanoid_robot.jpg",
+    "author": "ZhanatKappassov",
+    "license": "CC0",
+    "focus": "98% 42%",
+    "zoom": 1.55
+  },
+  "gallery": [
+    {
+      "kind": "image",
+      "src": "images/gallery/agibot-a2-1.jpg",
+      "srcSmall": "images/gallery/agibot-a2-1-sm.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Humanoid_robot_is_being_programmed.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Humanoid_robot_is_being_programmed.jpg",
+      "author": "ZhanatKappassov",
+      "license": "CC0",
+      "alt": "AgiBot A2 ห้อยกับโครงแขวนกันล้ม ข้างโต๊ะที่ทีมงานกำลังเขียนโปรแกรมควบคุม มองจากด้านหลังเฉียง",
+      "focus": "70% 40%"
+    }
+  ],
+  "sources": [
+    {
+      "title": "AGIBOT A2 Ultra – AGIBOT",
+      "url": "https://www.agibot.com/products/a2"
+    },
+    {
+      "title": "A2 Ultra Overview (AimDK Developer Guide) – AGIBOT",
+      "url": "https://open-sg.agibot.com/docs/en/aimdk/a2/v1_3/dev_guide/01-a2_overview"
+    },
+    {
+      "title": "AGIBOT A2 Lite – AGIBOT Store",
+      "url": "https://store.agibot.com/products/a2-lite"
+    },
+    {
+      "title": "VST ECS จับมือ AGIBOT เปิดราคาหุ่นยนต์ฮิวแมนนอยด์ในไทย เริ่มต้น 1.79 ล้านบาท – ผู้จัดการออนไลน์",
+      "url": "https://mgronline.com/cyberbiz/detail/9690000061175"
+    },
+    {
+      "title": "จากโรงงานสู่โรงแรม AGIBOT ปักธงตลาดไทย จับมือ VST ECS – Brand Buffet",
+      "url": "https://www.brandbuffet.in.th/2026/06/agibot-partner-with-vst-ecs-bring-humanoid-robots-to-find-jobs-in-thailand/"
+    },
+    {
+      "title": "VST ECS (Thailand) Partners with AGIBOT – VST ECS (Thailand)",
+      "url": "https://www.vstecs.co.th/en/index.php/about-vst-ecs/corporate-news/850-corporate-news-agibot-launch-thailand.html"
+    },
+    {
+      "title": "AgiBot humanoid robots partnership with VST ECS – กรุงเทพธุรกิจ",
+      "url": "https://www.bangkokbiznews.com/tech/ai/1240305"
+    },
+    {
+      "title": "AGIBOT and GULF Announce Strategic Partnership in Thailand – AGIBOT",
+      "url": "https://www.agibot.com/article/231/detail/51.html"
+    },
+    {
+      "title": "AgiBot A2 Ultra Humanoid Robot – RobotShop",
+      "url": "https://www.robotshop.com/products/agibot-a2-ultra-humanoid-robot"
+    },
+    {
+      "title": "AgiBot – Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/AgiBot"
+    }
+  ]
+}

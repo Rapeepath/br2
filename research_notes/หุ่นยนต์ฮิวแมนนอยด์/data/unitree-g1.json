@@ -1,0 +1,234 @@
+{
+  "id": "unitree-g1",
+  "brand": "Unitree",
+  "nameEn": "Unitree G1",
+  "nameTh": "ยูนิทรี จี1",
+  "category": "research",
+  "locomotion": "legs",
+  "segment": "หุ่นยนต์ฮิวแมนนอยด์ขนาดกลางสำหรับวิจัยและการศึกษา",
+  "originCountry": "จีน",
+  "originGroup": "china",
+  "availability": "thai-dealer",
+  "availabilityNote": "ผู้จำหน่ายในไทย เช่น SIAMBC (หน้าร้านเขตทวีวัฒนา กรุงเทพฯ) และ MetaXR รับสั่งซื้อตามใบเสนอราคา และบริษัท ซิสทรอนิกส์ จำกัด ได้รับการระบุว่าเป็นตัวแทนจำหน่ายในไทยเมื่อปลายปี 2567 ผู้ซื้อยังสั่งตรงจากร้านออนไลน์ของ Unitree ได้ แต่ร้านแจ้งว่ารุ่น G1 อยู่ในสถานะรอผลิต (backorder) และผู้ซื้อต้องดำเนินพิธีการศุลกากรเอง",
+  "distributor": "SIAMBC, MetaXR (MTXR), ซิสทรอนิกส์ (Systronics)",
+  "launched": "2024-06",
+  "tagline": "ฮิวแมนนอยด์ขนาดกลางสำหรับวิจัย สูง 132 ซม.",
+  "summary": "Unitree G1 เป็นหุ่นยนต์ฮิวแมนนอยด์สองขาขนาดกลาง สูงประมาณ 132 ซม. หนักราว 35 กก. ผลิตโดย Unitree Robotics แห่งเมืองหางโจว ประเทศจีน รุ่นพื้นฐานมีข้อต่อ 23 จุด แบตเตอรี่ถอดเปลี่ยนได้ใช้งานราว 2 ชั่วโมง และมีราคาตั้งต้น 13,500 ดอลลาร์สหรัฐในร้านออนไลน์ของผู้ผลิต เหมาะกับมหาวิทยาลัย ห้องปฏิบัติการวิจัย และงานสาธิต โดยการเขียนโปรแกรมควบคุมเองต้องใช้รุ่น EDU",
+  "background": "Unitree เปิดตัว G1 ในปี 2567 เป็นหุ่นยนต์ฮิวแมนนอยด์รุ่นที่สองของบริษัทต่อจาก H1 และเปิดขายผ่านร้านออนไลน์ของบริษัทตั้งแต่เดือนมิถุนายน 2567 ปัจจุบันรุ่นพื้นฐานมีราคา 13,500 ดอลลาร์สหรัฐ โดยไม่รวมภาษีและค่าขนส่ง ในเดือนกันยายน 2569 ร้านออนไลน์เพิ่มรุ่น G1 Pro ราคา 21,500 ดอลลาร์ ซึ่งตัวแทนจำหน่ายในยุโรประบุว่ามีข้อต่อ 29 จุดและแรงบิดข้อเข่าสูงสุด 120 N·m และในวันที่ 14 กันยายน 2569 ผู้ผลิตเปิดตัว G1+ ที่เพิ่มคอ 2 องศาอิสระ กล้องสองตาร่วมกับกล้องมุมกว้าง และมอเตอร์ไหล่กับเอวที่มีแรงบิดสูงสุดเพิ่มขึ้นร้อยละ 110 ในราคา 15,000 ดอลลาร์ (ในจีน 95,000 หยวนรวมภาษี) รุ่น G1 EDU สำหรับงานวิจัยรองรับการพัฒนาต่อยอด ปรับจำนวนข้อต่อได้ 23–43 จุด ติดตั้งโมดูลประมวลผล NVIDIA Jetson Orin และมือ Dex3-1 ได้ โดยผู้ผลิตแจ้งราคาตามการสอบถาม ผู้ผลิตยังเผยแพร่โค้ดโอเพนซอร์สสำหรับฝึกการเคลื่อนไหวของ G1 ด้วยการจำลองบน Isaac Lab และ MuJoCo",
+  "heightCm": 132,
+  "weightKg": [
+    35,
+    35
+  ],
+  "trims": [
+    {
+      "name": "G1",
+      "priceTHB": null,
+      "listPrice": {
+        "amount": 13500,
+        "currency": "USD"
+      },
+      "dof": 23,
+      "handDof": null,
+      "hand": "ไม่มีมือหยิบจับ",
+      "payloadKg": 2,
+      "speedMs": 2,
+      "runtimeH": 2,
+      "batteryWh": 421,
+      "compute": "ซีพียู 8 คอร์",
+      "jointTorqueNm": 90
+    },
+    {
+      "name": "G1+",
+      "priceTHB": null,
+      "listPrice": {
+        "amount": 15000,
+        "currency": "USD"
+      },
+      "dof": 25,
+      "handDof": null,
+      "hand": "ไม่มีมือหยิบจับ",
+      "payloadKg": 3,
+      "speedMs": null,
+      "runtimeH": 2,
+      "batteryWh": 421,
+      "compute": "ซีพียู 8 คอร์",
+      "jointTorqueNm": null
+    },
+    {
+      "name": "G1 Pro",
+      "priceTHB": null,
+      "listPrice": {
+        "amount": 21500,
+        "currency": "USD"
+      },
+      "dof": 29,
+      "handDof": null,
+      "hand": null,
+      "payloadKg": 3,
+      "speedMs": null,
+      "runtimeH": null,
+      "batteryWh": null,
+      "compute": null,
+      "jointTorqueNm": 120
+    }
+  ],
+  "sensors": [
+    "LiDAR 3 มิติ Livox MID-360",
+    "กล้องวัดความลึก Intel RealSense",
+    "ไมโครโฟน 4 ตัว และลำโพง 5 วัตต์",
+    "G1+: กล้องสองตา กล้องมุมกว้างที่หน้าอก ไมโครโฟน 6 ตัว และจุดสัมผัสที่ศีรษะ"
+  ],
+  "charging": {
+    "timeH": null,
+    "swappable": true,
+    "note": "แบตเตอรี่ 9,000 mAh (ราว 421 Wh) แบบถอดเปลี่ยนเร็ว ที่ชาร์จ 54V 5A มาพร้อมเครื่อง ผู้ผลิตไม่เปิดเผยเวลาชาร์จ รุ่น G1+ ต่อไฟภายนอกเพื่อใช้งานต่อเนื่องได้"
+  },
+  "software": {
+    "sdk": "เฉพาะรุ่น EDU รองรับการพัฒนาต่อยอดผ่าน unitree_sdk2 (C++ และ Python) และ ROS 2 รุ่น G1, G1+ และ G1 Pro ใช้งานผ่านรีโมตและแอปพร้อมอัปเดต OTA",
+    "ai": "ผู้ผลิตเผยแพร่โค้ดฝึกการเคลื่อนไหวแบบ reinforcement learning บน Isaac Lab และ MuJoCo (unitree_rl_lab) และชุดควบคุมทางไกลด้วยอุปกรณ์ XR"
+  },
+  "warranty": {
+    "robot": "8 เดือน (รุ่น EDU 18 เดือน)",
+    "battery": null,
+    "note": "เป็นการรับประกันจากผู้ผลิตตามเอกสารรับประกันของ Unitree ควรสอบถามผู้จำหน่ายในไทยว่าซ่อมในประเทศหรือต้องส่งกลับผู้ผลิต"
+  },
+  "safety": {
+    "features": [
+      "รีโมตควบคุมแบบมือถือมาพร้อมเครื่อง",
+      "สายไฟเดินภายในข้อต่อทั้งหมด ลดการเกี่ยวพันระหว่างเคลื่อนไหว"
+    ],
+    "certifications": []
+  },
+  "useCases": [
+    "งานวิจัยด้านการเคลื่อนไหวและการเรียนรู้แบบ reinforcement learning ในมหาวิทยาลัย",
+    "การเรียนการสอนด้านหุ่นยนต์และ AI",
+    "งานสาธิตและต้อนรับในงานแสดงสินค้า",
+    "การแสดงเต้นและการแข่งขันหุ่นยนต์",
+    "ให้เช่าสำหรับงานอีเวนต์และงานวิจัยระยะสั้นในไทย"
+  ],
+  "highlights": [
+    "รุ่นพื้นฐานมีข้อต่อ 23 จุด รุ่น G1+ 25 จุด และรุ่น EDU ปรับได้ 23–43 จุด",
+    "ข้อเข่าแรงบิดสูงสุด 90 N·m (รุ่น EDU 120 N·m)",
+    "แบตเตอรี่ 9,000 mAh แบบถอดเปลี่ยนเร็ว ใช้งานราว 2 ชั่วโมงต่อก้อน",
+    "รับรู้สภาพแวดล้อมรอบตัวด้วย LiDAR 3 มิติร่วมกับกล้องวัดความลึก",
+    "พับเก็บได้เหลือขนาด 69 x 45 x 30 ซม. สะดวกต่อการขนย้าย",
+    "แขนรับน้ำหนักได้ราว 2 กก. (G1+ และ G1 Pro ราว 3 กก.) ตัวเลขจริงขึ้นกับระยะการยื่นแขน"
+  ],
+  "pros": [
+    "ประกาศราคาสาธารณะและสั่งซื้อได้จริงจากร้านออนไลน์ของผู้ผลิต",
+    "มีผู้จำหน่ายและผู้ให้เช่าในไทยหลายราย",
+    "ผู้ผลิตเผยแพร่โค้ดโอเพนซอร์สสำหรับการฝึกและการจำลอง ช่วยลดเวลาเริ่มต้นงานวิจัย",
+    "ขนาดกะทัดรัดและพับเก็บได้ ใช้งานในห้องเรียนหรือบูธได้สะดวก"
+  ],
+  "cons": [
+    "รุ่น G1, G1+ และ G1 Pro ไม่เปิดให้พัฒนาต่อยอด ต้องซื้อรุ่น EDU ซึ่งต้องสอบถามราคา",
+    "ใช้งานราว 2 ชั่วโมงต่อก้อน งานต่อเนื่องต้องเตรียมแบตเตอรี่สำรอง",
+    "แขนรับน้ำหนักได้เพียงราว 2–3 กก. ไม่เหมาะกับงานยกของจริงจัง",
+    "มีรายงานช่องโหว่ด้านความปลอดภัยผ่าน Bluetooth และข้อกังวลเรื่องการส่งข้อมูลไปยังเซิร์ฟเวอร์ ซึ่งผู้ผลิตโต้แย้งเรื่องการเก็บข้อมูล",
+    "ร้านออนไลน์ของผู้ผลิตแจ้งว่ารุ่น G1 อยู่ในสถานะรอผลิต"
+  ],
+  "idealFor": [
+    "มหาวิทยาลัยและศูนย์วิจัยด้านหุ่นยนต์และ embodied AI (รุ่น EDU)",
+    "สถานศึกษาที่ต้องการหุ่นยนต์สาธิตขนาดเคลื่อนย้ายง่าย",
+    "ผู้จัดงานและองค์กรที่ต้องการหุ่นยนต์ต้อนรับหรือการแสดง"
+  ],
+  "considerations": [
+    "ตัดสินใจก่อนว่าต้องเขียนโปรแกรมเองหรือไม่ เพราะมีเพียงรุ่น EDU ที่รองรับ SDK",
+    "ขอใบเสนอราคาที่รวมภาษีนำเข้า ภาษีมูลค่าเพิ่ม ค่าขนส่ง และระบุผู้ให้บริการหลังการขายในไทย",
+    "สอบถามแผนอัปเดตเฟิร์มแวร์และการตั้งค่าเครือข่าย เนื่องจากมีรายงานช่องโหว่ Bluetooth ในปี 2568–2569",
+    "เตรียมพื้นที่ทดสอบ โครงแขวนกันล้ม และผู้ควบคุมที่ผ่านการอบรม เพราะผู้ผลิตเตือนว่าหุ่นยนต์มีกำลังสูง",
+    "เปรียบเทียบกับ G1+ ที่ราคาสูงกว่า 1,500 ดอลลาร์ แต่มีคอขยับได้ กล้องสองตา และแขนรับน้ำหนักได้มากกว่า"
+  ],
+  "funFact": "เมื่อพับเก็บ G1 จะเหลือความสูงประมาณ 69 ซม. จากความสูงขณะยืน 132 ซม.",
+  "priceNote": "ราคาในร้านออนไลน์ของ Unitree ไม่รวมภาษีนำเข้า ภาษีมูลค่าเพิ่ม และค่าขนส่ง ร้านแจ้งค่าขนส่งราว 300–1,200 ดอลลาร์ และผู้ซื้อต้องดำเนินพิธีการศุลกากรเอง ราคา G1+ (15,000 ดอลลาร์) มาจากหน้าสินค้าของผู้ผลิต ส่วนข้อมูลจำเพาะของ G1 Pro อ้างอิงตัวแทนจำหน่ายในยุโรปเพราะผู้ผลิตยังไม่เผยแพร่ตาราง รุ่น G1, G1+ และ G1 Pro ไม่รองรับการพัฒนาต่อยอด รุ่น EDU ต้องสอบถามราคาจากผู้ผลิต ผู้จำหน่ายในไทยแจ้งราคาตามใบเสนอราคาซึ่งขึ้นกับรุ่น อุปกรณ์ และภาษีนำเข้า MetaXR แสดงราคา 454,000 บาท แต่ระบุว่าเป็นราคาขายส่งสำหรับสั่งจำนวนมาก ไม่ใช่ราคาขายปลีก และยังไม่รวมค่าขนส่งและภาษี นอกจากนี้ MetaXR มีบริการเช่ารายวันสำหรับงานอีเวนต์ และรายสัปดาห์หรือรายเดือนสำหรับการศึกษาและวิจัย",
+  "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Child_with_Robot_02.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Child_with_Robot_02.jpg",
+    "author": "Tonynirappathu",
+    "license": "CC BY 4.0",
+    "focus": "62% 32%"
+  },
+  "gallery": [
+    {
+      "kind": "image",
+      "src": "images/gallery/unitree-g1-1.jpg",
+      "srcSmall": "images/gallery/unitree-g1-1-sm.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/b/bc/WAIC_2025_-_Robots_03.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:WAIC_2025_-_Robots_03.jpg",
+      "author": "Xuthoria",
+      "license": "CC BY-SA 4.0",
+      "alt": "Unitree G1 ติดโลโก้ Lenovo ที่หน้าอก ยืนจัดแสดงในงาน WAIC 2025 ที่เซี่ยงไฮ้",
+      "focus": "50% 30%"
+    },
+    {
+      "kind": "image",
+      "src": "images/gallery/unitree-g1-2.jpg",
+      "srcSmall": "images/gallery/unitree-g1-2-sm.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/9/90/WAIC_2025_-_Robots_21.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:WAIC_2025_-_Robots_21.jpg",
+      "author": "Xuthoria",
+      "license": "CC BY-SA 4.0",
+      "alt": "Unitree G1 นั่งบนเก้าอี้ที่บูธแพลตฟอร์ม TAIROS ของ Tencent ในงาน WAIC 2025",
+      "focus": "72% 45%"
+    },
+    {
+      "kind": "video",
+      "src": "images/gallery/unitree-g1-3.jpg",
+      "srcSmall": "images/gallery/unitree-g1-3-sm.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/f/f0/2025-12-05_%E6%8E%A2%E8%AE%BF%E6%B5%8E%E5%8D%97%E6%9C%BA%E5%99%A8%E4%BA%BA6S%E4%B8%AD%E5%BF%83%EF%BC%9A%E5%B8%82%E6%B0%91%E6%9C%9F%E5%BE%85%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%9F%E8%83%BD%E8%9E%8D%E5%90%88%E3%80%81%E4%BA%A4%E4%BA%92%E5%8D%87%E7%BA%A7.webm",
+      "seek": 57,
+      "page": "https://commons.wikimedia.org/wiki/File:2025-12-05_%E6%8E%A2%E8%AE%BF%E6%B5%8E%E5%8D%97%E6%9C%BA%E5%99%A8%E4%BA%BA6S%E4%B8%AD%E5%BF%83%EF%BC%9A%E5%B8%82%E6%B0%91%E6%9C%9F%E5%BE%85%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%9F%E8%83%BD%E8%9E%8D%E5%90%88%E3%80%81%E4%BA%A4%E4%BA%92%E5%8D%87%E7%BA%A7.webm",
+      "author": "China News Service",
+      "license": "CC BY 4.0",
+      "alt": "คลิปข่าว: Unitree G1 หลายตัวแสดงท่าเต้นและท่าต่อสู้บนพรมแดง ที่ศูนย์หุ่นยนต์ 6S เมืองจี่หนาน (เริ่มที่ช่วงหุ่นยนต์แสดง)",
+      "video": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/2025-12-05_%E6%8E%A2%E8%AE%BF%E6%B5%8E%E5%8D%97%E6%9C%BA%E5%99%A8%E4%BA%BA6S%E4%B8%AD%E5%BF%83%EF%BC%9A%E5%B8%82%E6%B0%91%E6%9C%9F%E5%BE%85%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%9F%E8%83%BD%E8%9E%8D%E5%90%88%E3%80%81%E4%BA%A4%E4%BA%92%E5%8D%87%E7%BA%A7.webm",
+        "duration": 206.1,
+        "start": 52
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Unitree G1 Humanoid Agent – Unitree Robotics",
+      "url": "https://www.unitree.com/g1/"
+    },
+    {
+      "title": "Unitree G1+ – Unitree Robotics",
+      "url": "https://www.unitree.com/G1pl/"
+    },
+    {
+      "title": "Unitree G1 (online store) – Unitree Robotics",
+      "url": "https://shop.unitree.com/products/unitree-g1"
+    },
+    {
+      "title": "Humanoid Robot Unitree G1 Base – RBTX (igus)",
+      "url": "https://rbtx.com/en-US/components/humanoid/unitree-g1-base"
+    },
+    {
+      "title": "Unitree launches G1 Plus humanoid with stronger motors and moving neck – Humanoids Daily",
+      "url": "https://www.humanoidsdaily.com/news/unitree-launches-g1-plus-humanoid-with-stronger-motors-and-moving-neck"
+    },
+    {
+      "title": "Unitree Robotics open-source repositories (unitree_sdk2, unitree_ros2, unitree_rl_lab) – GitHub",
+      "url": "https://github.com/unitreerobotics"
+    },
+    {
+      "title": "Unitree G1 หุ่นยนต์ฮิวแมนนอยด์ – SIAMBC",
+      "url": "https://siambc.com/products/unitree-g1"
+    },
+    {
+      "title": "เปิดอาณาจักรหุ่นยนต์ของ ‘Unitree’ ผู้ที่เชื่อว่าปัญญาประดิษฐ์จะเปลี่ยนโลก – กรุงเทพธุรกิจ",
+      "url": "https://www.bangkokbiznews.com/tech/innovation/1157976"
+    },
+    {
+      "title": "Unitree G1 – MetaXR (MTXR)",
+      "url": "https://mtxr.co/shop/unitree-g1/"
+    },
+    {
+      "title": "Unitree G1 faces security scrutiny at IFA 2026 – Humanoid Guide",
+      "url": "https://humanoid.guide/unitree-exhibits-g1-at-ifa-amid-unresolved-security-questions/"
+    }
+  ]
+}

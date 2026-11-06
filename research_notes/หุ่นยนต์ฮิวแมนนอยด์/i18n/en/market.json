@@ -1,0 +1,107 @@
+{
+  "fx": {
+    "note": "Average commercial-bank selling rates (baht per unit of foreign currency) published by the Bank of Thailand on 22 October 2026, the latest data before the Chulalongkorn Day holiday. At that time the average interbank mid rate was 33.650 baht per US dollar. These rates are used only to convert makers' foreign-currency prices for comparison; actual selling prices in Thailand depend on shipping, taxes and the dealer."
+  },
+  "marketContext": "2025 was the first year in which humanoid robots shipped in the tens of thousands. Omdia estimated global shipments at 13,318 units, while IDC estimated about 18,000 units, an increase of about 5–6 times over 2024, with a market value of about US$440 million. Chinese makers held a share of nearly 90%, led by AgiBot and Unitree, while US makers such as Tesla, Figure AI and Agility Robotics each shipped about 150 units. For the first half of 2026, IDC reported shipments of nearly 25,000 units, and TrendForce expects full-year 2026 shipments to exceed 50,000 units. The main buyers are still research and educational institutions, along with exhibitions and reception work, while factory use remains at the pilot stage. Prices continue to trend downwards: for example, Unitree cut the starting price of the R1 from CNY 39,900 to CNY 29,900 in 2026, and there are small models priced below CNY 10,000. In Thailand the market is still at an early stage. The main sellers are VST ECS, AGIBOT's partner in Thailand since June 2026 (starting price 1,799,000 baht), and several Unitree dealers, focusing on educational and research institutions, events, retail, customer service and airports, while AGIBOT has announced plans to set up a joint venture with the GULF group. On the government side, the Board of Investment (BOI) has granted promotion to 10 humanoid-robot component manufacturing projects with total investment of 15,000 million baht since early 2026, and offers the Smart and Sustainable Industry upgrading measure for businesses investing in automation and robotics.",
+  "shipments": [
+    { "brand": "AgiBot", "period": "2025", "note": "Estimate by Omdia, which put total global shipments in 2025 at 13,318 units; AgiBot's share was about 39%." },
+    { "brand": "Unitree", "period": "2025", "note": "Unitree's own figure is more than 5,500 humanoid robots shipped; the difference comes from the way each source counts." },
+    { "brand": "UBTech", "period": "2025", "note": null },
+    { "brand": "Leju", "period": "2025", "note": null },
+    { "brand": "EngineAI", "period": "2025", "note": null },
+    { "brand": "Fourier", "period": "2025", "note": null },
+    { "brand": "Figure AI", "period": "2025", "note": "Approximate figure." },
+    { "brand": "Agility Robotics", "period": "2025", "note": "Approximate figure." },
+    { "brand": "Tesla", "period": "2025", "note": "Approximate figure; mostly used within the company." }
+  ],
+  "priceFactors": [
+    "The number of degrees of freedom (DoF) and the joint actuators are the main cost of a humanoid robot: the more joints and the higher the torque, the higher the price. For example, the standard Unitree G1 has 23 DoF, while the G1 EDU can be expanded to 43 DoF.",
+    "Multi-fingered dexterous hands can add a great deal to the price and are often offered only on research and development versions. Many base versions have no grasping hands, or only simple ones.",
+    "Onboard computers such as NVIDIA Jetson Orin or Jetson Thor let AI models run on the robot without relying on the cloud, but add cost and power consumption; a single Jetson AGX Thor developer kit alone costs US$3,499.",
+    "The sensor suite, such as 3D LiDAR, depth cameras and multiple microphones, determines how well the robot perceives its surroundings and walks around obstacles, so it is another factor behind price differences.",
+    "Access to the software development kit (SDK) and to further development means that versions that look identical can differ in price several times over. Some makers allow low-level control programming only on EDU versions and give them a longer warranty, for example 18 months versus 8 months for the standard version.",
+    "Body size, payload and battery capacity directly affect the price. A full-size robot about 170 cm tall, such as the AGIBOT A2 Ultra, is priced at 3,118,000 baht in Thailand, higher than the mid-size X2 Ultra, which starts at 1,799,000 baht.",
+    "Makers' prices quoted in US dollars or yuan do not include shipping, customs clearance fees or 7% VAT, so the selling price in Thailand also depends on the exchange rate and the method of import.",
+    "Local after-sales service, training, spare parts and spare batteries, as well as rental or monthly subscription options (Robot-as-a-Service), are costs that dealers build into their prices in different ways. Compare the whole package of terms, not just the price of the robot."
+  ],
+  "buyerChecklist": [
+    { "title": "See a demonstration before deciding", "detail": "Ask to see or try the model you plan to buy under real operating conditions. Some dealers have a shop or offer on-location demonstrations, and some offer short-term rental so you can try the robot first." },
+    { "title": "Check the version and development rights", "detail": "Base and EDU versions may differ in DoF count, onboard computer and SDK access. If you need to program the robot or carry out research, get written confirmation that the version you buy is open for further development." },
+    { "title": "Warranty period and service centres in Thailand", "detail": "Warranty periods vary widely, from 6 to 18 months depending on the model. Ask whether repairs can be done in Thailand or the robot must be sent abroad, and how long this takes." },
+    { "title": "Spare parts and spare batteries", "detail": "Ask about prices and lead times for batteries, joints and parts that wear quickly, such as feet and hands. As one battery gives a runtime of about 2 hours, a spare battery allows continuous operation." },
+    { "title": "Space and safety", "detail": "Bipedal robots can fall during use or testing. Prepare a clear area with a flat, non-slip floor, a keep-out zone for people and, for full-size models, a safety gantry, and check where the emergency stop button is." },
+    { "title": "Network and personal data", "detail": "Robots with cameras and microphones capture images and audio of people. Check which servers the data is sent to and whether the robot can be used offline, and prepare a privacy notice under the Personal Data Protection Act if it will be used at business premises." },
+    { "title": "Import documents and NBTC certification", "detail": "Buy through a Thai importer that fully completes customs clearance and NBTC radiocommunication equipment certification. If you import the robot yourself, you take on this paperwork and become the importer under the unsafe products liability law." },
+    { "title": "User training", "detail": "Check whether the price includes training for operators and system administrators, covering use of the remote control, charging and storing batteries, software updates and handling emergencies." },
+    { "title": "Compare buying with renting", "detail": "For events or pilot projects, rental or a monthly subscription may be better value than buying. Before deciding, weigh how often the robot will be used, maintenance costs and how quickly models are replaced." }
+  ],
+  "setup": {
+    "steps": [
+      { "title": "Prepare the space and floor", "detail": "Set aside a clear area of at least about 3 x 3 m for testing and demonstrations, with a flat, dry, non-slip floor. Lay impact-absorbing rubber mats in the test area and set a safety zone that keeps bystanders away while the robot is moving." },
+      { "title": "Install a safety gantry", "detail": "Mid-size and full-size bipedal robots should have a safety gantry or lifting hoist for start-up, testing new motions and program development, to prevent damage if the robot falls." },
+      { "title": "Charging point and battery storage", "detail": "Provide an earthed power socket in a well-ventilated spot away from flammable materials, set aside a separate place for spare batteries, and assign someone responsible for charging in line with the maker's manual." },
+      { "title": "Network", "detail": "Provide Wi-Fi coverage across the operating area, separate the robot's network from the organisation's main network, and set permissions for access and software updates." },
+      { "title": "Assess risks and appoint operators", "detail": "Assess the risks of the tasks the robot will perform, appoint trained operators, and check that the emergency stop button and remote control work before every use." },
+      { "title": "Train users and maintainers", "detail": "Arrange training in switching the robot on and off, charging, basic maintenance and program development (for EDU versions), and ask the dealer to include the training in the sales contract." },
+      { "title": "Insurance and personal data", "detail": "Inform your insurer so that it can consider cover for property and third-party liability, and put up signs or notices that images and audio are recorded in areas where the robot operates." }
+    ],
+    "costs": [
+      { "item": "The maker's safety gantry, overseas price, excluding shipping and taxes (mid-size to full-size models)" },
+      { "item": "One spare battery (mid-size to full-size models)" },
+      { "item": "Impact-absorbing rubber floor mats for a test area of 9–25 square metres" },
+      { "item": "1–3 Wi-Fi 6 routers or access points" }
+    ]
+  },
+  "electricity": [
+    { "label": "Residential, standard rate (MEA/PEA)", "unit": "baht/kWh", "note": "New tariff structure from the September 2026 billing cycle, including the Ft charge of 16.23 satang and 7% VAT: about 3.38 baht/kWh for the first 200 kWh, about 4.62 baht/kWh for 201–400 kWh and about 4.84 baht/kWh from the 401st kWh onwards." },
+    { "label": "Residential, TOU rate, off-peak", "unit": "baht/kWh", "note": "Energy charge of 2.6369 baht plus Ft of 0.1623 baht and 7% VAT. Applies 22:00–09:00 Monday–Friday and all day on Saturdays, Sundays and regular public holidays. Suitable for charging spare batteries overnight." },
+    { "label": "Residential, TOU rate, on-peak", "unit": "baht/kWh", "note": "Energy charge of 5.7982 baht plus Ft of 0.1623 baht and 7% VAT. Applies 09:00–22:00 Monday–Friday." },
+    { "label": "Average across all customer types (used as an estimate for organisations)", "unit": "baht/kWh", "note": "Average electricity charge across all customer types of 3.86 baht/kWh under the ERC resolution for the September–December 2026 period; the rate shown is calculated with 7% VAT included. A business's actual rate depends on its customer category." }
+  ],
+  "ownershipCost": {
+    "yearly": [
+      { "item": "Maintenance and service contract after the warranty ends (about 10–18% of the robot's price per year, for robots priced at 0.2–3.1 million baht)" },
+      { "item": "Replacement batteries, averaged per year (assuming replacement every 1–2 years)" },
+      { "item": "Software or AI subscription (if any, e.g. 1X NEO in the US at US$499 per month)" },
+      { "item": "Electricity for battery charging (from a mid-size model used once a day to a full-size model charged 3 times a day)" }
+    ],
+    "oneTime": [
+      { "item": "International shipping from China to Thailand (by road, sea or air, depending on package size)" },
+      { "item": "Import duty (HS code 8479.50, industrial robots, or 8479.89: 0% rate)" },
+      { "item": "7% VAT on the CIF value including duty (robots valued at 0.2–3.1 million baht)" },
+      { "item": "Customs broker and warehouse fees if you import yourself (estimate)" },
+      { "item": "System installation and training (from included in the robot's price to installation for industrial use)" }
+    ]
+  },
+  "sellers": [
+    { "name": "VST ECS (Thailand)", "detail": "AGIBOT's local partner and Thai distributor since June 2026. Sells the AGIBOT A2 Ultra at 3,118,000 baht and the X2 Ultra from 1,799,000 baht. Offers on-location demonstrations, rental for events and a monthly service model, with training and after-sales teams. Standard warranty of 1 year (X2: 18 months)." },
+    { "name": "SIAMBC", "detail": "States that it is Unitree's official Thai distributor. Sells the Unitree G1 and R1 by quotation. Has a shop in Thawi Watthana district, Bangkok, open Monday–Saturday, and gives the maker's warranty as 8 months for the G1, 18 months for the G1 EDU and 6–12 months for the R1, depending on version." },
+    { "name": "Neotech (3DD)", "detail": "Neotech Co., Ltd., Bangkok, sells Unitree robots, including the G1 EDU Plus and R1 EDU, alongside 3D printers. Prices by quotation; has an after-sales support team and gives a 1-year warranty on the G1 EDU Plus." },
+    { "name": "MetaXR (MTXR)", "detail": "Sells and rents out the Unitree G1 and G1 EDU, as well as the Unitree H1. Offers daily rental for events and weekly or monthly rental for education and research, with an operator. The G1 price shown on its website does not include shipping or taxes." },
+    { "name": "SKY ICT", "detail": "SKY ICT Public Company Limited works with AGIBOT to develop an AI robot platform in Thailand and deploys humanoid robots to provide services in organisations, such as welcoming passengers at airports. Suited to organisations that want a complete solution with software rather than buying the bare robot." }
+  ],
+  "notForSale": [
+    { "name": "Tesla Optimus", "status": "As of October 2026, Tesla has begun initial production on a large-scale production line at its Fremont factory and is using the robots internally. Deliveries to outside companies are expected to start around late 2027, and no selling price has been announced." },
+    { "name": "Figure 03", "status": "Unveiled in October 2025 and used in the company's own projects and with partner customers, such as a BMW plant in the US. There is no channel for the general public to buy or pre-order it, and no public price." },
+    { "name": "Atlas", "status": "The production version was unveiled in January 2026. All 2026 deliveries are allocated to Hyundai and Google DeepMind; the company plans to take on other customers from early 2027." },
+    { "name": "IRON", "status": "The production line in Guangzhou started up in September 2026, with mass production targeted by the end of 2026. The robots will first be used in XPENG showrooms and offices, and sales in China and abroad are planned to start in 2027. No price has been announced." },
+    { "name": "Apollo", "status": "Apollo 2 was unveiled in June 2026 and is still used in pilot projects with customers such as Mercedes-Benz and GXO. The company states that the commercial model will be Apollo 3, for which no price or release date has been announced." },
+    { "name": "NEO", "status": "Open for pre-order in the US at US$20,000, or by subscription at US$499 per month. US deliveries start in 2026, with expansion to other markets planned from 2027, so it is not yet sold in Thailand." }
+  ],
+  "incentives": [
+    "Under the BOI's Smart and Sustainable Industry upgrading measure, existing businesses, whether or not already BOI-promoted, that invest at least 1 million baht (excluding land and working capital) in upgrading with automation or robots receive an exemption from import duty on machinery and a 3-year corporate income tax exemption capped at 50% of the investment.",
+    "If the automation or robots invested in have links with the domestic automation industry of at least 30% of the machinery value, the corporate income tax exemption cap rises to 100% of the investment, and spending on AI, machine learning and data analytics can be counted in full as investment. Those interested should check the application deadline and the latest conditions with the BOI before ordering.",
+    "The tax measure to support SME digital transformation under Royal Decree (No. 802) of 2026 lets companies with paid-up capital of no more than 5 million baht and revenue of no more than 30 million baht deduct 2 times the expense for software, hardware, smart devices or digital services registered in the digital service catalogue of the Digital Economy Promotion Agency (depa), up to 300,000 baht, for expenses from 24 June 2025 to 31 December 2027. It applies only if the robot or service purchased is in that catalogue.",
+    "For those who want to make parts or assemble robots in Thailand: since early 2026 the BOI has granted promotion to 10 humanoid-robot component manufacturing projects with total investment of 15,000 million baht, covering frames, joint control units, arms and fingers."
+  ],
+  "legalNotes": [
+    "As of October 2026, Thailand has no law specifically regulating humanoid robots. The draft Artificial Intelligence Act of the Electronic Transactions Development Agency (ETDA) closed for public consultation in August 2026 and is not yet in force, so robot use falls under existing general laws.",
+    "Imports must go through Customs Department clearance. Robots classified under HS code 8479.50 (industrial robots) or 8479.89 carry a 0% import duty rate, but small entertainment robots may be classified under other codes that carry duty. Importers should request an advance tariff classification ruling, and must pay 7% VAT, a rate that will be kept until 30 September 2027.",
+    "Robots with Wi-Fi, Bluetooth or a mobile network module count as radiocommunication equipment and must be certified or covered by a supplier's declaration of conformity (SDoC), according to the category set by the Office of the NBTC. The applicant must be a maker, importer or dealer in Thailand registered with the NBTC.",
+    "Using a robot with cameras or microphones for personal benefit or family activities is exempt under Section 4 (1) of the Personal Data Protection Act 2019, but use at business premises requires informing employees and customers of the purpose and providing a privacy notice, setting a data retention period and managing transfers of data to overseas servers. The Office of the Personal Data Protection Committee issued its first AI guidelines in October 2026; they are not legally binding.",
+    "The Liability for Damages Arising from Unsafe Products Act 2008 makes the maker, the importer and any seller unable to identify the maker or importer jointly liable to the injured party, who does not have to prove negligence, and the court may award punitive damages of up to 2 times the actual damages. Buying through a Thai importer therefore gives a clearly responsible party, whereas importing yourself makes the buyer the importer.",
+    "Employers using robots in the workplace have safety duties under the Occupational Safety, Health and Environment Act 2011 and the Ministerial Regulation on safety concerning machinery, cranes and boilers 2021, and may refer to the international standards ISO 10218 for industrial robots and ISO 13482 for service robots when assessing risks.",
+    "Our checks found no mandatory Thai Industrial Standard (TIS) that applies directly to humanoid robots, but accessories such as chargers may fall under mandatory standards depending on their tariff classification. Ask the importer.",
+    "Existing property and third-party liability insurance policies may not automatically cover damage caused by robots. Buyers should inform their insurer and extend cover before starting to use a robot in areas where members of the public are present."
+  ]
+}

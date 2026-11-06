@@ -1,0 +1,230 @@
+/* A model page's sub-navigation, as on a car maker's site: sentence-case tabs along a hairline, the
+   open one marked by a 2px bar that sweeps in beneath it (ink on light floors, LED on the night
+   theme). On wider screens the bar sticks under the header while its panel scrolls. The track can
+   scroll sideways only as a safety net for enlarged text; phones lay the tabs out as a grid of tiles. */
+.tabs__list {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 5;
+  display: flex;
+  gap: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+  /* Paint the floor colour edge to edge, so the stuck bar reads as one strip across the page */
+  box-shadow: 0 0 0 100vmax var(--paper);
+  clip-path: inset(0 -100vmax);
+  scrollbar-width: none;
+}
+
+.tabs__list::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs__tab {
+  --tab-mark: var(--ink);
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 var(--space-5);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-subtle);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color var(--dur-2) var(--ease-out);
+}
+
+.tabs__tab:first-child {
+  padding-left: 0;
+}
+
+:root[data-theme='dark'] .tabs__tab {
+  --tab-mark: var(--led);
+}
+
+.tabs__tab::after {
+  content: '';
+  position: absolute;
+  left: var(--space-5);
+  right: var(--space-5);
+  bottom: -1px;
+  height: 2px;
+  background: var(--tab-mark);
+  scale: 0 1;
+  transform-origin: left;
+  transition: scale var(--dur-3) var(--ease-out);
+}
+
+.tabs__tab:first-child::after {
+  left: 0;
+}
+
+/* Hover preview only where a pointer can hover, so phones don't keep a stale highlight after a tap */
+@media (hover: hover) {
+  .tabs__tab:not([aria-selected='true']):hover {
+    color: var(--ink);
+  }
+
+  .tabs__tab:not([aria-selected='true']):hover::after {
+    scale: 0.35 1;
+  }
+}
+
+.tabs__tab[aria-selected='true'] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.tabs__tab[aria-selected='true']::after {
+  scale: 1 1;
+}
+
+@media (forced-colors: active) {
+  .tabs__tab[aria-selected='true'] {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+}
+
+/* Inside the strip, so the scroll box never clips it */
+.tabs__tab:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -4px;
+}
+
+.tabs__panel {
+  padding-top: var(--space-6);
+}
+
+.tabs__panel:focus-visible {
+  outline-offset: 8px;
+}
+
+/* A newly opened panel rises into place: motion that answers the click */
+.motion-ok .tabs__panel:not([hidden]) {
+  animation: tabs-panel-in var(--dur-3) var(--ease-out) both;
+}
+
+@keyframes tabs-panel-in {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
+}
+
+.tabs__short {
+  display: none;
+}
+
+/* Below the width where the five full labels fit: short labels (the full label stays the
+   accessible name and the panel heading) */
+@media (max-width: 1080px) {
+  .tabs__tab {
+    padding: 0 var(--space-4);
+  }
+
+  .tabs__tab::after {
+    left: var(--space-4);
+    right: var(--space-4);
+  }
+
+  .tabs__short {
+    display: inline;
+  }
+
+  .tabs__full {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+/* The header stops being sticky at this width, so the tab bar sticks to the very top */
+@media (max-width: 720px) {
+  .tabs__list {
+    top: 0;
+  }
+
+  .tabs__tab {
+    padding: 0 var(--space-3);
+  }
+
+  .tabs__tab::after {
+    left: var(--space-3);
+    right: var(--space-3);
+  }
+
+  .tabs__panel {
+    padding-top: var(--space-5);
+  }
+}
+
+/*
+  Phones: five Thai labels can't share one row at 320px, and a strip that scrolls hides tabs behind
+  its edge. So every tab is a square tile in a grid split by hairlines: three to a row, and when the
+  last row is short its tabs share the row equally (3 + 2 for the model page). The open tile is
+  filled. The grid doesn't stick (two rows would cover too much of a phone screen). DOM order, roving
+  tabindex and arrow keys are unchanged, and reading order matches the arrow-key order.
+*/
+@media (max-width: 560px) {
+  .tabs__list {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1px;
+    overflow: visible;
+    border: 1px solid var(--line);
+    background: var(--line);
+    box-shadow: none;
+    clip-path: none;
+  }
+
+  .tabs__tab,
+  .tabs__tab:first-child {
+    grid-column: span 2;
+    min-height: 52px;
+    padding: 6px 4px;
+    background: var(--surface);
+    color: var(--ink-muted);
+    font-size: var(--fs-xs);
+    /* Labels may wrap rather than clip if the visitor enlarges the text */
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  .tabs__tab::after,
+  .tabs__tab:first-child::after {
+    left: 0;
+    right: 0;
+  }
+
+  .tabs__tab[aria-selected='true'] {
+    background: var(--selected-bg);
+    color: var(--selected-fg);
+  }
+
+  .tabs__tab[aria-selected='true']::after {
+    scale: 0 1;
+  }
+
+  /* Two tabs on the last row: half the row each */
+  .tabs__tab:nth-child(3n + 1):nth-last-child(2),
+  .tabs__tab:nth-child(3n + 1):nth-last-child(2) + .tabs__tab {
+    grid-column: span 3;
+  }
+
+  /* One tab on the last row: the whole row */
+  .tabs__tab:nth-child(3n + 1):last-child {
+    grid-column: 1 / -1;
+  }
+}

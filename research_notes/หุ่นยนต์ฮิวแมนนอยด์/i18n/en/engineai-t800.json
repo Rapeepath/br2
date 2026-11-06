@@ -1,0 +1,105 @@
+{
+  "id": "engineai-t800",
+  "segment": "Full-size humanoid for research, development and demonstrations",
+  "originCountry": "China",
+  "tagline": "Adult-size bipedal robot with 450 N·m joint torque",
+  "summary": "The EngineAI T800 is a full-size bipedal humanoid robot, 173 cm tall and weighing 75–85 kg depending on the version. Its joints deliver a maximum torque of 450 N·m, and it has a runtime of 3–5 hours per charge. There are 4 versions, from the Basic for demonstrations up to the Pro and Max, which have dexterous hands and LiDAR and support further development. This makes it suitable for research organisations, system developers and show organisers.",
+  "background": "EngineAI (众擎机器人) was founded in October 2023 and is headquartered in Shenzhen. The company launched the T800 on 2 December 2025 and put it on sale immediately at a starting price of CNY 180,000, in Basic, Open Source, Pro and Max versions. A few days later, when some questioned whether the launch video used computer graphics, the company released a clip of its CEO letting the T800 kick him for real to confirm its capabilities. In late May 2026 the production base of about 12,000 m² in Honghualing, Shenzhen, began delivering the first batch of T800s; the maker states that it can produce one unit every 15 minutes and that each robot passes 79 quality checks. The overseas prices once shown on the website ranged from US$40,500 to US$80,800, before the maker removed the price table from both its Chinese and English websites in late September 2026.",
+  "availabilityNote": "No official EngineAI distributor has yet been found in Thailand. The order button on the maker's website leads to a JD.com store that serves China, so buyers in Thailand must contact EngineAI directly for an export quotation and handle the import themselves. The maker began delivering the first batch in late May 2026.",
+  "distributor": "Contact EngineAI (众擎机器人) directly; no Thai distributor yet",
+  "trims": [
+    {
+      "name": "T800 Basic",
+      "hand": "No grasping hands with articulated fingers",
+      "compute": "Rockchip RK3588S 8-core CPU + NVIDIA Jetson Orin NX 16GB"
+    },
+    {
+      "name": "T800 Open Source",
+      "hand": "No grasping hands with articulated fingers",
+      "compute": "Rockchip RK3588S 8-core CPU + NVIDIA Jetson AGX Orin 64GB"
+    },
+    {
+      "name": "T800 Pro",
+      "hand": "7-DoF dexterous hands with tactile sensors",
+      "compute": "Rockchip RK3588S 8-core CPU + NVIDIA Jetson AGX Orin 64GB"
+    },
+    {
+      "name": "T800 Max",
+      "hand": "7-DoF dexterous hands with tactile sensors",
+      "compute": "Rockchip RK3588S 8-core CPU + NVIDIA Jetson AGX Orin 64GB (upgradable to Jetson Thor on request)"
+    }
+  ],
+  "sensors": [
+    "Wide-angle binocular camera (Intel module) on the head (Basic version)",
+    "Ultra-wide-angle binocular camera (Open Source, Pro and Max versions)",
+    "3D LiDAR (Pro and Max versions)",
+    "Tactile sensors in the dexterous hands (Pro and Max versions)",
+    "Microphone and speaker",
+    "Dual absolute encoders in the joints"
+  ],
+  "charging": {
+    "note": "The standard battery is a 71.4 V 20 Ah ternary lithium pack (1,428 Wh) that fully charges in about 2.5 hours. A 74.8 V 40 Ah solid-state battery is available as an option and charges in about 3 hours. All versions support quick battery swaps. The capacity figures come from the September 2026 version of the product page; the current page does not state them."
+  },
+  "software": {
+    "sdk": "The Open Source, Pro and Max versions support further development according to the maker's SDK/API documentation; the Basic version does not.",
+    "ai": null
+  },
+  "warranty": {
+    "robot": "Not disclosed",
+    "battery": null,
+    "note": "The maker states that warranty details are in the warranty manual supplied with the product. Overseas buyers must ask EngineAI for the terms that apply to them."
+  },
+  "safety": {
+    "features": [],
+    "certifications": []
+  },
+  "useCases": [
+    "Research and development of motion control for adult-size bipedal robots",
+    "Robot competitions and combat performances",
+    "Demonstrations and events",
+    "Service work",
+    "Trials of working alongside people in industry"
+  ],
+  "highlights": [
+    "Maximum joint torque of 450 N·m and peak power of 14,000 W, according to launch information",
+    "Runtime of 3–5 hours per charge, with quick battery swaps",
+    "The Max has 46 degrees of freedom (DoF), including dexterous hands with 7 DoF per hand that can each lift 5 kg",
+    "Structure of aviation-grade aluminium combined with titanium, with air cooling",
+    "Mass-produced at the Shenzhen production base, at a rate of one unit every 15 minutes"
+  ],
+  "pros": [
+    "Adult size, suited to tasks that need human-like height and arm reach",
+    "High-torque joints support forceful movements such as running and kicking",
+    "4 versions to choose from according to budget and development needs",
+    "Quick-swap battery reduces downtime spent waiting to charge"
+  ],
+  "cons": [
+    "The maker currently shows no prices on its website; a quotation is required",
+    "The Basic version does not support further development and has no grasping hands",
+    "No distributor or service centre in Thailand yet",
+    "Weighs 75–85 kg, so it needs lifting equipment and a safe test area",
+    "The maker does not disclose the warranty period or any certified safety standards"
+  ],
+  "idealFor": [
+    "Universities and research institutes studying the control of adult-size bipedal robots",
+    "Companies developing software or applications on humanoid robots",
+    "Organisers of robot shows and competitions"
+  ],
+  "considerations": [
+    "Request an up-to-date quotation from EngineAI, as the maker removed the price table from its website in September 2026",
+    "If you need to write your own control programs, choose the Open Source version or above; if you need to grasp objects, choose the Pro or Max",
+    "Ask about warranty terms, spare parts and repairs for overseas buyers before ordering",
+    "The maker warns users to keep a safe distance during operation, as the drive system is very powerful",
+    "Include shipping, import customs duty and VAT in the import budget"
+  ],
+  "funFact": "After some questioned whether the launch video was computer graphics, EngineAI's CEO put on protective gear and took a real kick from the T800 on camera in December 2025.",
+  "priceNote": "Prices are the overseas US-dollar prices that EngineAI showed on its English product page until mid-September 2026; in China the versions are priced at CNY 180,000 / 240,000 / 280,000 / 360,000 respectively. In late September 2026 the maker removed the price table from its website in both languages, so a new quotation should be requested. A champagne-gold Pro, limited to 50 units, is priced at CNY 260,000. Prices exclude shipping, import customs duty and VAT in Thailand.",
+  "gallery": [
+    {
+      "alt": "EngineAI T800 launch clip showing it walking, moving and sparring with a person in a gym"
+    },
+    {
+      "alt": "EngineAI T800 in a boxing guard, sparring with a person in a gym, full body (still from the launch clip)"
+    }
+  ]
+}

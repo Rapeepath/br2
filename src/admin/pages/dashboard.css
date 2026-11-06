@@ -1,0 +1,219 @@
+/* The navy key-figure band, the brochure's "ตัวเลขสำคัญ" panel: one hero figure, four facts beside it */
+.ledger {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: var(--space-5) var(--space-7);
+  align-items: end;
+  padding: clamp(20px, 3vw, 36px);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius-lg);
+}
+
+.ledger__label {
+  color: var(--gold);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.ledger__figure {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--space-3);
+  margin-top: var(--space-2);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 2.2rem + 2.6vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+  font-variant-numeric: proportional-nums;
+  letter-spacing: -0.01em;
+}
+
+.ledger__unit {
+  color: var(--on-navy-muted);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.ledger__delta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  margin-top: var(--space-3);
+  color: var(--on-navy-muted);
+  font-size: var(--fs-sm);
+}
+
+.ledger__delta svg {
+  color: var(--gold);
+}
+
+.ledger__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius-md);
+  background: var(--navy-line);
+}
+
+.ledger__facts > div {
+  padding: var(--space-3) var(--space-4);
+  background: var(--navy-raised);
+}
+
+.ledger__facts dt {
+  color: var(--on-navy-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+}
+
+.ledger__facts dd {
+  margin: 2px 0 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  font-variant-numeric: proportional-nums;
+}
+
+.dash__month,
+.dash__counts {
+  margin-top: var(--space-6);
+}
+
+.dash__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.dash__chart {
+  grid-column: span 8;
+}
+
+.dash__shift {
+  grid-column: span 4;
+}
+
+.dash__top,
+.dash__pay,
+.dash__cat {
+  grid-column: span 4;
+}
+
+.dash__low {
+  grid-column: span 4;
+}
+
+.dash__recent {
+  grid-column: span 8;
+}
+
+.low-list {
+  display: grid;
+  gap: 0;
+  list-style: none;
+}
+
+.low-list li {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: center;
+  gap: 4px var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.low-list .thumb {
+  grid-row: span 2;
+}
+
+.low-list .badge {
+  grid-column: 2;
+  justify-self: start;
+}
+
+.low-list li:last-child {
+  border-bottom: 0;
+}
+
+.low-list__name {
+  display: grid;
+  min-width: 0;
+  font-size: var(--fs-sm);
+}
+
+.low-list__sku {
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+}
+
+.counts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+/* Rules drawn by each cell, so a short last row leaves blank paper rather than a grey block */
+.counts > div {
+  padding: var(--space-4);
+  box-shadow: 1px 0 0 var(--line), 0 1px 0 var(--line);
+}
+
+.counts dt {
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+}
+
+.counts dd {
+  margin: 2px 0 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+@media (max-width: 1180px) {
+  .dash__chart,
+  .dash__recent {
+    grid-column: span 12;
+  }
+
+  .dash__shift,
+  .dash__low {
+    grid-column: span 6;
+  }
+
+  .dash__top,
+  .dash__pay,
+  .dash__cat {
+    grid-column: span 6;
+  }
+
+  .dash__cat {
+    grid-column: span 12;
+  }
+}
+
+@media (max-width: 820px) {
+  .ledger {
+    grid-template-columns: 1fr;
+  }
+
+  .dash__grid > * {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .ledger__facts dd {
+    font-size: var(--fs-md);
+  }
+}

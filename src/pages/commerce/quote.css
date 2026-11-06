@@ -1,0 +1,379 @@
+/* Quotation: a white A4-like sheet on the grey floor; printing shows only the sheet */
+.quote-state {
+  display: grid;
+  gap: var(--space-4);
+  min-height: 40vh;
+  align-content: center;
+}
+
+.quote-state__msg {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.quote__bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border-left: 3px solid var(--positive);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.quote__bar[data-status='expired'] {
+  border-left-color: var(--caution);
+}
+
+.quote__bar p {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.quote__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.qdoc {
+  max-width: 980px;
+  margin-inline: auto;
+  padding: clamp(var(--space-5), 4vw, var(--space-8));
+  background: #ffffff;
+  color: #000000;
+  box-shadow: var(--elev-3);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+/* The sheet stays paper-white in the night theme too, like a printed document */
+.qdoc a {
+  color: #0a50c8;
+}
+
+.qdoc__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-5);
+  padding-bottom: var(--space-5);
+  border-bottom: 2px solid #000000;
+}
+
+.qdoc__store {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  color: #3b4552;
+}
+
+.qdoc__store .brand-mark {
+  flex: none;
+  --mark-bg: #000000;
+}
+
+.qdoc__store-name {
+  color: #000000;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+.qdoc__branch {
+  color: #3b4552;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.qdoc__title {
+  text-align: right;
+}
+
+.qdoc__title h1 {
+  font-size: var(--fs-2xl);
+  line-height: 1.1;
+}
+
+.qdoc__title-alt {
+  color: #505a67;
+  font-family: var(--font-display);
+}
+
+.qdoc__meta {
+  display: grid;
+  gap: 2px;
+  margin-top: var(--space-3);
+}
+
+.qdoc__meta > div {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+.qdoc__meta dt {
+  color: #505a67;
+}
+
+.qdoc__meta dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.qdoc__to {
+  padding-block: var(--space-5);
+  color: #3b4552;
+}
+
+.qdoc__label {
+  color: #505a67;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.qdoc__to-name {
+  color: #000000;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+.qdoc__lines {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.qdoc__lines th,
+.qdoc__lines td {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid #dadde2;
+  text-align: left;
+  vertical-align: top;
+}
+
+.qdoc__lines thead th {
+  border-bottom: 2px solid #000000;
+  color: #505a67;
+  font-size: var(--fs-xs);
+  white-space: nowrap;
+}
+
+.qdoc__lines .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.qdoc__item {
+  display: block;
+  font-weight: 600;
+}
+
+.qdoc__sku {
+  color: #505a67;
+  font-size: var(--fs-xs);
+}
+
+.qdoc__bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+  gap: var(--space-6);
+  margin-top: var(--space-5);
+}
+
+.qdoc__terms {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  color: #3b4552;
+}
+
+.qdoc__terms h2 {
+  margin-bottom: var(--space-1);
+  color: #000000;
+  font-size: var(--fs-sm);
+}
+
+.qdoc__terms ul {
+  padding-left: 1.1em;
+}
+
+.qdoc__fin {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid #dadde2;
+}
+
+.qdoc__fin dl {
+  display: grid;
+  gap: 2px;
+}
+
+.qdoc__fin dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.qdoc__fin dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.qdoc__small {
+  margin-top: var(--space-2);
+  color: #505a67;
+  font-size: var(--fs-xs);
+}
+
+.qdoc__totals {
+  display: grid;
+  align-content: start;
+}
+
+.qdoc__totals > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+  border-bottom: 1px solid #dadde2;
+}
+
+.qdoc__totals dt {
+  color: #3b4552;
+}
+
+.qdoc__totals dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.qdoc__grand {
+  border-bottom: 2px solid #000000 !important;
+}
+
+.qdoc__grand dt,
+.qdoc__grand dd {
+  color: #000000 !important;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
+.qdoc__sign {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+  text-align: center;
+}
+
+.qdoc__sign-line {
+  display: block;
+  height: 40px;
+  border-bottom: 1px solid #505a67;
+  margin-bottom: var(--space-2);
+}
+
+.qdoc__sim {
+  margin-top: var(--space-6);
+  padding-top: var(--space-3);
+  border-top: 1px solid #dadde2;
+  color: #6e4a0f;
+  font-size: var(--fs-xs);
+  text-align: center;
+}
+
+.quote__after {
+  justify-content: center;
+}
+
+@media (max-width: 720px) {
+  .qdoc__head,
+  .qdoc__bottom {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .qdoc__title,
+  .qdoc__meta > div {
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .qdoc__lines thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .qdoc__lines,
+  .qdoc__lines tbody,
+  .qdoc__lines tr,
+  .qdoc__lines td {
+    display: block;
+    width: 100%;
+  }
+
+  .qdoc__lines tr {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0 var(--space-3);
+    padding-block: var(--space-3);
+    border-bottom: 1px solid #dadde2;
+  }
+
+  .qdoc__lines td {
+    padding: 0;
+    border: 0;
+  }
+
+  .qdoc__lines td:nth-child(3),
+  .qdoc__lines td:nth-child(4),
+  .qdoc__lines td:nth-child(5) {
+    display: none;
+  }
+
+  .qdoc__sign {
+    gap: var(--space-5);
+  }
+
+  .quote__actions > * {
+    flex: 1 1 100%;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .qdoc,
+  .qdoc * {
+    visibility: visible;
+  }
+
+  .qdoc {
+    position: absolute;
+    inset: 0 0 auto;
+    max-width: none;
+    padding: 0;
+    box-shadow: none;
+    font-size: 10.5pt;
+  }
+
+  .qdoc__lines tr {
+    break-inside: avoid;
+  }
+}

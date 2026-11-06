@@ -1,0 +1,102 @@
+{
+  "id": "nao6",
+  "segment": "Small humanoid for education and research",
+  "originCountry": "France",
+  "tagline": "Small humanoid for the classroom and research",
+  "summary": "NAO6 is a small bipedal humanoid robot, 57.4 cm tall and weighing 5.48 kg, with 25 degrees of freedom (DoF). It is used for teaching, human–robot interaction research and healthcare applications. The authorised dealer in France prices it at €10,020 including VAT, and it can be programmed both with drag-and-drop blocks in Choregraphe and in Python or C++.",
+  "background": "NAO was developed by Aldebaran, a robotics company founded in Paris in 2005 that later became part of SoftBank Robotics. NAO6 is the sixth generation, launched in May 2018 with a faster processor, higher-resolution cameras and larger memory. The maker states that more than 20,000 NAO robots are in use worldwide. After a French court placed Aldebaran under a court-appointed administrator in June 2025, Maxvision of Shenzhen, China, bought its core assets in July 2025 and set up Maxtronics in France on 28 August 2025 to continue developing, selling and providing after-sales service for NAO. Maxtronics is currently developing the next model, NAO7, which has no announced release date. In Thailand, True Robotics, part of the True group, showcased NAO for business applications in 2017.",
+  "availabilityNote": "No Thai dealer publishing a selling price for NAO6 has been found yet. Thai buyers can order from an authorised overseas dealer such as Generation Robots in France, which states delivery within 3 weeks and can ship outside the European Union, or request a quotation directly from Maxtronics. The buyer acts as the importer and must handle customs clearance themselves.",
+  "distributor": "Order through Generation Robots (France) or request a quotation directly from Maxtronics",
+  "trims": [
+    {
+      "name": "NAO6",
+      "hand": "Hands that open and close, driven by a single motor per hand",
+      "compute": "Intel Atom E3845 1.91 GHz, 4 GB RAM"
+    }
+  ],
+  "sensors": [
+    "2 × 5-megapixel cameras in the head (OV5640)",
+    "4 microphones",
+    "Front sonar with 2 transmitters and 2 receivers, measuring range 0.20–0.80 m",
+    "Inertial measurement unit (IMU) with 3-axis gyroscope and accelerometer",
+    "Force-sensitive resistors (FSR), 4 on the sole of each foot",
+    "Touch sensors on the head and hands, a chest button and bumpers at the toes",
+    "36 magnetic rotary encoders (MRE) for joint angle sensing"
+  ],
+  "charging": {
+    "note": "A full charge takes about 90 minutes. 21.6 V 2.9 Ah lithium-ion battery. A spare charger is sold separately."
+  },
+  "software": {
+    "sdk": "Python and C++ SDKs, with Choregraphe for drag-and-drop block programming and Robot Settings for configuring the robot; runs on Windows, macOS and Linux",
+    "ai": "NAO Activities, a platform for creating conversation and learning activities with generative AI without writing code (sold separately)"
+  },
+  "warranty": {
+    "robot": "2 years (under Generation Robots' terms)",
+    "battery": null,
+    "note": "RobotLAB in the US gives a 1-year warranty. For repairs sent from outside Europe, the buyer pays the shipping costs."
+  },
+  "safety": {
+    "features": [
+      "Bumpers at the toes of both feet to detect collisions",
+      "Front sonar for obstacle detection"
+    ],
+    "certifications": [
+      "CE",
+      "FCC",
+      "IEC 62368-1:2014",
+      "UN38.3 (battery transport)"
+    ]
+  },
+  "useCases": [
+    "Teaching programming and robotics in schools and universities",
+    "Human–robot interaction research",
+    "RoboCup robot football competitions",
+    "Healthcare and elderly-care activities",
+    "Greeting visitors and presenting information at trade shows"
+  ],
+  "highlights": [
+    "25 DoF, with full-body movement including bipedal walking",
+    "2 × 5-megapixel cameras, 4 microphones and multiple touch sensors",
+    "Speech synthesis and speech recognition in 22 languages",
+    "Development tools from beginner level with Choregraphe to research level with Python and C++",
+    "The maker states that more than 20,000 NAO robots are in use worldwide"
+  ],
+  "pros": [
+    "Small and light, so it is easy to use on a desk or in a classroom",
+    "A large user base, plenty of documentation and a large body of research to refer to",
+    "Certified to standards in several countries, such as CE and FCC",
+    "The French dealer gives a 2-year warranty and delivers within 3 weeks"
+  ],
+  "cons": [
+    "Runtime is about 60 minutes in continuous motion and about 90 minutes in general use",
+    "The hardware dates from 2018, while the next model is still in development",
+    "Thai is not yet among the languages supported by the built-in speech system",
+    "No clearly announced Thai dealer or service centre; repairs may have to be sent abroad"
+  ],
+  "idealFor": [
+    "Schools and universities teaching robot programming",
+    "Human–robot interaction research labs",
+    "RoboCup robot competition teams",
+    "Healthcare organisations wanting to trial social robots"
+  ],
+  "considerations": [
+    "Check the repair terms, as the French seller states that return shipping costs from outside Europe are paid by the buyer",
+    "Thailand is not yet among the certified countries listed in the datasheet; the importer must handle the Wi-Fi equipment requirements with the NBTC (National Broadcasting and Telecommunications Commission) themselves",
+    "Creating activities with generative AI without writing code requires buying NAO Activities in addition",
+    "The maker is developing NAO7, which has no release date yet; ask about long-term support plans for NAO6",
+    "For continuous classroom use, consider a spare battery and charger"
+  ],
+  "funFact": "Maxtronics states that NAO was the first humanoid robot to be produced on an industrial scale, and that it has been used in more than 3,600 published research works",
+  "priceNote": "The €10,020 price is the one published by Generation Robots, the authorised dealer in France, and already includes French VAT at 20% (€8,350 before tax). It includes the Choregraphe software and SDK and a 2-year warranty, but not shipping. For exports outside the European Union, the buyer must pay Thai customs duty and 7% Thai VAT themselves, so ask the seller whether export orders are priced before or after French tax. The NAO Activities software is sold separately for €1,200 including VAT. RobotLAB in the US sells the NAO V6 Standard Edition at US$16,990 with a 1-year warranty and also offers rental.",
+  "gallery": [
+    {
+      "alt": "Dark grey NAO6 sitting with one knee raised on a carpet at VivaTech 2019 in Paris, front view"
+    },
+    {
+      "alt": "News clip: several NAO6 robots dance together on a stage at the opening of a 7S robot store in Wuhan (starts at the dance)"
+    },
+    {
+      "alt": "NAO6 holding mallets over a colourful xylophone in a 7S robot store in Wuhan (still from a news clip)"
+    }
+  ]
+}

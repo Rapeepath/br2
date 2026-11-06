@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="แค็ตตาล็อกหุ่นยนต์ฮิวแมนนอยด์ที่สั่งซื้อได้ในไทย พร้อมสเปก ราคา การจำหน่ายในไทย และคู่มือก่อนซื้อ" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Servo แค็ตตาล็อกหุ่นยนต์ฮิวแมนนอยด์</title>
+    <script>
+      // Links from before real URLs (#/models/x) open the same page at its real address.
+      if (location.hash.indexOf('#/') === 0) history.replaceState(null, '', location.hash.slice(1) || '/')
+      // The app positions the page itself on every route change; a reload starts at the top rather than
+      // racing the browser's scroll restoration against the first render.
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+      // Apply a remembered theme before first paint, so dark mode never flashes light or animates in.
+      try {
+        var t = localStorage.getItem('servo.theme')
+        document.documentElement.dataset.theme = t === 'dark' ? 'dark' : 'light'
+      } catch (e) {
+        document.documentElement.dataset.theme = 'light'
+      }
+      // Showroom motion (scan line, counting readouts, reveals) only when the visitor hasn't asked for less
+      try {
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion-ok')
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

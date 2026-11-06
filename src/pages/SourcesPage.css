@@ -1,0 +1,1025 @@
+/*
+  Sources & photo credits in the showroom style: a dark stage with counts that settle into place, then
+  chapters on alternating studio and band floors — the method as square hairline cards, the makers'
+  shipment ranking as a white ledger under an ink rule, per-model references as squared accordion rows,
+  market sources as an index grouped by topic, and photo credits as plates with a hairline spec panel.
+  Only reference lists keep numbers (citations are looked up by them). Robot photos are mostly portrait, so every plate crops from the top to keep head and torso.
+  Numbers sit in one fixed column everywhere, so titles of any length share one left edge.
+*/
+
+/* Long titles and handles wrap inside their column instead of pushing the page sideways */
+.ssec a,
+.scover a {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Cover ---------- */
+/* Layout pads a first-in-main .stage for the floating header, so the cover's own air sits on the inner */
+.scover {
+  background: var(--stage-dark);
+}
+
+.scover__inner {
+  padding-top: var(--space-8);
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  align-items: end;
+  gap: var(--space-5) var(--space-8);
+}
+
+.scover h1 {
+  font-size: var(--fs-3xl);
+}
+
+.scover__lede {
+  max-width: 46ch;
+  color: var(--on-navy-muted);
+  font-size: var(--fs-lg);
+  line-height: 1.75;
+}
+
+/* Two facts in one outlined strip, split by a hairline */
+.scover__meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: var(--space-4);
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius-sm);
+  color: var(--on-navy);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.scover__meta > span {
+  padding: 6px var(--space-3);
+}
+
+.scover__meta > span + span {
+  border-left: 1px solid var(--navy-line);
+}
+
+/* Key counts on the stage's floor, divided by hairlines, like the home page's readouts */
+.sfigures {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: var(--space-7);
+  border-top: 1px solid var(--navy-line);
+}
+
+.sfigures > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: var(--space-1);
+  padding: var(--space-5) var(--space-5) var(--space-6);
+}
+
+.sfigures > div + div {
+  border-left: 1px solid var(--navy-line);
+}
+
+.sfigures > div:first-child {
+  padding-left: 0;
+}
+
+.sfigures dt {
+  color: var(--on-navy-muted);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.sfigures dd {
+  margin: 0;
+  color: var(--on-navy);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.625rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+/* ---------- Shared: a head column beside the content ---------- */
+.ssplit {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  align-items: start;
+  gap: var(--space-6) var(--space-7);
+}
+
+.ssplit__head--sticky {
+  position: sticky;
+  top: calc(var(--header-h) + var(--space-6));
+}
+
+.ssplit__text {
+  max-width: 40ch;
+  margin-top: var(--space-4);
+  color: var(--ink-muted);
+}
+
+/* A count on a white squared tag under the section text */
+.smeta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  margin-top: var(--space-4);
+  padding: 0 var(--space-3);
+  border-left: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+/* ---------- Methodology: square cards under an ink rule ---------- */
+.smethod {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.smethod li {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface);
+}
+
+.smethod h3 {
+  font-size: var(--fs-lg);
+}
+
+.smethod p {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.75;
+}
+
+/* ---------- Shipment ranking: a white ledger under an ink rule ---------- */
+.srank {
+  overflow: hidden;
+  border-top: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface);
+}
+
+.srank__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.srank__table caption {
+  padding: var(--space-4) var(--space-5) var(--space-3);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: var(--lh-heading);
+  text-align: left;
+  text-wrap: balance;
+}
+
+.srank__table th,
+.srank__table td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.srank__table thead th {
+  padding-block: 10px;
+  border-bottom: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.srank__table tbody tr + tr > * {
+  border-top: 1px solid var(--line);
+}
+
+/* Group labels: a quiet strip with an ink edge */
+.srank__divider th {
+  padding-block: var(--space-2);
+  border-left: 2px solid var(--ink);
+  background: var(--soft);
+  color: var(--on-soft);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.srank__table thead .srank__pos,
+.srank__table tbody .srank__pos {
+  width: 6rem;
+  padding-left: var(--space-5);
+  white-space: nowrap;
+}
+
+/* Makers in the catalogue on navy squares; the rest of the ranking on quiet grey ones */
+.srank__badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
+  background: var(--navy);
+  color: var(--on-navy);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+:root[data-theme='dark'] .srank__group--in .srank__badge {
+  background: var(--selected-bg);
+  color: var(--selected-fg);
+}
+
+.srank__group--out .srank__badge {
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+  background: transparent;
+  color: var(--ink-muted);
+}
+
+.srank__tie {
+  margin-left: var(--space-2);
+  color: var(--tint);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.srank__name {
+  font-weight: 500;
+}
+
+.srank__brand {
+  display: block;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.srank__group--out .srank__brand {
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+/* The maker's robots in the catalogue, each a link to its page ("G1  H2  R1") */
+.srank__models {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px var(--space-3);
+  margin-top: 2px;
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.srank__models a {
+  color: var(--accent);
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+}
+
+.srank__models a:hover {
+  color: var(--accent-hover);
+  text-decoration-color: currentColor;
+}
+
+.srank__note {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-subtle);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.srank__table .srank__units {
+  width: 1%;
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.srank__table thead .srank__units {
+  color: var(--ink-subtle);
+}
+
+.srank__group--out .srank__units {
+  color: var(--ink-muted);
+}
+
+.srank__table .srank__period {
+  width: 1%;
+  padding-right: var(--space-5);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  white-space: nowrap;
+}
+
+.srank__table thead .srank__period {
+  color: var(--ink-subtle);
+}
+
+/* Catalogue robots whose maker isn't ranked: a label beside the names, under the table */
+.srank__extra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  border-top: 1px solid var(--line);
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.srank__extra-label {
+  flex: none;
+  padding-left: var(--space-2);
+  border-left: 2px solid var(--ink);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.srank__extra a {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.srank__foot {
+  padding: var(--space-3) var(--space-5) var(--space-4);
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+}
+
+/* ---------- Numbered reference rows (per-model panels and the market index) ---------- */
+.sref {
+  --num-w: 32px;
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+  font-size: var(--fs-sm);
+}
+
+.sref li {
+  display: grid;
+  grid-template-columns: var(--num-w) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-3);
+}
+
+.sref__num {
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  width: 32px;
+  height: 26px;
+  border-radius: 0;
+  box-shadow: inset 0 -1px 0 var(--line-strong);
+  background: transparent;
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.sref__body {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+  /* Line the title's first line up with the number tile */
+  padding-top: 1px;
+}
+
+.sref__link {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration-color: var(--line-strong);
+}
+
+.sref__link:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+.sref__pub {
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+/* ---------- 03 Per-model references: squared accordion rows ---------- */
+.sacc {
+  --thumb-w: 64px;
+  --thumb-h: 64px;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.sacc details {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+  transition:
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.sacc details[open] {
+  border-color: var(--line-strong);
+  box-shadow: var(--elev-2);
+}
+
+.sacc summary {
+  display: grid;
+  grid-template-columns: var(--thumb-w) minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 76px;
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3);
+  border-radius: var(--radius-md);
+  list-style: none;
+  cursor: pointer;
+}
+
+.sacc summary::-webkit-details-marker {
+  display: none;
+}
+
+.sacc summary:focus-visible {
+  outline-offset: 2px;
+}
+
+.sacc details[open] summary {
+  border-bottom: 1px solid var(--line);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+/* The robot on its studio stage, cut to a small square plate */
+.sacc__thumb {
+  display: block;
+  width: var(--thumb-w);
+  height: var(--thumb-h);
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--stage);
+}
+
+.sacc__thumb img,
+.scredits__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Crop from near the top, so a portrait robot keeps its head; image.focus overrides per photo */
+  object-position: 50% 20%;
+}
+
+.sacc__name {
+  display: grid;
+  min-width: 0;
+}
+
+.sacc__en {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: 1.3;
+  transition: color 160ms ease;
+}
+
+.sacc summary:hover .sacc__en {
+  color: var(--accent);
+}
+
+.sacc__th {
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+.sacc__count {
+  white-space: nowrap;
+}
+
+/* A squared + that turns to − on a navy fill when the row is open */
+.sacc__icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--soft);
+  color: var(--on-soft);
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.sacc__minus,
+.sacc details[open] .sacc__plus {
+  display: none;
+}
+
+.sacc details[open] .sacc__minus {
+  display: block;
+}
+
+.sacc details[open] .sacc__icon {
+  background: var(--selected-bg);
+  color: var(--selected-fg);
+}
+
+/* The open list continues the summary's columns: numbers centred under the photo, titles on the name's
+   left edge, and the price terms and model link on that same edge */
+.sacc__panel {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5) var(--space-5) var(--space-3);
+}
+
+.sacc__panel .sref {
+  --num-w: var(--thumb-w);
+  column-gap: var(--space-4);
+}
+
+.sacc__panel .sref li {
+  column-gap: var(--space-4);
+}
+
+.sacc__terms,
+.sacc__go {
+  margin-left: calc(var(--thumb-w) + var(--space-4));
+}
+
+.sacc__terms {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--tone-bg);
+  color: var(--tone-ink);
+  font-size: var(--fs-xs);
+  line-height: 1.65;
+}
+
+.sacc__terms-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.sacc__go {
+  justify-self: start;
+}
+
+.sacc__go > span {
+  overflow-wrap: normal;
+}
+
+/* ---------- 04 Market & guide sources: white index cards, flowing in two columns ---------- */
+.sgroups {
+  columns: 2;
+  column-gap: var(--space-5);
+}
+
+.sgroup {
+  break-inside: avoid;
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.sgroup__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-3);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-lg);
+}
+
+.sgroup__count {
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ---------- 05 Photo credits: plates with a sunk spec panel ---------- */
+.scredits {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5);
+  list-style: none;
+}
+
+.scredits li {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.scredits__media {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--stage);
+}
+
+.scredits__name {
+  padding: var(--space-3) var(--space-4) var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Label / value rows on one shared label column, like a spec sheet */
+.scredits__spec {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  margin: auto var(--space-3) var(--space-3);
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  font-size: var(--fs-xs);
+}
+
+.scredits__spec > div {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: baseline;
+  column-gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+}
+
+.scredits__spec > div + div {
+  border-top: 1px solid var(--line);
+}
+
+.scredits__spec dt {
+  color: var(--ink-subtle);
+  font-weight: 500;
+}
+
+.scredits__spec dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* A licence is one token ("CC BY-SA 4.0"); never split it at its hyphen */
+.scredits__licence {
+  white-space: nowrap;
+}
+
+/* ---------- Notice: the navy back matter ---------- */
+.snotice {
+  padding-block: var(--space-8);
+}
+
+.snotice__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: start;
+  gap: var(--space-6) var(--space-8);
+}
+
+.snotice__body {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 62ch;
+  color: var(--on-navy-muted);
+}
+
+.snotice__cta {
+  justify-self: start;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1080px) {
+  .scredits {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  .scover__inner,
+  .ssplit,
+  .snotice__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .ssplit__head--sticky {
+    position: static;
+  }
+
+  .ssplit__text {
+    max-width: 60ch;
+  }
+
+  .smethod {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sgroups {
+    columns: 1;
+  }
+
+  .sfigures {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sfigures > div:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .sfigures > div:nth-child(n + 3) {
+    border-top: 1px solid var(--navy-line);
+  }
+}
+
+@media (max-width: 720px) {
+  .scredits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+/*
+  Phones: one left edge for everything. Method cards become numbered rows; the ledger drops the period
+  column (the caption names it) and tightens; accordion rows keep the photo / name / control columns
+  with the count tag tucked under the name; photo credits restack into one column, each opening like an
+  accordion row over a full-width spec panel, since two squeezed columns broke names and handles.
+*/
+@media (max-width: 560px) {
+  .scover__inner {
+    padding-top: var(--space-7);
+  }
+
+  .scover__meta {
+    display: grid;
+    width: 100%;
+  }
+
+  .scover__meta > span + span {
+    border-top: 1px solid var(--navy-line);
+    border-left: 0;
+  }
+
+  .sfigures {
+    margin-top: var(--space-6);
+  }
+
+  .sfigures > div {
+    padding: var(--space-4) var(--space-3) var(--space-5);
+  }
+
+  .sfigures > div:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  .sfigures dd {
+    font-size: 1.5rem;
+  }
+
+  .ssec .section-head {
+    margin-bottom: var(--space-6);
+  }
+
+  .smethod {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-3);
+  }
+
+  .smethod li {
+    padding: var(--space-4);
+  }
+
+
+  .smethod h3 {
+    font-size: var(--fs-md);
+  }
+
+  /* Ledger */
+  .srank {
+    border-radius: var(--radius-md);
+  }
+
+  .srank__table caption {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--fs-md);
+  }
+
+  .srank__table th,
+  .srank__table td {
+    padding: var(--space-3) var(--space-3);
+  }
+
+  .srank__table thead .srank__pos,
+  .srank__table tbody .srank__pos {
+    width: 4.25rem;
+    padding-left: var(--space-3);
+    padding-right: 0;
+  }
+
+  /* The tie mark goes under its number, so the column stays narrow */
+  .srank__tie {
+    display: block;
+    width: 32px;
+    margin: 2px 0 0;
+    font-size: var(--fs-2xs);
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .srank__table--one-period .srank__period {
+    display: none;
+  }
+
+  .srank__table .srank__units {
+    padding-right: var(--space-4);
+  }
+
+  .srank__extra,
+  .srank__foot {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  /* Accordions */
+  .sacc {
+    --thumb-w: 48px;
+    --thumb-h: 48px;
+    gap: var(--space-2);
+  }
+
+  .sacc summary {
+    grid-template-columns: var(--thumb-w) minmax(0, 1fr) auto;
+    column-gap: var(--space-3);
+    row-gap: var(--space-1);
+    min-height: 72px;
+    padding: var(--space-3);
+  }
+
+  .sacc__thumb {
+    grid-row: 1 / span 2;
+  }
+
+  .sacc__en {
+    font-size: var(--fs-md);
+  }
+
+  .sacc__count {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .sacc__icon {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+
+  .sacc__panel {
+    padding: var(--space-4) var(--space-3) var(--space-4);
+  }
+
+  .sacc__panel .sref,
+  .sacc__panel .sref li {
+    column-gap: var(--space-3);
+  }
+
+  /* The price terms are running prose; give them the panel's full width rather than a 150px strip */
+  .sacc__terms {
+    margin-left: 0;
+  }
+
+  .sacc__go {
+    margin-left: calc(var(--thumb-w) + var(--space-3));
+  }
+
+  /* Market index */
+  .sgroup {
+    margin-bottom: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  /* Count always under the topic, so long and short topics share one shape */
+  .sgroup__title {
+    display: grid;
+    font-size: var(--fs-md);
+  }
+
+  /* Credits: one column, each a row like the accordions above */
+  .scredits {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-3);
+  }
+
+  .scredits li {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    align-items: center;
+    column-gap: var(--space-3);
+    row-gap: var(--space-3);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+  }
+
+  .scredits__media {
+    width: 48px;
+    height: 48px;
+    aspect-ratio: auto;
+    border-radius: var(--radius-sm);
+  }
+
+  .scredits__name {
+    padding: 0;
+    font-size: var(--fs-md);
+  }
+
+  .scredits__spec {
+    grid-column: 1 / -1;
+    margin: 0;
+    border-radius: var(--radius-sm);
+  }
+
+  .snotice__cta {
+    width: 100%;
+  }
+}
+
+/* Gallery credits: the kind of item beside the model, and its description under it */
+.scredits__kind {
+  display: inline-block;
+  margin-left: var(--space-2);
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
+  background: var(--tint-slate);
+  color: var(--on-slate);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  vertical-align: 2px;
+}
+
+.scredits__alt {
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+}

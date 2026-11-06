@@ -1,0 +1,226 @@
+/* The receipt is always printed paper: white with black ink, in either theme */
+.receipt {
+  width: 100%;
+  max-width: 400px;
+  margin-inline: auto;
+  padding: 20px 20px 16px;
+  border: 1px solid #d9d6cc;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #121a27;
+  font-family: var(--font-display);
+  font-size: 13px;
+  line-height: 1.5;
+  box-shadow: 0 1px 2px rgb(16 24 40 / 0.08);
+}
+
+.receipt--full {
+  max-width: 640px;
+}
+
+.receipt p {
+  margin: 0;
+}
+
+.receipt__store {
+  text-align: center;
+}
+
+.receipt__name {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.receipt__doc {
+  margin: 12px 0;
+  padding: 8px 0;
+  border-block: 1px dashed #8a8678;
+  text-align: center;
+}
+
+.receipt__doctitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.receipt__copy {
+  color: #545d6c;
+  font-size: 12px;
+}
+
+.receipt dl {
+  display: grid;
+  margin: 0;
+}
+
+.receipt dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.receipt dt {
+  color: #3f4857;
+}
+
+.receipt dd {
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.receipt__no {
+  font-weight: 700;
+}
+
+.receipt__buyer {
+  margin-top: 12px;
+  padding: 8px 10px;
+  border: 1px solid #d9d6cc;
+  border-radius: 4px;
+}
+
+.receipt__buyer-title {
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.receipt__buyer dl > div {
+  display: grid;
+  grid-template-columns: 9.5em minmax(0, 1fr);
+}
+
+.receipt__buyer dd {
+  text-align: left;
+}
+
+.receipt__lines {
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+}
+
+.receipt__lines th {
+  padding: 4px 0;
+  border-bottom: 1px solid #121a27;
+  color: #3f4857;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.receipt__lines td {
+  padding: 6px 0;
+  border-bottom: 1px dashed #c2beb2;
+  vertical-align: top;
+}
+
+.receipt__lines .num {
+  padding-left: 8px;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.receipt__item {
+  display: block;
+  font-weight: 600;
+}
+
+.receipt__sub {
+  display: block;
+  color: #545d6c;
+  font-size: 12px;
+}
+
+.receipt__totals {
+  margin-top: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.receipt__grand {
+  margin: 4px 0;
+  padding: 6px 0;
+  border-block: 1px solid #121a27;
+  font-size: 15px;
+}
+
+.receipt__grand dt,
+.receipt__grand dd {
+  color: #121a27;
+  font-weight: 700;
+}
+
+.receipt__pay {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed #8a8678;
+}
+
+.receipt__change {
+  font-weight: 700;
+}
+
+.receipt__void {
+  margin-top: 10px !important;
+  padding: 6px 8px;
+  border: 2px solid #9b3a26;
+  border-radius: 4px;
+  color: #9b3a26;
+  font-weight: 700;
+  text-align: center;
+}
+
+.receipt__note,
+.receipt__footer {
+  margin-top: 10px !important;
+  text-align: center;
+}
+
+.receipt__sim {
+  margin-top: 8px !important;
+  color: #545d6c;
+  font-size: 11px;
+  text-align: center;
+}
+
+.done {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.done__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.dialog--receipt .dialog__body {
+  background: var(--surface-sunk);
+}
+
+/* Print only the receipt, whichever dialog it sits in */
+@media print {
+  html.print-receipt body * {
+    visibility: hidden !important;
+  }
+
+  html.print-receipt .receipt,
+  html.print-receipt .receipt * {
+    visibility: visible !important;
+  }
+
+  html.print-receipt .receipt {
+    position: absolute;
+    inset: 0 auto auto 0;
+    max-width: none;
+    border: 0;
+    box-shadow: none;
+  }
+
+  html.print-receipt dialog::backdrop {
+    background: none;
+  }
+}

@@ -1,0 +1,21 @@
+.service__steps {
+  border-top: 2px solid var(--ink);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.service__steps > li {
+  padding-inline: var(--space-5);
+}
+
+.service__note {
+  max-width: 44ch;
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+}
+
+@media (max-width: 560px) {
+  .service__steps > li {
+    padding-inline: var(--space-4);
+  }
+}

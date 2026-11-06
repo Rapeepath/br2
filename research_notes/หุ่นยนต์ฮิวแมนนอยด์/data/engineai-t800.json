@@ -1,0 +1,240 @@
+{
+  "id": "engineai-t800",
+  "brand": "EngineAI",
+  "nameEn": "EngineAI T800",
+  "nameTh": "เอนจินเอไอ ที800",
+  "category": "research",
+  "locomotion": "legs",
+  "segment": "หุ่นยนต์ฮิวแมนนอยด์ขนาดเต็มตัวสำหรับวิจัย พัฒนา และงานสาธิต",
+  "originCountry": "จีน",
+  "originGroup": "china",
+  "availability": "import",
+  "availabilityNote": "ยังไม่พบตัวแทนจำหน่าย EngineAI อย่างเป็นทางการในไทย ปุ่มสั่งซื้อบนเว็บไซต์ผู้ผลิตพาไปยังร้านค้าบน JD.com ซึ่งให้บริการในจีน ผู้ซื้อในไทยจึงต้องติดต่อ EngineAI โดยตรงเพื่อขอใบเสนอราคาสำหรับส่งออกและดำเนินการนำเข้าเอง ผู้ผลิตเริ่มส่งมอบล็อตแรกเมื่อปลายเดือนพฤษภาคม 2569",
+  "distributor": "ติดต่อ EngineAI (众擎机器人) โดยตรง ยังไม่มีตัวแทนในไทย",
+  "launched": "2025-12",
+  "tagline": "หุ่นยนต์สองขาขนาดผู้ใหญ่ แรงบิดข้อต่อ 450 N·m",
+  "summary": "EngineAI T800 เป็นหุ่นยนต์ฮิวแมนนอยด์สองขาขนาดเต็มตัว สูง 173 ซม. หนัก 75–85 กก. ตามรุ่น ข้อต่อให้แรงบิดสูงสุด 450 N·m และทำงานได้ 3–5 ชั่วโมงต่อการชาร์จ มี 4 รุ่น ตั้งแต่รุ่น Basic สำหรับงานสาธิต ไปจนถึงรุ่น Pro และ Max ที่มีมือคล่องแคล่ว LiDAR และรองรับการพัฒนาต่อยอด จึงเหมาะกับหน่วยงานวิจัย ผู้พัฒนาระบบ และผู้จัดงานแสดง",
+  "background": "EngineAI (众擎机器人) ก่อตั้งเมื่อตุลาคม 2566 และมีสำนักงานใหญ่ที่เมืองเซินเจิ้น บริษัทเปิดตัว T800 เมื่อวันที่ 2 ธันวาคม 2568 และเปิดขายทันทีในราคาเริ่มต้น 180,000 หยวน แบ่งเป็นรุ่น Basic, Open Source, Pro และ Max ไม่กี่วันต่อมา เมื่อมีผู้สงสัยว่าวิดีโอเปิดตัวใช้ภาพกราฟิก บริษัทได้เผยแพร่คลิปที่ซีอีโอให้ T800 เตะจริงเพื่อยืนยันความสามารถ ปลายเดือนพฤษภาคม 2569 ฐานการผลิตในเขตหงฮวาหลิ่ง เซินเจิ้น พื้นที่ราว 12,000 ตร.ม. เริ่มส่งมอบ T800 ล็อตแรก โดยผู้ผลิตระบุว่าผลิตได้ 1 ตัวทุก 15 นาที และหุ่นยนต์แต่ละตัวผ่านการตรวจคุณภาพ 79 รายการ ราคาขายต่างประเทศที่เคยแสดงบนเว็บไซต์อยู่ระหว่าง 40,500–80,800 ดอลลาร์สหรัฐ ก่อนที่ผู้ผลิตจะนำตารางราคาออกจากเว็บไซต์ทั้งภาษาจีนและภาษาอังกฤษเมื่อปลายเดือนกันยายน 2569",
+  "heightCm": 173,
+  "weightKg": [
+    75,
+    85
+  ],
+  "trims": [
+    {
+      "name": "T800 Basic",
+      "priceTHB": null,
+      "listPrice": {
+        "amount": 40500,
+        "currency": "USD"
+      },
+      "dof": 25,
+      "handDof": null,
+      "hand": "ไม่มีมือหยิบจับแบบมีข้อต่อนิ้ว",
+      "payloadKg": null,
+      "speedMs": 2,
+      "runtimeH": 5,
+      "batteryWh": 1428,
+      "compute": "CPU 8 คอร์ Rockchip RK3588S + NVIDIA Jetson Orin NX 16GB",
+      "jointTorqueNm": 450
+    },
+    {
+      "name": "T800 Open Source",
+      "priceTHB": null,
+      "listPrice": {
+        "amount": 54000,
+        "currency": "USD"
+      },
+      "dof": 25,
+      "handDof": null,
+      "hand": "ไม่มีมือหยิบจับแบบมีข้อต่อนิ้ว",
+      "payloadKg": null,
+      "speedMs": 2,
+      "runtimeH": 5,
+      "batteryWh": 1428,
+      "compute": "CPU 8 คอร์ Rockchip RK3588S + NVIDIA Jetson AGX Orin 64GB",
+      "jointTorqueNm": 450
+    },
+    {
+      "name": "T800 Pro",
+      "priceTHB": null,
+      "listPrice": {
+        "amount": 63000,
+        "currency": "USD"
+      },
+      "dof": 43,
+      "handDof": 7,
+      "hand": "มือคล่องแคล่ว 7 องศาอิสระพร้อมเซนเซอร์สัมผัส",
+      "payloadKg": 5,
+      "speedMs": 2,
+      "runtimeH": 5,
+      "batteryWh": 1428,
+      "compute": "CPU 8 คอร์ Rockchip RK3588S + NVIDIA Jetson AGX Orin 64GB",
+      "jointTorqueNm": 450
+    },
+    {
+      "name": "T800 Max",
+      "priceTHB": null,
+      "listPrice": {
+        "amount": 80800,
+        "currency": "USD"
+      },
+      "dof": 46,
+      "handDof": 7,
+      "hand": "มือคล่องแคล่ว 7 องศาอิสระพร้อมเซนเซอร์สัมผัส",
+      "payloadKg": 5,
+      "speedMs": 2,
+      "runtimeH": 5,
+      "batteryWh": 1428,
+      "compute": "CPU 8 คอร์ Rockchip RK3588S + NVIDIA Jetson AGX Orin 64GB (อัปเกรดเป็น Jetson Thor ได้ตามคำขอ)",
+      "jointTorqueNm": 450
+    }
+  ],
+  "sensors": [
+    "กล้องสองตามุมมองกว้างโมดูล Intel ที่ศีรษะ (รุ่น Basic)",
+    "กล้องสองตามุมมองกว้างพิเศษ (รุ่น Open Source, Pro และ Max)",
+    "LiDAR 3 มิติ (รุ่น Pro และ Max)",
+    "เซนเซอร์สัมผัสที่มือคล่องแคล่ว (รุ่น Pro และ Max)",
+    "ไมโครโฟนและลำโพง",
+    "เอนโค้ดเดอร์แบบสัมบูรณ์คู่ที่ข้อต่อ"
+  ],
+  "charging": {
+    "timeH": 2.5,
+    "swappable": true,
+    "note": "แบตเตอรี่มาตรฐานเป็นลิเธียมชนิดเทอร์นารี 71.4 V 20 Ah (1,428 Wh) ชาร์จเต็มประมาณ 2.5 ชั่วโมง มีแบตเตอรี่โซลิดสเตต 74.8 V 40 Ah เป็นตัวเลือก ชาร์จประมาณ 3 ชั่วโมง ทุกรุ่นถอดเปลี่ยนแบตเตอรี่แบบเร็วได้ ตัวเลขความจุมาจากหน้าสินค้าฉบับกันยายน 2569 ซึ่งหน้าปัจจุบันไม่ได้ระบุไว้"
+  },
+  "software": {
+    "sdk": "รุ่น Open Source, Pro และ Max รองรับการพัฒนาต่อยอดตามเอกสาร SDK/API ของผู้ผลิต ส่วนรุ่น Basic ไม่รองรับ",
+    "ai": null
+  },
+  "warranty": {
+    "robot": "ไม่เปิดเผย",
+    "battery": null,
+    "note": "ผู้ผลิตระบุว่ารายละเอียดการรับประกันอยู่ในคู่มือการรับประกันที่แนบมากับสินค้า เงื่อนไขสำหรับผู้ซื้อต่างประเทศต้องสอบถาม EngineAI"
+  },
+  "safety": {
+    "features": [],
+    "certifications": []
+  },
+  "useCases": [
+    "วิจัยและพัฒนาการควบคุมการเคลื่อนไหวของหุ่นยนต์สองขาขนาดผู้ใหญ่",
+    "การแข่งขันและการแสดงต่อสู้ของหุ่นยนต์",
+    "งานสาธิตและงานอีเวนต์",
+    "งานบริการ",
+    "ทดลองงานร่วมกับมนุษย์ในภาคอุตสาหกรรม"
+  ],
+  "highlights": [
+    "แรงบิดข้อต่อสูงสุด 450 N·m และกำลังสูงสุด 14,000 วัตต์ตามข้อมูลเปิดตัว",
+    "ทำงานได้ 3–5 ชั่วโมงต่อการชาร์จ และถอดเปลี่ยนแบตเตอรี่ได้รวดเร็ว",
+    "รุ่น Max มี 46 องศาอิสระ รวมมือคล่องแคล่วข้างละ 7 องศาอิสระที่ยกได้ข้างละ 5 กก.",
+    "โครงสร้างอะลูมิเนียมเกรดการบินผสมไทเทเนียม พร้อมระบบระบายความร้อนด้วยอากาศ",
+    "ผลิตจำนวนมากที่ฐานการผลิตในเซินเจิ้น ผลิตได้ 1 ตัวทุก 15 นาที"
+  ],
+  "pros": [
+    "ขนาดเท่าผู้ใหญ่ เหมาะกับงานที่ต้องการความสูงและช่วงแขนใกล้เคียงมนุษย์",
+    "ข้อต่อแรงบิดสูง รองรับท่าทางที่ใช้แรงมาก เช่น การวิ่งและการเตะ",
+    "มี 4 รุ่นให้เลือกตามงบประมาณและความต้องการพัฒนาต่อยอด",
+    "แบตเตอรี่ถอดเปลี่ยนได้เร็ว ช่วยลดเวลาหยุดรอชาร์จ"
+  ],
+  "cons": [
+    "ปัจจุบันผู้ผลิตไม่แสดงราคาบนเว็บไซต์ ต้องขอใบเสนอราคา",
+    "รุ่น Basic ไม่รองรับการพัฒนาต่อยอดและไม่มีมือหยิบจับ",
+    "ยังไม่มีตัวแทนจำหน่ายและศูนย์บริการในไทย",
+    "น้ำหนัก 75–85 กก. ต้องใช้อุปกรณ์ยกและพื้นที่ทดสอบที่ปลอดภัย",
+    "ผู้ผลิตไม่เปิดเผยระยะรับประกันและมาตรฐานความปลอดภัยที่ได้รับการรับรอง"
+  ],
+  "idealFor": [
+    "มหาวิทยาลัยและสถาบันวิจัยที่ศึกษาการควบคุมหุ่นยนต์สองขาขนาดผู้ใหญ่",
+    "บริษัทที่พัฒนาซอฟต์แวร์หรือแอปพลิเคชันบนหุ่นยนต์ฮิวแมนนอยด์",
+    "ผู้จัดงานแสดงและการแข่งขันหุ่นยนต์"
+  ],
+  "considerations": [
+    "ขอใบเสนอราคาล่าสุดจาก EngineAI เพราะผู้ผลิตนำตารางราคาออกจากเว็บไซต์เมื่อกันยายน 2569",
+    "หากต้องเขียนโปรแกรมควบคุมเอง ต้องเลือกรุ่น Open Source ขึ้นไป และหากต้องหยิบจับสิ่งของ ต้องเลือกรุ่น Pro หรือ Max",
+    "สอบถามเงื่อนไขรับประกัน อะไหล่ และการซ่อมสำหรับผู้ซื้อต่างประเทศก่อนสั่งซื้อ",
+    "ผู้ผลิตเตือนให้รักษาระยะห่างปลอดภัยระหว่างใช้งาน เพราะระบบขับเคลื่อนมีกำลังสูง",
+    "รวมค่าขนส่ง อากรขาเข้า และภาษีมูลค่าเพิ่มไว้ในงบประมาณนำเข้า"
+  ],
+  "funFact": "หลังมีผู้สงสัยว่าวิดีโอเปิดตัวเป็นภาพกราฟิก ซีอีโอของ EngineAI สวมชุดป้องกันและให้ T800 เตะจริงต่อหน้ากล้องเมื่อธันวาคม 2568",
+  "priceNote": "ราคาเป็นราคาขายต่างประเทศในสกุลดอลลาร์สหรัฐที่ EngineAI แสดงบนหน้าสินค้าภาษาอังกฤษจนถึงกลางเดือนกันยายน 2569 ส่วนในจีนตั้งราคา 180,000 / 240,000 / 280,000 / 360,000 หยวนตามลำดับรุ่น ปลายเดือนกันยายน 2569 ผู้ผลิตนำตารางราคาออกจากเว็บไซต์ทั้งสองภาษา จึงควรขอใบเสนอราคาใหม่ รุ่น Pro สีแชมเปญโกลด์ผลิตจำกัด 50 ตัวในราคา 260,000 หยวน ราคายังไม่รวมค่าขนส่ง อากรขาเข้า และภาษีมูลค่าเพิ่มในไทย",
+  "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/%E4%BC%97%E6%93%8ET800%E5%85%A8%E5%B0%BA%E5%AF%B8%E6%9E%81%E8%87%B4%E9%AB%98%E6%95%88%E8%83%BD%E9%80%9A%E7%94%A8%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83.webm",
+    "page": "https://commons.wikimedia.org/wiki/File:%E4%BC%97%E6%93%8ET800%E5%85%A8%E5%B0%BA%E5%AF%B8%E6%9E%81%E8%87%B4%E9%AB%98%E6%95%88%E8%83%BD%E9%80%9A%E7%94%A8%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83.webm",
+    "author": "中国新闻社 (China News Service)",
+    "license": "CC BY 3.0",
+    "seek": 19,
+    "focus": "80% 30%"
+  },
+  "gallery": [
+    {
+      "kind": "video",
+      "src": "images/gallery/engineai-t800-1.jpg",
+      "srcSmall": "images/gallery/engineai-t800-1-sm.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/b/bc/%E4%BC%97%E6%93%8ET800%E5%85%A8%E5%B0%BA%E5%AF%B8%E6%9E%81%E8%87%B4%E9%AB%98%E6%95%88%E8%83%BD%E9%80%9A%E7%94%A8%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83.webm",
+      "seek": 55,
+      "page": "https://commons.wikimedia.org/wiki/File:%E4%BC%97%E6%93%8ET800%E5%85%A8%E5%B0%BA%E5%AF%B8%E6%9E%81%E8%87%B4%E9%AB%98%E6%95%88%E8%83%BD%E9%80%9A%E7%94%A8%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83.webm",
+      "author": "中国新闻社 (China News Service)",
+      "license": "CC BY 3.0",
+      "alt": "คลิปเปิดตัว EngineAI T800 แสดงการเดิน การเคลื่อนไหว และการซ้อมชกกับคนในโรงยิม",
+      "video": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/%E4%BC%97%E6%93%8ET800%E5%85%A8%E5%B0%BA%E5%AF%B8%E6%9E%81%E8%87%B4%E9%AB%98%E6%95%88%E8%83%BD%E9%80%9A%E7%94%A8%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83.webm",
+        "duration": 78.5,
+        "start": 0
+      }
+    },
+    {
+      "kind": "image",
+      "src": "images/gallery/engineai-t800-2.jpg",
+      "srcSmall": "images/gallery/engineai-t800-2-sm.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/b/bc/%E4%BC%97%E6%93%8ET800%E5%85%A8%E5%B0%BA%E5%AF%B8%E6%9E%81%E8%87%B4%E9%AB%98%E6%95%88%E8%83%BD%E9%80%9A%E7%94%A8%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83.webm",
+      "seek": 61,
+      "page": "https://commons.wikimedia.org/wiki/File:%E4%BC%97%E6%93%8ET800%E5%85%A8%E5%B0%BA%E5%AF%B8%E6%9E%81%E8%87%B4%E9%AB%98%E6%95%88%E8%83%BD%E9%80%9A%E7%94%A8%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83.webm",
+      "author": "中国新闻社 (China News Service)",
+      "license": "CC BY 3.0",
+      "alt": "EngineAI T800 ตั้งการ์ดซ้อมชกกับคนในโรงยิม เห็นทั้งตัว (ภาพนิ่งจากคลิปเปิดตัว)",
+      "focus": "30% 55%"
+    }
+  ],
+  "sources": [
+    {
+      "title": "T800 – EngineAI",
+      "url": "https://en.engineai.com.cn/product-t800"
+    },
+    {
+      "title": "T800 产品参数 – 众擎机器人",
+      "url": "https://www.engineai.com.cn/product-t800"
+    },
+    {
+      "title": "T800 Product Specifications (archived 15 Sep 2026, USD prices) – Internet Archive",
+      "url": "https://web.archive.org/web/20260915114019/https://en.engineai.com.cn/product-t800"
+    },
+    {
+      "title": "T800 产品参数 (archived 26 Aug 2026, CNY prices) – Internet Archive",
+      "url": "https://web.archive.org/web/20260826175656/https://www.engineai.com.cn/product-t800"
+    },
+    {
+      "title": "人形的巅峰之作——众擎T800正式发布！ – 众擎机器人",
+      "url": "https://www.engineai.com.cn/about-news-media/41.html"
+    },
+    {
+      "title": "众擎T800全尺寸极致高效能通用人形机器人正式发布 – 中国新闻社",
+      "url": "https://commons.wikimedia.org/wiki/File:%E4%BC%97%E6%93%8ET800%E5%85%A8%E5%B0%BA%E5%AF%B8%E6%9E%81%E8%87%B4%E9%AB%98%E6%95%88%E8%83%BD%E9%80%9A%E7%94%A8%E4%BA%BA%E5%BD%A2%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83.webm"
+    },
+    {
+      "title": "眾擎發布人型機器人T800格鬥實拍影片 售18萬人民幣起 – 匯港資訊 Infocast (Yahoo財經)",
+      "url": "https://hk.finance.yahoo.com/news/%E7%9C%BE%E6%93%8E%E7%99%BC%E5%B8%83%E4%BA%BA%E5%9E%8B%E6%A9%9F%E5%99%A8%E4%BA%BAt800%E6%A0%BC%E9%AC%A5%E5%AF%A6%E6%8B%8D%E5%BD%B1%E7%89%87-%E5%94%AE18%E8%90%AC%E4%BA%BA%E6%B0%91%E5%B9%A3%E8%B5%B7-043422259.html"
+    },
+    {
+      "title": "EngineAI、深センインテリジェント製造基地を立ち上げ、量産型ヒューマノイドロボット「T800」の初出荷分がラインオフ – 共同通信PRワイヤー",
+      "url": "https://kyodonewsprwire.jp/release/202605300060"
+    },
+    {
+      "title": "EngineAI CEO Takes a Kick from T800 Robot to Settle CGI Debates – Humanoids Daily",
+      "url": "https://www.humanoidsdaily.com/news/engineai-ceo-takes-a-kick-from-t800-robot-to-settle-cgi-debates"
+    },
+    {
+      "title": "รู้จัก EngineAI 'T800' หุ่นยนต์ฮิวแมนนอยด์สุดแกร่งจากจีน – Techsauce",
+      "url": "https://techsauce.co/news/engineai-t800-humanoid-robot-mass-production-kung-fu"
+    }
+  ]
+}

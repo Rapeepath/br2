@@ -1,0 +1,416 @@
+/* Configurator: steps on the left, a sticky summary on the right (like a car maker's build page) */
+.cfg {
+  display: grid;
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.cfg__steps {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.cfg__status {
+  margin: 0;
+}
+
+.cfg-step {
+  min-width: 0;
+  margin: 0;
+  padding: var(--space-5) var(--space-6) var(--space-6);
+  border: 0;
+  border-top: 2px solid var(--ink);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.cfg-step legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  float: left;
+  width: 100%;
+  margin-bottom: var(--space-5);
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+}
+
+.cfg-step legend + * {
+  clear: both;
+}
+
+/* The steps are a real sequence */
+.cfg-step__no {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: var(--navy);
+  color: var(--led);
+  font-size: var(--fs-sm);
+}
+
+.cfg-step__more {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+/* Trims: one tile each, price as the headline figure */
+.cfg-trims {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-3);
+}
+
+.cfg-trim {
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+.cfg-trim__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+.cfg-trim__price {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  font-variant-numeric: proportional-nums;
+}
+
+.cfg-trim__approx {
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.cfg-trim__specs {
+  display: grid;
+  gap: 2px;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--line);
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+}
+
+/* Accessories and services: checkable rows with a stepper once ticked */
+.cfg-extras {
+  display: grid;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.cfg-extra {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'main price'
+    'main qty';
+  gap: var(--space-2) var(--space-4);
+  align-items: center;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cfg-extra__main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: start;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.cfg-extra__main input {
+  width: 20px;
+  height: 20px;
+  margin: 3px 0 0;
+  accent-color: var(--btn-bg);
+}
+
+.cfg-extra__text {
+  display: grid;
+  gap: 2px;
+}
+
+.cfg-extra__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.cfg-extra__sub {
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+}
+
+.cfg-extra__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  justify-self: start;
+  margin-top: 2px;
+  padding: 1px 6px;
+  border: 1px solid var(--line-strong);
+  color: var(--ink-muted);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+}
+
+.cfg-extra__price {
+  grid-area: price;
+  justify-self: end;
+  font-family: var(--font-display);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cfg-qty {
+  grid-area: qty;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--control-line);
+}
+
+.cfg-qty button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.cfg-qty button:hover:not(:disabled) {
+  background: var(--soft);
+}
+
+.cfg-qty button:disabled {
+  color: var(--ink-subtle);
+  cursor: not-allowed;
+}
+
+.cfg-qty output {
+  min-width: 2.25rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-align: center;
+}
+
+.cfg-fin {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.cfg-fin__result {
+  color: var(--ink-muted);
+}
+
+.cfg-fin__result strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+}
+
+/* ---------- Summary ---------- */
+.cfg__summary {
+  position: sticky;
+  top: calc(var(--header-h) + var(--space-5));
+}
+
+.cfg-sum {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border-top: 2px solid var(--led);
+  background: var(--navy);
+  color: var(--on-navy);
+  box-shadow: var(--elev-2);
+}
+
+.cfg-sum__photo {
+  aspect-ratio: 16 / 10;
+  margin: calc(-1 * var(--space-5)) calc(-1 * var(--space-5)) 0;
+  overflow: hidden;
+  background: var(--stage-dark);
+}
+
+.cfg-sum__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.cfg-sum h2 {
+  font-size: var(--fs-lg);
+}
+
+.cfg-sum__lines {
+  display: grid;
+  list-style: none;
+}
+
+.cfg-sum__lines li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--navy-line);
+  font-size: var(--fs-sm);
+}
+
+.cfg-sum__qty {
+  color: var(--on-navy-muted);
+}
+
+.cfg-sum__amt {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.cfg-sum__totals {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.cfg-sum__totals > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+}
+
+.cfg-sum__totals dt {
+  color: var(--on-navy-muted);
+}
+
+.cfg-sum__totals dd {
+  margin: 0;
+  text-align: right;
+}
+
+.cfg-sum__grand {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--navy-line);
+}
+
+.cfg-sum__grand dt {
+  color: var(--on-navy) !important;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.cfg-sum__grand dd {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+}
+
+.cfg-sum .form-submit {
+  width: 100%;
+}
+
+.cfg-sum .c-simnote {
+  margin-top: 0;
+}
+
+.cfg-switch__select {
+  min-width: 14rem;
+  border-color: var(--navy-line);
+  background-color: rgb(255 255 255 / 0.06);
+  color: var(--on-navy);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--on-navy-muted) 50%),
+    linear-gradient(135deg, var(--on-navy-muted) 50%, transparent 50%);
+}
+
+.cfg-switch__select option {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.cfg-pick__title {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-xl);
+}
+
+/* Phones and tablets: the summary follows the steps; a slim total bar sticks to the foot of the form */
+.cfg-bar {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .cfg {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cfg__summary {
+    position: static;
+  }
+
+  .cfg-bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    margin-inline: calc(-1 * var(--gutter));
+    padding: var(--space-3) var(--gutter);
+    border-top: 1px solid var(--navy-line);
+    background: var(--glass-dark);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: var(--on-navy);
+    font-size: var(--fs-sm);
+  }
+
+  .cfg-bar strong {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+  }
+
+  .cfg-bar a {
+    color: var(--on-navy);
+  }
+
+  body:has(.compare-tray) .cfg-bar {
+    bottom: 76px;
+  }
+}
+
+@media (max-width: 560px) {
+  .cfg-step {
+    padding: var(--space-4) var(--space-4) var(--space-5);
+  }
+
+  .cfg-step legend {
+    font-size: var(--fs-lg);
+  }
+
+  .cfg-extra {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'main'
+      'price'
+      'qty';
+  }
+
+  .cfg-extra__price,
+  .cfg-qty {
+    justify-self: start;
+    margin-left: calc(22px + var(--space-3));
+  }
+}

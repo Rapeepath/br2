@@ -1,0 +1,90 @@
+{
+  "id": "agibot-x2",
+  "segment": "Mid-size humanoid for reception and performances",
+  "originCountry": "China",
+  "tagline": "131 cm humanoid for reception and performances",
+  "summary": "AGIBOT X2 (known in China as Lingxi X2) is a mid-size bipedal humanoid robot, about 131 cm tall and weighing 35–39 kg, with 30 degrees of freedom (DoF). It is designed for reception, performances and interaction with people. The X2 Neo is sold on the maker's online store for US$25,600, while the X2 Ultra, which adds LiDAR, a depth camera and an NVIDIA Jetson Orin NX board, is priced in Thailand at 1,799,000 baht through VST ECS.",
+  "background": "AGIBOT was founded in Shanghai in February 2023 by former Huawei engineers and, according to Omdia, was the world's largest shipper of humanoid robots in 2025, with more than 5,100 units and a share of about 39%. The company unveiled the X2 on 11 March 2025 and began official sales in May 2025 in three versions (interactive, Pro and Ultra), priced at about CNY 100,000 to CNY 400,000. In March 2026 AGIBOT reached a total of 10,000 robots produced. In Thailand, AGIBOT announced a partnership with the GULF group to set up a joint venture in March 2026, and held a launch with VST ECS in Bangkok on 25 June 2026, where the X2 was described as the best-selling model. On 17 July 2026 an X2 demonstrated Muay Thai moves in front of the Thai Prime Minister during a visit to AGIBOT's headquarters in Shanghai.",
+  "availabilityNote": "VST ECS (Thailand) Co., Ltd. has been AGIBOT's partner and distributor in Thailand since June 2026. It has announced a baht price for the X2 Ultra, has a local training and after-sales service team, and offers outright sales, short-term rental for events and an annual subscription. The X2 Neo can be ordered from AGIBOT's online store, but buyers must ask the sales team about shipping to Thailand.",
+  "distributor": "VST ECS (Thailand) Co., Ltd., the Thai distributor; or order the X2 Neo directly from AGIBOT's online store",
+  "trims": [
+    {
+      "name": "X2 Neo",
+      "hand": "Standard fitted hands; does not support OmniHand hands",
+      "compute": "Rockchip RK3588 ×2"
+    },
+    {
+      "name": "X2 Ultra",
+      "hand": "No grasping hands as standard; supports OmniHand hands or the OmniPicker gripper (sold separately)",
+      "compute": "Rockchip RK3588 ×2 and NVIDIA Jetson Orin NX 16GB (157 TOPS)"
+    }
+  ],
+  "sensors": [
+    "RGB camera on the head for interaction (all versions)",
+    "Touch sensor on the head (all versions)",
+    "Microphone array and speaker (all versions)",
+    "Dual front RGB cameras and a rear RGB camera (Ultra only)",
+    "RGB-D depth camera (Ultra only)",
+    "3D LiDAR (Ultra only)"
+  ],
+  "charging": {
+    "note": "Battery of about 500 Wh, fully charged within 1.5 hours on 100–220 V. The maker does not state that the battery is swappable."
+  },
+  "software": {
+    "sdk": "AimDK development kit on ROS 2 with Python and C++ support, Ultra only; the Neo does not support further development",
+    "ai": "LinkCraft platform for creating motions, voice and gesture interaction, OTA software updates and autonomous navigation (Ultra only)"
+  },
+  "warranty": {
+    "robot": "18 months (when bought through VST ECS in Thailand)",
+    "battery": null,
+    "note": "AGIBOT's online store asks buyers to contact the sales team about warranty terms and shipping for the destination country."
+  },
+  "safety": {
+    "features": [
+      "Handheld remote control and control app included",
+      "Automatic obstacle avoidance using LiDAR and a depth camera (Ultra only)"
+    ],
+    "certifications": []
+  },
+  "useCases": [
+    "Greeting and informing visitors in showrooms, trade shows and events",
+    "Performances and dancing for marketing activities",
+    "Assisting with service in retail stores and supermarkets",
+    "Muay Thai demonstrations and cultural activities",
+    "Research and robot software development (Ultra)"
+  ],
+  "highlights": [
+    "The maker was the world's largest shipper of humanoid robots in 2025, according to Omdia",
+    "Thai distributor with announced baht pricing and a local after-sales service team",
+    "7 DoF per arm, 3 DoF at the waist and 6 DoF per leg",
+    "The Ultra has LiDAR, a depth camera and a Jetson Orin NX board for autonomous navigation",
+    "18-month warranty when bought through VST ECS, longer than the 1-year warranty on the A2"
+  ],
+  "pros": [
+    "Can be bought and serviced in Thailand through an official distributor",
+    "Short-term rental and annual subscription options for those not yet ready to buy outright",
+    "Size and weight suit indoor spaces such as showrooms and shopping malls",
+    "Fully charges in about 1.5 hours"
+  ],
+  "cons": [
+    "Runtime of about 2 hours per charge at a walking speed of 0.5 m/s",
+    "Maximum payload of 3 kg in specific poses and no more than 1 kg across the full range of motion, so it is not suited to lifting tasks",
+    "The Neo does not support further software development and has no autonomous navigation",
+    "OmniHand hands are a separate purchase and work only with the Ultra"
+  ],
+  "idealFor": [
+    "Retail stores, hotels and showrooms that want a reception robot",
+    "Event and exhibition organisers",
+    "System integrators that want a mid-size humanoid platform (Ultra)"
+  ],
+  "considerations": [
+    "Check with VST ECS whether the 1,799,000 baht price includes VAT, installation and training",
+    "The newer X2 Ultra version has a 2-DoF neck, for 31 DoF in total; confirm which variant you will receive",
+    "The payload figure applies to specific poses; test any lifting or delivery tasks before buying",
+    "For all-day continuous use, plan charging breaks or consider renting several units",
+    "Prices and specifications on different pages of the maker's website may differ slightly (for example, a top speed of 1.8 or 2 m/s); request the official specification sheet before signing a contract"
+  ],
+  "funFact": "On 17 July 2026 an X2 robot demonstrated the martial art of Muay Thai in front of the Thai Prime Minister during a visit to AGIBOT's headquarters in Shanghai.",
+  "priceNote": "The X2 Ultra price of 1,799,000 baht was announced by VST ECS at its launch event in Bangkok in June 2026, as reported by MGR Online, without stating whether it includes VAT. The X2 Neo price of US$25,600 is the price on AGIBOT's online store and excludes shipping, 7% import VAT and customs clearance fees. The OmniHand 3 hand starts at US$5,360 and is sold separately. In addition, the RBTX (igus) online store lists the X2 Basic with 25 DoF at 986,250 baht and the X2 Ultra at 2,032,800 baht, excluding VAT and shipping. VST ECS also offers short-term rental for events, an annual subscription and the AgiRaaS robot-as-a-service model.",
+  "gallery": []
+}

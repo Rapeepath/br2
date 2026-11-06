@@ -1,0 +1,202 @@
+.booking-form {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.booking-step {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.booking-step legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+/* The three steps really are a sequence: numbers in small dark squares */
+.booking-step__no {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: var(--navy);
+  color: var(--led);
+  font-size: var(--fs-sm);
+}
+
+.booking-step__picked {
+  color: var(--ink-subtle);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 400;
+}
+
+.booking-step__fields {
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* ---------- Calendar ---------- */
+.cal {
+  display: grid;
+  gap: 4px;
+}
+
+.cal__head,
+.cal__week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.cal__head span {
+  padding-bottom: 2px;
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  text-align: center;
+}
+
+.cal__day {
+  position: relative;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  min-height: 56px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  cursor: pointer;
+  transition:
+    border-color var(--dur-1) var(--ease-out),
+    background-color var(--dur-1) var(--ease-out),
+    color var(--dur-1) var(--ease-out);
+}
+
+.cal__day input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.cal__num {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.cal__month,
+.cal__closed {
+  min-height: 1.2em;
+  color: var(--ink-subtle);
+  font-size: 0.6875rem;
+  line-height: 1.2;
+}
+
+.cal__day:hover {
+  border-color: var(--ink);
+}
+
+.cal__day:has(input:checked) {
+  border-color: var(--btn-bg);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+
+.cal__day:has(input:checked) .cal__month {
+  color: inherit;
+}
+
+.cal__day:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.cal__day:has(input:disabled) {
+  border-color: var(--line);
+  background: var(--surface-sunk);
+  color: var(--ink-subtle);
+  cursor: not-allowed;
+}
+
+.cal__day--out {
+  min-height: 56px;
+}
+
+/* ---------- Time slots ---------- */
+.slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: var(--space-2);
+}
+
+.slot {
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.slot__time {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.slot__full {
+  color: var(--ink-subtle);
+  font-size: var(--fs-2xs);
+}
+
+.choice.slot:has(input:checked) {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+
+.booking-loading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.booking-submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+}
+
+.booking-call {
+  margin-top: var(--space-3);
+}
+
+@media (max-width: 560px) {
+  .cal__day,
+  .cal__day--out {
+    min-height: 48px;
+  }
+
+  .cal__num {
+    font-size: var(--fs-md);
+  }
+
+  .cal__closed {
+    font-size: 0.625rem;
+  }
+
+  .slots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

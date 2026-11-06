@@ -1,0 +1,465 @@
+/*
+  Shared parts of the showroom's service pages (contact, booking, FAQ, privacy, service, finance, configure,
+  quotation, solutions): the dark stage head, white sheets on the grey floor split by hairlines, spec tables,
+  step lists for real sequences, and the demo notice. Showroom rules: square corners, black buttons, LED only
+  on dark surfaces.
+*/
+
+/* ---------- Stage head ---------- */
+.pstage {
+  padding-block: 0 var(--space-7);
+  background: var(--stage-dark);
+}
+
+.pstage__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  align-items: end;
+  gap: var(--space-5) var(--space-8);
+  padding-top: var(--space-8);
+}
+
+.pstage h1 {
+  font-size: var(--fs-3xl);
+}
+
+/* The second line is a subtitle: steel grey, smaller, so a long one never outweighs the page name */
+.pstage h1 .tint {
+  display: block;
+  margin-top: 0.35em;
+  font-size: 0.56em;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+.pstage__lede {
+  max-width: 48ch;
+  color: var(--on-navy-muted);
+  font-size: var(--fs-lg);
+  line-height: 1.75;
+}
+
+.pstage__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.motion-ok .pstage h1,
+.motion-ok .pstage__aside {
+  animation: pstage-rise var(--dur-3) var(--ease-out) both;
+}
+
+.motion-ok .pstage__aside {
+  animation-delay: 120ms;
+}
+
+@keyframes pstage-rise {
+  from {
+    opacity: 0;
+    translate: 0 16px;
+  }
+}
+
+/* ---------- Page body ---------- */
+.c-page {
+  padding-block: var(--space-7) var(--space-8);
+}
+
+.c-section + .c-section {
+  margin-top: var(--space-8);
+}
+
+.c-section > h2 {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-2xl);
+}
+
+.c-section__lede {
+  max-width: 66ch;
+  margin-bottom: var(--space-6);
+  color: var(--ink-muted);
+}
+
+/* Two columns: the main sheet and a narrower side sheet */
+.c-split {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.c-sheet {
+  padding: var(--space-6);
+  border-top: 2px solid var(--ink);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.c-sheet > h2,
+.c-sheet > h3 {
+  margin-bottom: var(--space-4);
+}
+
+.c-sheet > h2 {
+  font-size: var(--fs-xl);
+}
+
+.c-sheet + .c-sheet {
+  margin-top: var(--space-5);
+}
+
+.c-sheet--dark {
+  border-top-color: var(--led);
+  background: var(--navy);
+  color: var(--on-navy);
+}
+
+.c-sheet--dark p,
+.c-sheet--dark dd {
+  color: var(--on-navy-muted);
+}
+
+/* Links and the demo note keep readable inks on the dark sheet */
+.c-sheet--dark a:not(.btn) {
+  color: var(--on-navy);
+  text-decoration-color: var(--led);
+}
+
+.c-sheet--dark .c-simnote,
+.cfg-sum .c-simnote {
+  border-left-color: var(--caution);
+  background: rgb(224 165 60 / 0.12);
+  color: #f3d39a;
+}
+
+/* Label–value list on hairlines */
+.c-dl {
+  display: grid;
+}
+
+.c-dl > div {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, 2fr) minmax(0, 5fr);
+  gap: var(--space-2) var(--space-4);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--line);
+}
+
+.c-dl > div:first-child {
+  padding-top: 0;
+}
+
+.c-dl dt {
+  color: var(--ink-subtle);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.c-dl dd {
+  margin: 0;
+  color: var(--ink);
+}
+
+.c-sheet--dark .c-dl > div {
+  border-color: var(--navy-line);
+}
+
+.c-sheet--dark .c-dl dt {
+  color: var(--on-navy-muted);
+}
+
+.c-sheet--dark .c-dl dd {
+  color: var(--on-navy);
+}
+
+/* Data tables: white sheet, ink rule under the head, hairline rows */
+.c-tablewrap {
+  overflow-x: auto;
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.c-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.c-table th,
+.c-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.c-table thead th {
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.c-table tbody th {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.c-table .num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.c-table tfoot td,
+.c-table tfoot th {
+  border-top: 2px solid var(--ink);
+  border-bottom: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* A real sequence (steps of a process): numbers in small squares */
+.c-steps {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  counter-reset: c-step;
+}
+
+.c-steps > li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--line);
+  counter-increment: c-step;
+}
+
+.c-steps > li::before {
+  content: counter(c-step);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: var(--navy);
+  color: var(--led);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.c-steps h3 {
+  font-size: var(--fs-md);
+}
+
+.c-steps p {
+  margin-top: 2px;
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* Card grid for plans, models and solutions */
+.c-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.c-card {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  height: 100%;
+  padding: var(--space-5);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.c-card h3 {
+  font-size: var(--fs-lg);
+}
+
+.c-card p {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+.c-card__price {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+/* Linked card: an ink edge appears along the top on hover */
+a.c-card {
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow var(--dur-2) var(--ease-out);
+}
+
+a.c-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: var(--ink);
+  scale: 0 1;
+  transform-origin: left;
+  transition: scale var(--dur-3) var(--ease-out);
+}
+
+a.c-card:hover {
+  box-shadow: var(--elev-3);
+}
+
+a.c-card:hover::before,
+a.c-card:focus-visible::before {
+  scale: 1 1;
+}
+
+a.c-card:hover h3 {
+  color: var(--accent);
+}
+
+/* A plain block: as a flex row, the nowrap spans tie() adds would each become a column */
+.c-simnote {
+  display: block;
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-left: 2px solid var(--caution);
+  background: var(--caution-soft);
+  color: var(--caution-ink);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+}
+
+.c-muted {
+  color: var(--ink-muted);
+}
+
+.c-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+/* Success panel after a form is sent */
+.c-done {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-top: 2px solid var(--positive);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.c-done:focus {
+  outline: none;
+}
+
+.c-done h2 {
+  font-size: var(--fs-xl);
+}
+
+.c-done__ref {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.motion-ok .c-done {
+  animation: pstage-rise var(--dur-3) var(--ease-out) both;
+}
+
+@media (max-width: 960px) {
+  .pstage__inner,
+  .c-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .pstage__inner {
+    padding-top: var(--space-7);
+  }
+
+  .c-sheet {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .c-dl > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+
+  .pstage__actions > .btn {
+    flex: 1 1 100%;
+  }
+
+  /* Phones: data tables read as stacked rows (each cell labelled by its column) */
+  .c-table--stack thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .c-table--stack,
+  .c-table--stack tbody,
+  .c-table--stack tr,
+  .c-table--stack td,
+  .c-table--stack th {
+    display: block;
+    width: 100%;
+  }
+
+  .c-table--stack tr {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .c-table--stack tbody th {
+    padding: 0 0 var(--space-2);
+    border: 0;
+  }
+
+  .c-table--stack td {
+    display: grid;
+    grid-template-columns: minmax(6.5rem, 2fr) minmax(0, 3fr);
+    gap: var(--space-3);
+    padding: 4px 0;
+    border: 0;
+    text-align: left;
+  }
+
+  .c-table--stack td::before {
+    content: attr(data-label);
+    color: var(--ink-subtle);
+    font-size: var(--fs-xs);
+  }
+
+  .c-table--stack .num {
+    text-align: left;
+    white-space: normal;
+  }
+
+  .c-table--stack tfoot,
+  .c-table--stack tfoot tr {
+    display: block;
+  }
+}

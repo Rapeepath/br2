@@ -1,0 +1,96 @@
+{
+  "id": "galbot-g1",
+  "segment": "Wheeled dual-arm humanoid for retail and warehouses",
+  "originCountry": "China",
+  "tagline": "Dual-arm robot on a wheeled base for picking goods",
+  "summary": "Galbot G1 is a robot with a humanlike upper body and two arms mounted on an omnidirectional wheeled base. It stands up to 173 cm tall, weighs 92.5 kg and is designed for picking and delivering goods in retail stores, unstaffed pharmacies and warehouses. It has a runtime of 8 hours per charge and is listed on JD.com in China at CNY 699,900 before discounts.",
+  "background": "Galbot (银河通用) was founded in Beijing in 2023 by Wang He and first unveiled the G1 in June 2024, then began commercial service in pharmacies and retail. The maker states that its \"银河太空舱\" (Galaxy Space Capsule) automated store system using the G1 is operating at more than 170 sites in more than 40 cities, and that the G1 has been used in more than 100 quick-commerce retail warehouses 24 hours a day, continuously for more than a year and a half. Baidu Baike states that cumulative deliveries exceeded 1,200 units by 2025. After the G1 appeared on CCTV's Spring Festival Gala in February 2026, nearly 300 units of the JD.com listing were ordered or added to carts in a single night, with a retailer in Suzhou ordering 2 units within 12 minutes. Chinese media reported that the company had raised about CNY 7 billion in total and was valued at more than CNY 20 billion in March 2026.",
+  "availabilityNote": "No Galbot distributor has been found in Thailand yet. The purchase channel recommended on the maker's website is JD.com's self-operated store (sold directly by JD), which serves China. Thai buyers therefore need to contact Galbot directly for an export quotation and handle the import themselves.",
+  "distributor": "Contact Galbot (北京银河通用机器人) directly; no Thai distributor yet",
+  "trims": [
+    {
+      "name": "Galbot G1",
+      "hand": "Interchangeable end effectors: dexterous hand, suction cup or gripper",
+      "compute": "NVIDIA Jetson AGX Orin 64GB (275 TOPS)"
+    }
+  ],
+  "sensors": [
+    "Stereo camera in the head",
+    "4 RGB cameras on the torso",
+    "2 depth cameras on the wrists",
+    "2 × 6-axis force/torque sensors at the wrists",
+    "3D LiDAR and 8 ultrasonic sensors on the base",
+    "2 linear arrays of 4 microphones each, and an IMU"
+  ],
+  "charging": {
+    "note": "48 V 30 Ah battery (1,440 Wh), charged with a 54.6 V 10 A adapter in about 3.5 hours. The maker does not state whether the battery is swappable."
+  },
+  "software": {
+    "sdk": "The maker's website has a secondary development (二次开发) section for developers",
+    "ai": "AstraBrain (银河星脑) end-to-end foundation model that combines planning, motion control and joint-level control"
+  },
+  "warranty": {
+    "robot": "Not disclosed",
+    "battery": null,
+    "note": "Units sold directly by JD.com (self-operated) in China come with nationwide warranty service in China based on the warranty card and tax invoice. Terms for overseas buyers must be confirmed with Galbot."
+  },
+  "safety": {
+    "features": [
+      "Emergency stop button",
+      "8 ultrasonic sensors and LiDAR for detecting obstacles around the base",
+      "IP54 dust and water protection rating, according to the maker's specifications"
+    ],
+    "certifications": []
+  },
+  "useCases": [
+    "Picking and delivering goods in automated stores and unstaffed pharmacies",
+    "Stock counting and shelf restocking in retail stores",
+    "Picking, packing and dispatching goods in quick-commerce retail warehouses",
+    "Parts sorting and material feeding in factories",
+    "Household tasks such as putting things away and fetching parcels"
+  ],
+  "highlights": [
+    "Runtime of 8 hours per charge from a 1,440 Wh battery",
+    "650 mm telescopic torso, with reach from floor level up to a height of 2.1 m",
+    "Payload of 5 kg per arm, 10 kg in total",
+    "In commercial use at more than 170 sites in more than 40 cities in China",
+    "IP54 dust and water protection rating"
+  ],
+  "pros": [
+    "Long runtime per charge, suited to full-shift work",
+    "The omnidirectional wheeled base is more stable than bipedal walking for picking work",
+    "End effectors can be changed to suit the task: hand, suction cup or gripper",
+    "A retail price is published on the maker's recommended sales channel"
+  ],
+  "cons": [
+    "No Thai distributor or service centre yet",
+    "Weighs 92.5 kg and has a 600 mm-wide base, so aisles must be wide enough",
+    "The maker does not disclose the warranty period",
+    "The published price is for the Chinese market; there is no export price yet"
+  ],
+  "idealFor": [
+    "Retailers and convenience store operators wanting to trial automated stores",
+    "Warehouse and logistics service providers",
+    "System integrators wanting a dual-arm manipulation platform on a mobile base"
+  ],
+  "considerations": [
+    "Ask Galbot about export sales, pricing and warranty for Thailand",
+    "Check language support and software customisation for Thai products and store systems",
+    "The payload is 5 kg per arm, measured at the centre of the wrist",
+    "The 21 DoF figure does not include the wheeled base or the end effectors",
+    "Plan charging space and the roughly 3.5-hour charging time after each full shift"
+  ],
+  "funFact": "After the Galbot G1 appeared on CCTV's Spring Festival Gala in February 2026, a retailer in Suzhou ordered 2 units on JD.com within 12 minutes",
+  "priceNote": "The CNY 699,900 price is from JD.com's self-operated store, which the Galbot website uses as its \"Buy now\" channel. In February 2026 the price after subsidies was about CNY 630,000, and Chinese media reported a JD price of about CNY 700,000 in September 2026. These are prices in China and exclude shipping to Thailand, 7% import VAT and customs clearance fees. No rental or instalment options for Thai buyers have been found yet.",
+  "gallery": [
+    {
+      "alt": "Close-up of Galbot G1 extending a gripper-fitted arm in a convenience-store set at WAIC 2025"
+    },
+    {
+      "alt": "Galbot G1 staffing the HooLoo Coffee drinks kiosk of a Galbot Store in Bao'an district, Shenzhen, seen through the glass"
+    },
+    {
+      "alt": "Roadside Galbot Store kiosk in Shenzhen, with a Galbot G1 working behind the glass"
+    }
+  ]
+}

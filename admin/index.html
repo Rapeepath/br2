@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="หลังร้านและเครื่องขายหน้าร้าน (จำลอง) ของโชว์รูมหุ่นยนต์ฮิวแมนนอยด์ Servo" />
+    <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#0f1e35" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <title>Servo หลังร้าน</title>
+    <script>
+      // Apply the remembered theme (shared with the brochure) before first paint.
+      try {
+        var t = localStorage.getItem('servo.theme')
+        document.documentElement.dataset.theme = t === 'dark' ? 'dark' : 'light'
+      } catch (e) {
+        document.documentElement.dataset.theme = 'light'
+      }
+    </script>
+  </head>
+  <body class="admin-body">
+    <div id="root"></div>
+    <script type="module" src="/src/admin/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+{
+  "id": "unitree-g1",
+  "segment": "Mid-size humanoid for research and education",
+  "originCountry": "China",
+  "tagline": "Mid-size research humanoid, 132 cm tall",
+  "summary": "The Unitree G1 is a mid-size bipedal humanoid robot, about 132 cm tall and weighing about 35 kg, made by Unitree Robotics of Hangzhou, China. The base version has 23 DoF and a swappable battery with a runtime of about 2 hours, and has a starting price of US$13,500 on the maker's online store. It suits universities, research laboratories and demonstrations, although writing your own control programs requires the EDU version.",
+  "background": "Unitree launched the G1 in 2024 as the company's second humanoid robot after the H1, and has sold it through its online store since June 2024. The base version is currently priced at US$13,500, excluding taxes and shipping. In September 2026 the online store added the G1 Pro at US$21,500, which a European distributor states has 29 DoF and a maximum knee torque of 120 N·m. On 14 September 2026 the maker launched the G1+, which adds a 2-DoF neck, binocular cameras together with a wide-angle camera, and shoulder and waist motors with 110% higher maximum torque, priced at US$15,000 (CNY 95,000 including tax in China). The G1 EDU research version supports further development, can be configured with 23–43 DoF, and can be fitted with an NVIDIA Jetson Orin compute module and Dex3-1 hands, with the price given by the maker on enquiry. The maker has also released open-source code for training the G1's movement in simulation on Isaac Lab and MuJoCo.",
+  "availabilityNote": "Thai dealers such as SIAMBC (storefront in Thawi Watthana district, Bangkok) and MetaXR take orders by quotation, and Systronics Co., Ltd. was named as a Thai distributor in late 2024. Buyers can also order directly from Unitree's online store, but the store states that the G1 is on backorder and buyers must handle customs clearance themselves.",
+  "distributor": "SIAMBC, MetaXR (MTXR), Systronics",
+  "trims": [
+    {
+      "name": "G1",
+      "hand": "No grasping hands",
+      "compute": "8-core CPU"
+    },
+    {
+      "name": "G1+",
+      "hand": "No grasping hands",
+      "compute": "8-core CPU"
+    },
+    {
+      "name": "G1 Pro",
+      "hand": null,
+      "compute": null
+    }
+  ],
+  "sensors": [
+    "Livox MID-360 3D LiDAR",
+    "Intel RealSense depth camera",
+    "4 microphones and a 5 W speaker",
+    "G1+: binocular cameras, a wide-angle chest camera, 6 microphones and a touch-sensitive point on the head"
+  ],
+  "charging": {
+    "note": "9,000 mAh (about 421 Wh) quick-swap battery; a 54V 5A charger is included. The maker does not disclose the charging time. The G1+ can be connected to external power for continuous operation."
+  },
+  "software": {
+    "sdk": "Only the EDU version supports further development, via unitree_sdk2 (C++ and Python) and ROS 2. The G1, G1+ and G1 Pro are operated via a remote control and an app, with OTA updates.",
+    "ai": "The maker has released reinforcement learning motion-training code on Isaac Lab and MuJoCo (unitree_rl_lab) and a teleoperation kit using XR devices."
+  },
+  "warranty": {
+    "robot": "8 months (EDU version: 18 months)",
+    "battery": null,
+    "note": "This is the maker's warranty under Unitree's warranty documents. Ask the Thai dealer whether repairs are carried out in Thailand or the robot must be sent back to the maker."
+  },
+  "safety": {
+    "features": [
+      "Handheld remote control included",
+      "All wiring routed inside the joints, reducing tangling during movement"
+    ],
+    "certifications": []
+  },
+  "useCases": [
+    "University research on motion and reinforcement learning",
+    "Teaching robotics and AI",
+    "Demonstrations and visitor reception at trade shows",
+    "Dance performances and robot competitions",
+    "Rental for events and short-term research in Thailand"
+  ],
+  "highlights": [
+    "23 DoF on the base version, 25 DoF on the G1+, and a configurable 23–43 DoF on the EDU version",
+    "Maximum knee torque of 90 N·m (EDU version: 120 N·m)",
+    "9,000 mAh quick-swap battery with a runtime of about 2 hours per pack",
+    "Perceives its surroundings with 3D LiDAR combined with a depth camera",
+    "Folds down to 69 x 45 x 30 cm for easy transport",
+    "Arm payload of about 2 kg (G1+ and G1 Pro: about 3 kg); the actual figure depends on how far the arm is extended"
+  ],
+  "pros": [
+    "Publicly listed price, and it can genuinely be ordered from the maker's online store",
+    "Several dealers and rental providers in Thailand",
+    "The maker publishes open-source code for training and simulation, which shortens the start-up time for research",
+    "Compact and foldable, convenient to use in a classroom or booth"
+  ],
+  "cons": [
+    "The G1, G1+ and G1 Pro are not open for further development; that requires the EDU version, which is priced on enquiry",
+    "Runtime of about 2 hours per pack; continuous work requires spare batteries",
+    "Arm payload of only about 2–3 kg, not suited to serious lifting work",
+    "Bluetooth security vulnerabilities have been reported, along with concerns about data being sent to servers; the maker disputes the data-collection claims",
+    "The maker's online store lists the G1 as on backorder"
+  ],
+  "idealFor": [
+    "Universities and research centres working on robotics and embodied AI (EDU version)",
+    "Educational institutions that want an easily portable demonstration robot",
+    "Event organisers and organisations that want a robot for reception or performances"
+  ],
+  "considerations": [
+    "Decide first whether you need to write your own programs, as only the EDU version supports the SDK",
+    "Request a quotation that includes import duty, VAT and shipping, and names the after-sales service provider in Thailand",
+    "Ask about firmware update plans and network settings, as Bluetooth vulnerabilities were reported in 2025–2026",
+    "Prepare a test area, a safety gantry and trained operators, as the maker warns that the robot is powerful",
+    "Compare with the G1+, which costs US$1,500 more but has a movable neck, binocular cameras and a higher arm payload"
+  ],
+  "funFact": "When folded, the G1 is about 69 cm tall, down from its standing height of 132 cm.",
+  "priceNote": "Prices on Unitree's online store exclude import duty, VAT and shipping. The store quotes shipping at about US$300–1,200, and buyers must handle customs clearance themselves. The G1+ price (US$15,000) comes from the maker's product page, while the G1 Pro specifications are taken from a European distributor because the maker has not yet published a specification table. The G1, G1+ and G1 Pro do not support further development; the EDU version is priced on enquiry with the maker. Thai dealers give prices by quotation, depending on the version, accessories and import duty. MetaXR shows a price of 454,000 baht but states that this is a wholesale price for bulk orders, not a retail price, and excludes shipping and taxes. MetaXR also offers daily rental for events, and weekly or monthly rental for education and research.",
+  "gallery": [
+    {
+      "alt": "Unitree G1 with a Lenovo logo on its chest, standing on display at WAIC 2025 in Shanghai"
+    },
+    {
+      "alt": "Unitree G1 seated on a chair at the Tencent TAIROS platform booth at WAIC 2025"
+    },
+    {
+      "alt": "News clip: several Unitree G1 robots perform dance and fighting moves on a red carpet at a 6S robot centre in Jinan (starts at the robot performance)"
+    }
+  ]
+}

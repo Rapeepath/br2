@@ -1,0 +1,281 @@
+/*
+  Lineup tile, kept quiet like a car maker's range page:
+    1  the robot on a studio sweep, edge to edge, that leans in slightly on hover
+    2  what it is for, then the model name
+    3  the starting price on one line, three figures in a row
+    4  a light compare toggle
+  Square corners, no border, a white tile on the grey floor, and plenty of air.
+*/
+.plate {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+  transition: box-shadow var(--dur-3) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .plate:hover {
+    box-shadow: var(--elev-3);
+  }
+}
+
+.plate:focus-within {
+  box-shadow: var(--elev-2);
+}
+
+.plate__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--stage);
+}
+
+.plate__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  transition: scale 900ms var(--ease-out);
+}
+
+/* An LED line runs along the photo's foot when the tile is pointed at */
+.plate__media::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--led);
+  box-shadow: 0 0 14px var(--led-glow);
+  scale: 0 1;
+  transform-origin: left;
+  transition: scale var(--dur-3) var(--ease-out);
+}
+
+.plate:has(.plate__media:hover) .plate__media img,
+.plate:has(.plate__title a:hover) .plate__media img,
+.plate:has(.plate__title a:focus-visible) .plate__media img {
+  scale: 1.045;
+}
+
+.plate:has(.plate__media:hover) .plate__media::after,
+.plate:has(.plate__title a:hover) .plate__media::after,
+.plate:has(.plate__title a:focus-visible) .plate__media::after {
+  scale: 1 1;
+}
+
+.plate__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--space-5) var(--space-5) var(--space-4);
+}
+
+.plate__kind {
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.plate__title {
+  /* Model names in the condensed cut, like the lettering on a vehicle badge */
+  font-family: var(--font-nameplate);
+  margin-top: 2px;
+  font-size: 1.625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.plate__title a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color var(--dur-2) var(--ease-out);
+}
+
+.plate__title a:hover,
+.plate:has(.plate__media:hover) .plate__title a {
+  color: var(--accent);
+}
+
+/* Price on its own line; the spec row and the toggle sit at the foot so cards line up across a row */
+.plate__price {
+  margin-top: var(--space-4);
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  line-height: 1.4;
+}
+
+.plate__figure {
+  color: var(--figure);
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-variant-numeric: proportional-nums;
+  letter-spacing: -0.01em;
+}
+
+.plate__approx,
+.plate__unit {
+  color: var(--ink-subtle);
+}
+
+.plate__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-4);
+  margin: auto 0 0;
+  padding-top: var(--space-4);
+  list-style: none;
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.plate__specs li {
+  white-space: nowrap;
+}
+
+.plate__specs li + li {
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--line);
+}
+
+.plate__compare {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: var(--space-2);
+  min-height: 40px;
+  margin-top: var(--space-4);
+  padding: 0 var(--space-3);
+  margin-left: calc(-1 * var(--space-3));
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  transition:
+    border-color var(--dur-2) var(--ease-out),
+    background-color var(--dur-2) var(--ease-out),
+    color var(--dur-2) var(--ease-out);
+}
+
+.plate__compare:hover {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.plate__compare[data-selected] {
+  margin-left: 0;
+  border-color: var(--selected-bg);
+  background: var(--selected-bg);
+  color: var(--selected-fg);
+}
+
+.plate__compare[aria-disabled='true'] {
+  color: var(--ink-subtle);
+  cursor: not-allowed;
+}
+
+.plate__compare[aria-disabled='true']:hover {
+  background: transparent;
+}
+
+/* Wording swaps for the half-width phone card (see the phone block below) */
+.plate__label-brief {
+  display: none;
+}
+
+/*
+  Phones: a two-up product grid (HomePage.css). Every card has the same parts in the same places —
+  photo, use, name, price, figures and the compare toggle — and the toggles line up across each row.
+*/
+@media (max-width: 560px) {
+  .plate__media {
+    aspect-ratio: 1;
+  }
+
+  .plate__body {
+    padding: var(--space-3) var(--space-3) var(--space-2);
+  }
+
+  .plate__kind {
+    font-size: 0.6875rem;
+  }
+
+  .plate__title {
+    font-size: 1.0625rem;
+    line-height: 1.3;
+  }
+
+  .plate__price {
+    margin-top: var(--space-2);
+    font-size: var(--fs-2xs);
+  }
+
+  .plate__price-label {
+    display: none;
+  }
+
+  .plate__figure {
+    font-size: 1rem;
+  }
+
+  .plate__specs {
+    gap: 2px var(--space-3);
+    padding-top: var(--space-2);
+    font-size: var(--fs-2xs);
+  }
+
+  .plate__specs li + li {
+    padding-left: var(--space-3);
+  }
+
+  /* Two figures fit one row on a half-width card; runtime is on the model page */
+  .plate__specs li:nth-child(n + 3) {
+    display: none;
+  }
+
+  .plate__compare {
+    position: relative;
+    gap: 6px;
+    width: 100%;
+    margin: var(--space-2) 0 0;
+    justify-content: center;
+    border-color: var(--line-strong);
+  }
+
+  .plate__label-brief {
+    display: inline;
+  }
+
+  /* Off screen, not display: none, so it still names the button */
+  .plate__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+@media (forced-colors: active) {
+  .plate {
+    border: 1px solid CanvasText;
+  }
+
+  .plate__compare[data-selected] {
+    outline: 2px solid Highlight;
+  }
+}

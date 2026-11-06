@@ -1,0 +1,1366 @@
+/*
+  Compare: a car maker's comparison sheet. A short dark stage for the title, then one white sheet whose
+  header row holds each model on the studio sweep (photo, brand, name) and stays pinned while you read.
+  Groups are titled in Bai Jamjuree over an ink rule; rows are white with hairlines between them. The
+  best figure in a row carries a small ink square and a quiet wash, never colour alone.
+*/
+
+/* ---------- Cover ---------- */
+/* Layout pads a first-in-main .stage for the floating header, so the cover's own air sits on the inner */
+.cmp-cover {
+  padding-block: 0 var(--space-7);
+  background: var(--stage-dark);
+}
+
+.cmp-cover__inner {
+  padding-top: var(--space-8);
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  align-items: end;
+  gap: var(--space-5) var(--space-8);
+}
+
+.cmp-cover h1 {
+  font-size: var(--fs-3xl);
+}
+
+.cmp-cover__lede {
+  max-width: 46ch;
+  color: var(--on-navy-muted);
+  font-size: var(--fs-lg);
+  line-height: 1.75;
+}
+
+.cmp-cover__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+/* Date stamp in a hairline tag, as on the guide's cover */
+/* inline-block, not flex: a flex container would drop the space between "ณ" and the date */
+.cmp-cover__meta {
+  display: inline-block;
+  padding: 3px var(--space-3);
+  line-height: 24px;
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius-sm);
+  color: var(--on-navy);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.cmp-cover__clear.btn {
+  min-height: 40px;
+  padding: 0 var(--space-4);
+}
+
+.cmp-body {
+  padding-top: var(--space-7);
+}
+
+/* ---------- Toolbar: add a model, and the key to the best-figure marks ---------- */
+.cmp-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-6);
+  margin-bottom: var(--space-5);
+}
+
+.cmp-add {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-2);
+  flex: 0 1 460px;
+  min-width: 0;
+}
+
+/* The same labelled field as the lineup's filters: label inside on the left, then the choice */
+.cmp-add__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  border: 1px solid var(--control-line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.cmp-add__field:hover {
+  border-color: var(--ink-subtle);
+}
+
+.cmp-add__field:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.cmp-add__field label {
+  flex: none;
+  padding-left: var(--space-4);
+  color: var(--ink-subtle);
+  font-size: var(--fs-xs);
+  white-space: nowrap;
+}
+
+.cmp-add__select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.cmp-add__select select {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 0 40px 0 var(--space-2);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  appearance: none;
+  cursor: pointer;
+}
+
+.cmp-add__select select:focus {
+  outline: none;
+}
+
+.cmp-add__select select option {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.cmp-add__select select:disabled {
+  color: var(--ink-subtle);
+  cursor: not-allowed;
+}
+
+.cmp-add__field:has(select:disabled) {
+  border-color: var(--line);
+  background: var(--surface-sunk);
+  box-shadow: none;
+}
+
+.cmp-add__select svg {
+  position: absolute;
+  right: 14px;
+  color: var(--ink-subtle);
+  pointer-events: none;
+}
+
+.cmp-add__btn.btn {
+  flex: none;
+  min-height: 48px;
+  padding: 0 var(--space-5);
+}
+
+.cmp-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* The "best in this comparison" mark: a small ink square (shape, not hue, carries it) */
+.cmp-dot {
+  display: inline-block;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  background: var(--ink);
+}
+
+@media (forced-colors: active) {
+  .cmp-dot {
+    forced-color-adjust: none;
+    background: Highlight;
+  }
+}
+
+.cmp-dot--inline {
+  margin-right: var(--space-2);
+  vertical-align: 0.05em;
+}
+
+/* ---------- The sheet ---------- */
+/* clip (not hidden) trims the corners without becoming a scroll container, so the header still pins */
+.cmp-sheet {
+  overflow: clip;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+/*
+  The table is fluid (fixed layout, 100% wide), so it never needs a sideways scroll and its header
+  cells can pin to the page. They pin with a negative offset: the photo slides away under the site
+  header and only the brand and name stay, like a dealer's compact model bar.
+*/
+.cmp-table {
+  /* The site header is sticky above 720px: 72px plus its 1px hairline */
+  --cmp-pin: calc(var(--header-h) + 1px);
+  --cmp-label-w: clamp(150px, 16vw, 224px);
+  /* A little taller than a landscape plate would need: robots stand upright */
+  --cmp-photo-h: clamp(104px, 10.5vw, 160px);
+  --cmp-head-pad: var(--space-4);
+  --cmp-photo-gap: var(--space-4);
+  --cmp-stick: calc(var(--cmp-pin) - var(--cmp-head-pad) - var(--cmp-photo-h) - var(--cmp-photo-gap) + 2px);
+  --cmp-x: var(--space-5);
+
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  font-size: var(--fs-sm);
+}
+
+.cmp-table th,
+.cmp-table td {
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--cmp-x);
+  text-align: left;
+  vertical-align: top;
+  /* Breaks only a word that cannot fit its column; Thai otherwise wraps at word boundaries */
+  overflow-wrap: break-word;
+}
+
+/* ----- Header row: each model on the studio sweep, over an ink rule ----- */
+.cmp-table thead th,
+.cmp-table .cmp-corner {
+  position: sticky;
+  top: var(--cmp-stick);
+  z-index: 2;
+  padding-top: var(--cmp-head-pad);
+  padding-bottom: var(--space-4);
+  border-bottom: 2px solid var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+  container-type: scroll-state;
+}
+
+/* Photos line up across the top whatever the names' line counts; the corner's caption sits low */
+.cmp-table thead th {
+  vertical-align: top;
+}
+
+.cmp-table .cmp-corner {
+  vertical-align: bottom;
+}
+
+.cmp-table thead th + th {
+  border-left: 1px solid var(--line);
+}
+
+/* A keyboard user tabbing into the header gets it back in place, photo and remove button included */
+.cmp-table thead:has(:focus-visible) :is(th, td) {
+  position: static;
+}
+
+/* Once pinned, the photo would only ghost through the frosted site header, so let it go */
+@container scroll-state(stuck: top) {
+  .cmp-model__stage,
+  .cmp-model__remove:not(:focus-visible),
+  .cmp-corner__date {
+    opacity: 0;
+  }
+}
+
+.cmp-corner {
+  width: var(--cmp-label-w);
+}
+
+.cmp-corner__inner {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.cmp-corner__count {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.cmp-corner__date {
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.5;
+  transition: opacity 200ms ease;
+}
+
+.cmp-model {
+  position: relative;
+  display: grid;
+  justify-items: start;
+}
+
+/* The robot on the studio-grey stage, as on the lineup cards */
+.cmp-model__stage {
+  display: block;
+  width: 100%;
+  height: var(--cmp-photo-h);
+  margin-bottom: var(--cmp-photo-gap);
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--stage);
+  transition: opacity 200ms ease;
+}
+
+/* Robots stand upright in landscape frames, so every crop on this page keeps the head and shoulders:
+   high in the photo unless the model's own focus (set inline) says otherwise */
+.cmp-model__stage img,
+.cmp-pick__stage img,
+.cmp-stack dt img {
+  object-position: 50% 12%;
+}
+
+.cmp-model__stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cmp-model__brand {
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.cmp-model__name {
+  /* Model names in the condensed cut, like the lettering on a vehicle badge */
+  font-family: var(--font-nameplate);
+  color: var(--ink);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.cmp-table .cmp-model__name:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+}
+
+
+
+.cmp-model__remove {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--glass);
+  color: var(--ink);
+  box-shadow: var(--elev-2);
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    opacity 200ms ease;
+}
+
+.cmp-model__remove:hover {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+
+
+
+/* ----- Group titles in Bai Jamjuree over an ink hairline, on the white sheet ----- */
+.cmp-table .cmp-group th {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.cmp-table tbody:first-of-type .cmp-group th {
+  padding-top: var(--space-5);
+}
+
+/* ----- Rows: white, hairlines between rows and columns ----- */
+.cmp-row > th,
+.cmp-row > td,
+.cmp-caution > td {
+  background: var(--surface);
+}
+
+.cmp-row:not(.is-first) > * {
+  border-top: 1px solid var(--line);
+}
+
+.cmp-row > td {
+  border-left: 1px solid var(--line);
+}
+
+/* The last row of a group gets a little more air before the white gap */
+.cmp-table tbody > tr:last-child > * {
+  padding-bottom: var(--space-4);
+}
+
+.cmp-table tbody th[scope='row'] {
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.6;
+  overflow-wrap: normal;
+}
+
+/* The best figure's cell takes a quiet wash behind its ink square */
+.cmp-row > td.is-best {
+  background: var(--soft);
+}
+
+/* Brief wording is for phones only (see the phone block) */
+.cmp-brief {
+  display: none;
+}
+
+/* Desktop shows free text in columns; phones restack it (see the phone block) */
+.cmp-rowlabel,
+.cmp-row--stack {
+  display: none;
+}
+
+/* ----- Values ----- */
+.cmp-val {
+  position: relative;
+  display: grid;
+  justify-items: start;
+}
+
+.cmp-val__main {
+  position: relative;
+}
+
+/* The dot hangs in the cell's left padding, so every figure keeps one left edge */
+.cmp-val__main .cmp-dot {
+  position: absolute;
+  left: -15px;
+  top: 0.62em;
+}
+
+.cmp-fig {
+  color: var(--figure);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.cmp-unit {
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.cmp-val__sub {
+  display: block;
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* "ประมาณ" on a converted price, in a sand chip so it is never read past */
+.cmp-approx {
+  display: inline-block;
+  margin-top: 3px;
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
+  background: var(--tint-sand);
+  color: var(--on-sand);
+  font-weight: 600;
+}
+
+/* Lines of short items in one cell ("CE", "FCC") */
+.cmp-line {
+  display: block;
+}
+
+.cmp-text {
+  display: block;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.cmp-missing {
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* A bar scaled to the largest figure in this comparison: dark to the lowest trim, light to the highest */
+.cmp-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: 4px;
+  margin-top: var(--space-2);
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--meter-off);
+}
+
+.cmp-bar::before,
+.cmp-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+}
+
+.cmp-bar::before {
+  width: var(--hi);
+  background: color-mix(in srgb, var(--meter-on) 38%, var(--meter-off));
+}
+
+.cmp-bar::after {
+  width: var(--lo);
+  background: var(--meter-on);
+}
+
+.is-best .cmp-bar::before {
+  background: color-mix(in srgb, var(--ink) 35%, var(--meter-off));
+}
+
+.is-best .cmp-bar::after {
+  background: var(--ink);
+}
+
+/* Sentences and lists in a reading voice */
+.cmp-prose {
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+}
+
+.cmp-prose--small {
+  font-size: var(--fs-xs);
+}
+
+.cmp-prose--note {
+  margin-top: var(--space-2);
+  color: var(--ink-subtle);
+}
+
+.cmp-list {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: var(--space-4);
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.cmp-list li::marker {
+  color: var(--ink-subtle);
+}
+
+.cmp-list--keyed {
+  font-size: var(--fs-xs);
+}
+
+.cmp-key {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* Trims as a printed price list: name on the left, baht price on the right, the maker's own price
+   beneath a converted one */
+.cmp-trims__count {
+  margin-bottom: var(--space-2);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.cmp-trims ul {
+  display: grid;
+  list-style: none;
+}
+
+.cmp-trims li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0 var(--space-3);
+  padding-block: 6px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+.cmp-trims__name {
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+.cmp-trims__price {
+  color: var(--figure);
+  font-weight: 600;
+  text-align: right;
+}
+
+.cmp-trims__approx {
+  color: var(--tint);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+}
+
+.cmp-trims__list {
+  grid-column: 1 / -1;
+  justify-self: end;
+  color: var(--ink-subtle);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  text-align: right;
+}
+
+/* In a narrow column the price list sets each price under its trim name, rather than squeezing the
+   name until "EDU Ultimate" breaks */
+.cmp-trims {
+  container-type: inline-size;
+}
+
+@container (max-width: 170px) {
+  .cmp-trims li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cmp-trims__price {
+    text-align: left;
+  }
+
+  .cmp-trims__list {
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+/* Prices from different sources: a caution strip across the whole sheet, right under the starting price */
+.cmp-table .cmp-caution td {
+  padding-top: 0;
+  padding-bottom: var(--space-3);
+}
+
+.cmp-caution p {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-left: 2px solid var(--caution);
+  border-radius: 0;
+  background: var(--caution-soft);
+  color: var(--caution-ink);
+  font-size: var(--fs-xs);
+  line-height: 1.65;
+}
+
+.cmp-caution strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.cmp-caution__icon {
+  flex: none;
+  margin-top: 0.2em;
+  color: var(--caution);
+}
+
+/* ---------- Notes under the sheet ---------- */
+.cmp-notes {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line-strong);
+  max-width: 920px;
+}
+
+.cmp-notes__title {
+  margin-bottom: var(--space-2);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.cmp-notes ol {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+  color: var(--ink-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.7;
+}
+
+.cmp-notes li::marker {
+  color: var(--tint);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* ---------- Start state: pick models from the lineup ---------- */
+.cmp-start {
+  padding: var(--space-6);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+.cmp-start__title {
+  font-size: var(--fs-xl);
+}
+
+.cmp-start__hint {
+  margin-top: var(--space-2);
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* As many columns as keep a name and its price on one line each: four on a desktop, fewer on tablets */
+.cmp-picks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  list-style: none;
+}
+
+.cmp-picks > li {
+  display: flex;
+  min-width: 0;
+}
+
+.cmp-pick {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 72px;
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  text-align: left;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.cmp-pick:hover {
+  border-color: var(--ink);
+}
+
+.cmp-pick__stage {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--stage);
+}
+
+.cmp-pick__stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cmp-pick__text {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.cmp-pick__brand {
+  color: var(--ink-subtle);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.cmp-pick__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.cmp-pick__price {
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.cmp-pick__mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  background: var(--soft);
+  color: var(--on-soft);
+}
+
+.cmp-pick[aria-pressed='true'] {
+  border-color: var(--selected-bg);
+  background: var(--selected-bg);
+  color: var(--selected-fg);
+}
+
+.cmp-pick[aria-pressed='true'] :is(.cmp-pick__brand, .cmp-pick__price) {
+  color: var(--selected-fg);
+}
+
+.cmp-pick[aria-pressed='true'] .cmp-pick__mark {
+  background: var(--led);
+  color: #000000;
+}
+
+/* Night: the pressed tile is white, so its tick sits in a dark square */
+:root[data-theme='dark'] .cmp-pick[aria-pressed='true'] .cmp-pick__mark {
+  background: var(--selected-fg);
+  color: var(--selected-bg);
+}
+
+@media (forced-colors: active) {
+  .cmp-pick[aria-pressed='true'] {
+    outline: 2px solid Highlight;
+  }
+}
+
+/* Tablets: sentences and lists set a size smaller, so a third of the sheet still holds a fair line */
+@media (max-width: 960px) {
+  .cmp-model__name {
+    font-size: var(--fs-lg);
+  }
+
+  .cmp-list,
+  .cmp-prose {
+    font-size: var(--fs-xs);
+  }
+}
+
+@media (max-width: 820px) {
+  .cmp-cover__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*
+  Small tablets and phones: the label column gives way so three models keep their width. Each label
+  sits on a line of its own above its values (the row header stays for screen readers), units move up
+  into that label, and free-text rows restack into one block per model. The site header is not
+  sticky here, so the model names pin to the very top.
+*/
+@media (max-width: 720px) {
+  .cmp-cover {
+    padding-block: 0 var(--space-6);
+  }
+
+  .cmp-cover__inner {
+    padding-top: var(--space-7);
+  }
+
+  .cmp-cover__lede {
+    font-size: var(--fs-md);
+  }
+
+  .cmp-table {
+    --cmp-pin: 0px;
+    --cmp-photo-h: 100px;
+    --cmp-head-pad: var(--space-3);
+    --cmp-photo-gap: var(--space-3);
+    --cmp-x: var(--space-4);
+  }
+
+  .cmp-table th,
+  .cmp-table td {
+    padding: 2px var(--space-3) var(--space-3) var(--cmp-x);
+  }
+
+  .cmp-table thead th {
+    padding-top: var(--cmp-head-pad);
+    padding-bottom: var(--space-3);
+    padding-left: var(--space-3);
+  }
+
+  .cmp-table .cmp-corner {
+    position: static;
+    width: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .cmp-corner__inner {
+    display: none;
+  }
+
+  .cmp-table thead th:first-of-type {
+    border-left: 0;
+  }
+
+  .cmp-table tbody th[scope='row'] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .cmp-model__stage {
+    border-radius: var(--radius-sm);
+  }
+
+  .cmp-table .cmp-group th {
+    padding: var(--space-6) var(--space-3) var(--space-2);
+    font-size: var(--fs-lg);
+  }
+
+  .cmp-table tbody:first-of-type .cmp-group th {
+    padding-top: var(--space-4);
+  }
+
+  .cmp-rowlabel {
+    display: table-row;
+  }
+
+  .cmp-table .cmp-rowlabel td {
+    padding: var(--space-2) var(--space-3) 2px;
+    background: var(--surface);
+    color: var(--ink-muted);
+    font-family: var(--font-display);
+    font-size: var(--fs-2xs);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .cmp-rowlabel:not(.is-first) td {
+    border-top: 1px solid var(--line);
+  }
+
+  .cmp-row:not(.is-first) > * {
+    border-top: 0;
+  }
+
+  /* Column hairlines start below the label line, so each label reads across all three values */
+  .cmp-row > td:first-of-type {
+    border-left: 0;
+  }
+
+  .cmp-row--stack {
+    display: table-row;
+  }
+
+  .cmp-row--cols {
+    display: none;
+  }
+
+  .cmp-table tbody > tr:last-child > * {
+    padding-bottom: var(--space-3);
+  }
+
+  .cmp-val__main .cmp-dot {
+    left: -12px;
+    width: 7px;
+    height: 7px;
+  }
+
+  /* Units the label line already says ("(บาท)"): kept for screen readers only */
+  .cmp-unit {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .cmp-brief {
+    display: inline;
+  }
+
+  .cmp-full {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .cmp-bar {
+    width: calc(100% - 4px);
+    height: 4px;
+  }
+
+  /* Free-text rows: one white tile per model inside the grey panel, keyed by photo and name */
+  .cmp-table .cmp-row--stack td {
+    padding: var(--space-2) var(--space-3) var(--space-3);
+  }
+
+  .cmp-stack {
+    --cmp-key: 26px;
+
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+  }
+
+  /* The photo key hangs in its own column, so name and text share one left edge */
+  .cmp-stack > div {
+    position: relative;
+    padding: var(--space-3) var(--space-3) var(--space-3) calc(var(--space-3) + var(--cmp-key) + var(--space-2));
+  }
+
+  .cmp-stack > div + div {
+    border-top: 1px solid var(--line);
+  }
+
+  .cmp-stack dt {
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .cmp-stack dt img {
+    position: absolute;
+    top: calc(var(--space-3) + (1.5 * var(--fs-sm) - var(--cmp-key)) / 2);
+    left: var(--space-3);
+    width: var(--cmp-key);
+    height: var(--cmp-key);
+    border-radius: var(--radius-sm);
+    background: var(--stage);
+    object-fit: cover;
+  }
+
+  .cmp-stack dd {
+    margin: 2px 0 0;
+  }
+
+  /* A tile has the whole width, so its sentences go back to the reading size */
+  .cmp-stack :is(.cmp-list, .cmp-prose) {
+    font-size: var(--fs-sm);
+  }
+
+  .cmp-stack .cmp-prose--small,
+  .cmp-stack .cmp-list--keyed {
+    font-size: var(--fs-xs);
+  }
+
+  .cmp-table .cmp-caution td {
+    padding: var(--space-2) var(--space-3) var(--space-3);
+  }
+
+  .cmp-caution p {
+    padding: var(--space-2) var(--space-3);
+  }
+}
+
+/* ---------- Phones: tighter columns so three models fit a 320px screen ---------- */
+@media (max-width: 560px) {
+  .cmp-cover h1 {
+    font-size: var(--fs-page);
+  }
+
+  .cmp-cover__actions .btn {
+    min-height: 44px;
+  }
+
+  .cmp-body {
+    padding-top: var(--space-5);
+  }
+
+  /* The add control reads like a form field: its label on a line of its own, then the select and button */
+  .cmp-tools {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .cmp-add {
+    align-items: flex-end;
+  }
+
+  .cmp-add__field {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .cmp-add__field:hover {
+    border-color: transparent;
+  }
+
+  .cmp-add__field:focus-within {
+    outline: 0;
+  }
+
+  .cmp-add__field:has(select:disabled) {
+    background: none;
+  }
+
+  .cmp-add__field label {
+    padding: 0 0 var(--space-1);
+    color: var(--ink-muted);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .cmp-add__select select {
+    min-height: 48px;
+    padding-left: var(--space-3);
+    border: 1px solid var(--control-line);
+    background: var(--surface);
+    box-shadow: var(--elev-1);
+  }
+
+  .cmp-add__select select:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
+  }
+
+  .cmp-add__select select:disabled {
+    border-color: var(--line);
+    background: var(--surface-sunk);
+    box-shadow: none;
+  }
+
+  .cmp-add__btn.btn {
+    padding: 0 var(--space-4);
+  }
+
+  .cmp-sheet {
+    border-radius: var(--radius-md);
+  }
+
+  .cmp-table {
+    --cmp-photo-h: 68px;
+    --cmp-head-pad: var(--space-2);
+    --cmp-photo-gap: var(--space-2);
+    --cmp-x: 14px;
+  }
+
+  /* Three equal columns: 14px left padding each (room for the hanging dot), 6px right */
+  .cmp-table th,
+  .cmp-table td {
+    padding: 2px 6px var(--space-3) var(--cmp-x);
+  }
+
+  .cmp-table thead th {
+    padding-left: var(--space-2);
+  }
+
+  .cmp-model__brand {
+    display: none;
+  }
+
+  .cmp-model__name {
+    font-size: var(--fs-sm);
+    line-height: 1.35;
+  }
+
+  .cmp-model__remove {
+    top: 3px;
+    right: 3px;
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Keep a 44px hit area around the small button */
+  .cmp-model__remove::before {
+    content: '';
+    position: absolute;
+    inset: -7px;
+  }
+
+  .cmp-fig {
+    font-size: var(--fs-sm);
+  }
+
+  .cmp-val__main .cmp-dot {
+    left: -11px;
+  }
+
+  .cmp-text {
+    font-size: var(--fs-xs);
+  }
+
+  .cmp-notes ol {
+    padding-left: var(--space-4);
+  }
+
+  /* Start state: a price list of the lineup, one model per line — two narrow tiles per row wrapped
+     names and prices unevenly */
+  .cmp-start {
+    padding: var(--space-5) var(--space-3) var(--space-3);
+    border-radius: var(--radius-md);
+  }
+
+  .cmp-start__head {
+    padding-inline: var(--space-1);
+  }
+
+  .cmp-start__title {
+    font-size: var(--fs-lg);
+  }
+
+  .cmp-picks {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+    margin-top: var(--space-4);
+  }
+
+  .cmp-pick {
+    gap: var(--space-3);
+    min-height: 56px;
+    padding: 6px var(--space-3) 6px 6px;
+  }
+
+  .cmp-pick__stage {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Name on the left, starting price on the right, on one baseline */
+  .cmp-pick__text {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 0 var(--space-3);
+  }
+
+  .cmp-pick__brand {
+    display: none;
+  }
+
+  .cmp-pick__price {
+    font-size: var(--fs-xs);
+  }
+
+  .cmp-pick__mark {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Phones under 400px: the price drops its "เริ่มต้น" (the starting price is the list's only figure) so
+   every name keeps to one line */
+@media (max-width: 400px) {
+  .cmp-pick__from {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* The narrowest phones: a smaller photo and no +/✓ square; the filled tile alone marks a pick */
+@media (max-width: 360px) {
+  .cmp-pick {
+    gap: var(--space-2);
+  }
+
+  .cmp-pick__stage {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cmp-pick__mark {
+    display: none;
+  }
+}
+
+/* Under each column's name: on to the configurator for that model */
+.cmp-model__configure {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  margin-top: var(--space-1);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset: 0.3em;
+}
+
+.cmp-model__configure:hover {
+  color: var(--accent-hover);
+  text-decoration-color: currentColor;
+}
+
+.cmp-model__configure svg {
+  flex: none;
+}
+
+@media (max-width: 560px) {
+  .cmp-model__configure span:not(.visually-hidden) {
+    /* Three phone columns: the icon and a short word */
+    font-size: 0.6875rem;
+  }
+}
