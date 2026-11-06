@@ -130,18 +130,19 @@ npm run dev        # เว็บ http://localhost:5174   หลังร้า�
 - ธีมสว่างเป็นค่าเริ่มต้น สลับเป็นธีม "กลางคืน" ได้จากปุ่มบนเฮดเดอร์ หน้า `/admin` ใช้ token ชุดเดียวกัน
 - มือถือ: กริดสินค้า 2 คอลัมน์ ทุกการ์ดมีโครงเดียวกัน เมนูเป็นแท็บไอคอน 4 ช่อง แถบเลือกรุ่นเลื่อนแนวนอนได้
 - โค้ดก่อนปรับดีไซน์สำรองไว้ที่ `D:\br\_backup\2-servo-before-showroom-redesign-2026-11-06.tgz`
-## Deploy บน Vercel
+## Deploy บน Vercel (และ static host อื่นๆ)
 
-Import repo นี้ใน Vercel ได้เลย ไม่ต้องตั้งค่าหรือสร้างฐานข้อมูลเพิ่ม เพราะ `vercel.json` สั่ง build ด้วย `npm run build:vercel`
-(`npm run build` แล้วตามด้วย `scripts/vercel-output.mjs`) ซึ่งเขียนโฟลเดอร์ `.vercel/output` ตาม Build Output API
-หน้าเว็บที่ build แล้วขึ้น CDN ส่วน `/api/*` รวมถึงหน้าที่ CDN ไม่มีไฟล์ เช่นหน้า 404 จะวิ่งไป function ตัวเดียว
-คือ `server/vercel.ts` ซึ่งเรียก API ชุดเดียวกับ `npm run server`
+Import repo นี้ใน Vercel ได้เลย ไม่ต้องตั้งค่าหรือสร้างฐานข้อมูล `vercel.json` สั่ง build ด้วย `npm run build:vercel`
+(`npm run build` แล้วตามด้วย `scripts/vercel-output.mjs` ซึ่งเขียน `.vercel/output` แบบ static ล้วน พร้อม route ของหน้า
+client-only และหน้า 404 ไทย/อังกฤษ)
 
-- **ข้อมูลเป็นแบบจำลอง:** ระบบไม่มีฐานข้อมูลจริง แต่ละ instance ของ function สร้างข้อมูลจำลอง (ยอดขายย้อนหลัง 60 วัน) ไว้ใน
-  `/tmp` เองตอนเริ่ม การขาย การจอง และฟอร์มที่ส่งเข้ามาจะอยู่จนกว่า Vercel จะปิด instance นั้น (หลังไม่มีคนใช้ไปสักพัก)
-  ครั้งต่อไปข้อมูลจะเริ่มใหม่ และหลังร้านจะขอให้ล็อกอินอีกครั้ง
+- **หลังร้านและ API ทำงานในเบราว์เซอร์:** บน static host ไม่มีเซิร์ฟเวอร์ตอบ `/api` คำขอแรกจึงได้หน้า 404
+  `src/lib/apiFallback.ts` จะสลับไปตอบ `/api/*` ในเบราว์เซอร์แทน โดยใช้เครื่องยนต์ชุดเดียวกับ `npm run server`
+  (`src/mock/engine.ts` เรียก `server/api.ts` ส่วน `vite.config.ts` สลับ `node:fs`, `node:path`, `node:crypto` เป็นตัวแทนใน
+  `src/mock/`) ข้อมูลจำลองเก็บใน localStorage ของเบราว์เซอร์นั้น ล็อกอิน ขาย จองคิว และส่งฟอร์มได้ครบ
+  รีโหลดแล้วข้อมูลยังอยู่ ผู้ชมแต่ละคนจะมีร้านจำลองของตัวเอง ปุ่ม "สร้างข้อมูลจำลองใหม่" ในตั้งค่าใช้ล้างข้อมูลได้
+- **ในเครื่องไม่เปลี่ยน:** `npm run dev`, `npm run preview` และ `npm run server` ยังมี API จริง เบราว์เซอร์จะใช้ตัวนั้น
 - **ตัวแปร (ไม่บังคับ):** `SITE_URL` = โดเมนจริง สำหรับ canonical และ sitemap (ตั้งใน Settings → Environment Variables)
-- **ภูมิภาค (ไม่บังคับ):** ตั้ง Settings → Functions → Function Region เป็น Singapore (`sin1`) ผู้ใช้ในไทยจะได้ response เร็วขึ้น
 - ทดสอบในเครื่อง: `npm run build:vercel` แล้วดูผลใน `.vercel/output/` (โฟลเดอร์นี้อยู่ใน .gitignore)
 
 ## โครงสร้าง

@@ -467,18 +467,25 @@ function bearer(req: IncomingMessage): string | null {
   return h?.startsWith('Bearer ') ? h.slice(7) : null
 }
 
+// Plain bytes rather than Buffer, so the same code also answers in the browser (src/mock/engine.ts)
 async function readBody(req: IncomingMessage): Promise<any> {
   if (req.method === 'GET' || req.method === 'HEAD') return undefined
-  const chunks: Buffer[] = []
+  const chunks: Uint8Array[] = []
   let size = 0
   for await (const chunk of req) {
     size += chunk.length
     if (size > 1_000_000) throw new HttpError(413, 'ข้อมูลที่ส่งมาใหญ่เกินไป')
-    chunks.push(chunk as Buffer)
+    chunks.push(chunk as Uint8Array)
   }
   if (!chunks.length) return {}
+  const bytes = new Uint8Array(size)
+  let at = 0
+  for (const c of chunks) {
+    bytes.set(c, at)
+    at += c.length
+  }
   try {
-    return JSON.parse(Buffer.concat(chunks).toString('utf8'))
+    return JSON.parse(new TextDecoder().decode(bytes))
   } catch {
     throw new HttpError(400, 'ข้อมูลที่ส่งมาไม่ใช่ JSON')
   }

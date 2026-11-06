@@ -1,3 +1,4 @@
+import '../lib/apiFallback'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '@fontsource/ibm-plex-sans-thai/400.css'
