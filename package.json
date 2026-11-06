@@ -8,6 +8,7 @@
     "dev": "vite",
     "data": "node scripts/build-data.mjs",
     "build": "tsc --noEmit && node scripts/build-images.mjs && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "build:vercel": "npm run build && node scripts/vercel-output.mjs",
     "preview": "vite preview --port 4174 --strictPort",
     "server": "node server/index.ts",
     "pos:reset": "node server/reset.ts",

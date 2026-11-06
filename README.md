@@ -130,6 +130,23 @@ npm run dev        # เว็บ http://localhost:5174   หลังร้า�
 - ธีมสว่างเป็นค่าเริ่มต้น สลับเป็นธีม "กลางคืน" ได้จากปุ่มบนเฮดเดอร์ หน้า `/admin` ใช้ token ชุดเดียวกัน
 - มือถือ: กริดสินค้า 2 คอลัมน์ ทุกการ์ดมีโครงเดียวกัน เมนูเป็นแท็บไอคอน 4 ช่อง แถบเลือกรุ่นเลื่อนแนวนอนได้
 - โค้ดก่อนปรับดีไซน์สำรองไว้ที่ `D:\br\_backup\2-servo-before-showroom-redesign-2026-11-06.tgz`
+## Deploy บน Vercel
+
+Import repo นี้ใน Vercel ได้เลย ไม่ต้องตั้งค่าเพิ่ม เพราะ `vercel.json` สั่ง build ด้วย `npm run build:vercel`
+(`npm run build` แล้วตามด้วย `scripts/vercel-output.mjs`) ซึ่งเขียนโฟลเดอร์ `.vercel/output` ตาม Build Output API
+หน้าเว็บที่ build แล้วขึ้น CDN ส่วน `/api/*` รวมถึงหน้าที่ CDN ไม่มีไฟล์ เช่นหน้า 404 จะวิ่งไป function ตัวเดียว
+คือ `server/vercel.ts` ซึ่งเรียก API ชุดเดียวกับ `npm run server`
+
+- **ฐานข้อมูล:** ใน Vercel ไปที่ Storage → Create Database → **Upstash for Redis** แล้วเชื่อมกับโปรเจกต์นี้
+  (ระบบจะใส่ `KV_REST_API_URL` และ `KV_REST_API_TOKEN` ให้เอง) จากนั้น Redeploy หนึ่งครั้ง
+  ฐานข้อมูลทั้งก้อนเก็บไว้ที่ key `<ชื่อ package>:db` จึงใช้ Redis ก้อนเดียวร่วมกันทั้งสองเว็บได้
+  ถ้าไม่เชื่อม Redis หลังร้านก็ยังเปิดได้ แต่แต่ละ instance จะเก็บข้อมูลไว้ใน `/tmp` ของตัวเอง
+  ข้อมูลจะหายเมื่อ instance ปิด (หลังไม่มีคนใช้ไปสักพัก) และอาจถูกให้ล็อกอินใหม่
+- **ตัวแปรอื่น:** `SITE_URL` = โดเมนจริง สำหรับ canonical และ sitemap (ตั้งใน Settings → Environment Variables)
+- **ภูมิภาค:** ตั้ง Settings → Functions → Function Region เป็น Singapore (`sin1`) และสร้าง Redis ที่สิงคโปร์
+  เพื่อให้ผู้ใช้ในไทยได้ response เร็ว
+- ทดสอบในเครื่อง: `npm run build:vercel` แล้วดูผลใน `.vercel/output/` (โฟลเดอร์นี้อยู่ใน .gitignore)
+
 ## โครงสร้าง
 
 ``
